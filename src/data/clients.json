@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Trenitalia",
+    "image": "/images/clienti/trenitalia.png",
+    "url": "https://www.trenitalia.com/",
+    "alt": "logo-Trenitalia"
+  },
+  {
+    "name": "Bridgestone",
+    "image": "/images/clienti/bridgestone.jpg",
+    "url": "https://www.bridgestone.it/",
+    "alt": "logo-Bridgestone"
+  },
+  {
+    "name": "Leonardo",
+    "image": "/images/clienti/leonardo.png",
+    "url": "https://www.leonardocompany.com/it/home",
+    "alt": "logo-Leonardo"
+  },
+  {
+    "name": "Newlat",
+    "image": "/images/clienti/newlat.png",
+    "url": "https://www.newlat.it/",
+    "alt": "logo-Newlat"
+  },
+  {
+    "name": "Sorgenia",
+    "image": "/images/clienti/sorgenia.png",
+    "url": "https://www.sorgenia.it/",
+    "alt": "logo-Sorgenia"
+  },
+  {
+    "name": "ArcelorMittal",
+    "image": "/images/clienti/arcelormittal.png",
+    "url": "https://italia.arcelormittal.com/it",
+    "alt": "logo-ArcelorMittal"
+  }
+]

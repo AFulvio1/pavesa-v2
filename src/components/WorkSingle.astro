@@ -1,0 +1,73 @@
+---
+/**
+ * WorkSingle Component
+ *
+ * Immagine singola a piena larghezza con:
+ * - Skeleton loading
+ * - Hover zoom effect
+ * - Caption opzionale
+ */
+
+import OptimizedImage from './OptimizedImage.astro';
+
+interface Props {
+  img: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  img,
+  alt,
+  caption,
+  width = 800,
+  height = 600
+} = Astro.props;
+---
+
+<div class="container mx-auto px-4 my-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg">
+      <OptimizedImage
+        src={img}
+        alt={alt}
+        width={width}
+        height={height}
+        class="gallery-image"
+        aspectRatio="4 / 3"
+      />
+    </div>
+    {caption && (
+      <p class="text-center mt-4 text-pavesa-gray italic">
+        {caption}
+      </p>
+    )}
+  </div>
+</div>
+
+<style>
+  .gallery-image-container {
+    position: relative;
+  }
+
+  .gallery-image-container :global(.optimized-image) {
+    transition: transform var(--duration-slow, 400ms) var(--ease-out, ease-out);
+  }
+
+  .gallery-image-container:hover :global(.optimized-image) {
+    transform: scale(1.05);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-image-container :global(.optimized-image) {
+      transition: none;
+    }
+
+    .gallery-image-container:hover :global(.optimized-image) {
+      transform: none;
+    }
+  }
+</style>

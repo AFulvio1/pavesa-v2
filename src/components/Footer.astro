@@ -1,0 +1,88 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+const t = useTranslations(lang);
+
+const socialLinks = [
+  {
+    name: 'Linkedin',
+    url: 'https://www.linkedin.com/company/pavesa/',
+    icon: 'fab fa-linkedin',
+    color: 'hover:text-[#0077b5]'
+  },
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/Pavesa-Srl-1532544440319105',
+    icon: 'fab fa-facebook',
+    color: 'hover:text-[#4460ae]'
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/pavesasrl/?hl=it',
+    icon: 'fab fa-instagram',
+    color: 'hover:text-[#cd4378]'
+  },
+  {
+    name: 'Email',
+    url: 'mailto:info@pavesasrl.it',
+    icon: 'fas fa-envelope',
+    color: 'hover:text-pavesa-yellow'
+  },
+];
+---
+
+<footer class="bg-[#555555] dark:bg-[#0a0a0a] text-white py-8 mt-16 transition-colors">
+  <div class="container mx-auto px-4">
+    <!-- Social Links -->
+    <div class="flex justify-center space-x-6 mb-6">
+      {socialLinks.map(link => (
+        <a
+          href={link.url}
+          target={link.name !== 'Email' ? '_blank' : undefined}
+          rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+          class={`text-3xl text-white transition-colors duration-200 ${link.color}`}
+          aria-label={link.name}
+        >
+          <i class={link.icon}></i>
+        </a>
+      ))}
+    </div>
+
+    <!-- Privacy Link -->
+    <div class="text-center mb-6">
+      <a
+        href={lang === 'it' ? '/privacy' : '/en/privacy'}
+        target="_blank"
+        class="text-gray-300 hover:text-pavesa-yellow transition-colors duration-200"
+      >
+        {t('footer.privacy')}
+      </a>
+    </div>
+
+    <!-- Certification Logos Placeholder -->
+    <!-- TODO: Add actual certification logo images once downloaded from Cloudinary -->
+    <div class="flex justify-center items-center space-x-8 mb-6">
+      <div class="text-center">
+        <div class="bg-white text-pavesa-dark px-4 py-2 rounded text-xs font-bold">
+          SOA
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white text-pavesa-dark px-4 py-2 rounded text-xs font-bold">
+          ISO 9001:2015
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-sm text-gray-400 space-y-1">
+      <div>{t('footer.copyright')}</div>
+      <div>{t('footer.vat')} | {t('footer.cciaa')}</div>
+    </div>
+  </div>
+</footer>

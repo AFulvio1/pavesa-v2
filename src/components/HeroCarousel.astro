@@ -1,0 +1,477 @@
+---
+/**
+ * HeroCarousel Component
+ *
+ * Carosello hero accessibile con:
+ * - ARIA completo (roledescription, tablist, tabpanel)
+ * - Pulsante pause/play
+ * - Navigazione keyboard
+ * - Supporto prefers-reduced-motion
+ * - i18n per IT/EN
+ */
+
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+
+// Slides localizzati
+const slides = lang === 'it' ? [
+  {
+    title: "PAVIMENTI",
+    description: "Resine flessibili e resistenti per pavimentazioni continue per l'industria e il privato",
+    image: "/images/banner/pavimento.jpg",
+    alt: "Pavimentazione industriale in resina con finitura professionale",
+    url: "/servizi/pavimenti"
+  },
+  {
+    title: "VERNICIATURA",
+    description: "Per la protezione di tutte le superfici, piane e verticali",
+    image: "/images/banner/verniciatura.jpg",
+    alt: "Verniciatura protettiva di superficie industriale",
+    url: "/servizi/verniciatura"
+  },
+  {
+    title: "SABBIATURA",
+    description: "Per la pulizia di metalli e altri materiali",
+    image: "/images/banner/sabbiatura.jpg",
+    alt: "Processo di sabbiatura su superficie metallica",
+    url: "/servizi/sabbiatura"
+  },
+  {
+    title: "IMPERMEABILIZZAZIONE",
+    description: "Tecnologie innovative con prodotti ad alta resistenza per l'industria e per il privato",
+    image: "/images/banner/impermeabilizzazione.jpg",
+    alt: "Applicazione di impermeabilizzazione in poliurea",
+    url: "/servizi/impermeabilizzazione-poliurea"
+  }
+] : [
+  {
+    title: "FLOORING",
+    description: "Flexible and resistant resins for continuous flooring for industry and private",
+    image: "/images/banner/pavimento.jpg",
+    alt: "Industrial resin flooring with professional finish",
+    url: "/en/services/flooring"
+  },
+  {
+    title: "PAINTING",
+    description: "For the protection of all surfaces, flat and vertical",
+    image: "/images/banner/verniciatura.jpg",
+    alt: "Protective painting of industrial surface",
+    url: "/en/services/painting"
+  },
+  {
+    title: "SANDBLASTING",
+    description: "For cleaning metals and other materials",
+    image: "/images/banner/sabbiatura.jpg",
+    alt: "Sandblasting process on metal surface",
+    url: "/en/services/sandblasting"
+  },
+  {
+    title: "WATERPROOFING",
+    description: "Innovative technologies with high-resistance products for industry and private",
+    image: "/images/banner/impermeabilizzazione.jpg",
+    alt: "Polyurea waterproofing application",
+    url: "/en/services/waterproofing-polyurea"
+  }
+];
+
+// Labels localizzati
+const labels = {
+  carouselLabel: lang === 'it' ? 'Carosello dei servizi principali' : 'Main services carousel',
+  prevLabel: lang === 'it' ? 'Slide precedente' : 'Previous slide',
+  nextLabel: lang === 'it' ? 'Slide successiva' : 'Next slide',
+  pauseLabel: lang === 'it' ? 'Metti in pausa' : 'Pause',
+  playLabel: lang === 'it' ? 'Riproduci' : 'Play',
+  slideLabel: lang === 'it' ? 'Vai alla slide' : 'Go to slide',
+  ofLabel: lang === 'it' ? 'di' : 'of'
+};
+---
+
+<section
+  class="hero-carousel bg-pavesa-yellow py-4 md:py-6"
+  aria-label={labels.carouselLabel}
+  aria-roledescription="carousel"
+>
+  <div class="container mx-auto px-4">
+    <div
+      class="carousel-container relative rounded-lg overflow-hidden border-4 border-white shadow-lg bg-gray-900"
+      role="group"
+      aria-live="off"
+      data-autoplay-interval="5000"
+    >
+      <!-- Slides -->
+      {slides.map((item, index) => (
+        <div
+          class={`carousel-slide ${index === 0 ? 'active' : ''}`}
+          data-slide={index}
+          role="tabpanel"
+          id={`slide-${index}`}
+          aria-roledescription="slide"
+          aria-label={`${index + 1} ${labels.ofLabel} ${slides.length}: ${item.title}`}
+          aria-hidden={index !== 0}
+          tabindex={index === 0 ? 0 : -1}
+        >
+          <div class="relative h-[400px] md:h-[500px] lg:h-[600px]">
+            <!-- Image -->
+            <img
+              src={item.image}
+              alt={item.alt}
+              width="1200"
+              height="600"
+              class="absolute top-0 left-0 w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : "auto"}
+              decoding={index === 0 ? "sync" : "async"}
+            />
+            <!-- Dark Overlay -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black/30 z-10" aria-hidden="true"></div>
+            <!-- Content -->
+            <a
+              href={item.url}
+              class="absolute top-0 left-0 w-full h-full z-20 rounded"
+              tabindex={index === 0 ? 0 : -1}
+            >
+              <div class="container mx-auto h-full flex items-center px-4 md:px-8">
+                <div class="text-white max-w-2xl">
+                  <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase tracking-wide text-shadow-lg">
+                    {item.title}
+                  </h2>
+                  <p class="text-lg md:text-xl lg:text-2xl text-shadow">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      ))}
+
+      <!-- Navigation Dots -->
+      <div
+        class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-30"
+        role="tablist"
+        aria-label={lang === 'it' ? 'Seleziona slide' : 'Select slide'}
+      >
+        {slides.map((item, index) => (
+          <button
+            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+            data-slide={index}
+            role="tab"
+            aria-selected={index === 0}
+            aria-controls={`slide-${index}`}
+            aria-label={`${labels.slideLabel} ${index + 1}: ${item.title}`}
+          ></button>
+        ))}
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button
+        class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-12 h-12 flex items-center justify-center text-3xl leading-none transition"
+        aria-label={labels.prevLabel}
+        type="button"
+      >
+        <span aria-hidden="true">&#8249;</span>
+      </button>
+      <button
+        class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-12 h-12 flex items-center justify-center text-3xl leading-none transition"
+        aria-label={labels.nextLabel}
+        type="button"
+      >
+        <span aria-hidden="true">&#8250;</span>
+      </button>
+
+      <!-- Pause/Play Button -->
+      <button
+        class="carousel-autoplay absolute bottom-4 right-4 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-10 h-10 flex items-center justify-center transition"
+        aria-label={labels.pauseLabel}
+        data-pause-label={labels.pauseLabel}
+        data-play-label={labels.playLabel}
+        data-playing="true"
+        type="button"
+      >
+        <i class="fas fa-pause text-sm" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-carousel {
+    position: relative;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    display: none;
+    width: 100%;
+  }
+
+  .carousel-slide.active {
+    display: block;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.7;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--pavesa-yellow);
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .carousel-dot:hover,
+  .carousel-dot:focus-visible {
+    opacity: 1;
+  }
+
+  .carousel-dot:focus-visible {
+    outline: 2px solid var(--pavesa-yellow);
+    outline-offset: 2px;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-slide {
+      transition: none;
+    }
+
+    .carousel-dot {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initCarousel() {
+    let currentSlide = 0;
+    let autoplayInterval: number | null = null;
+    let isPlaying = true;
+
+    const container = document.querySelector('.carousel-container');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    const autoplayButton = document.querySelector('.carousel-autoplay');
+    const totalSlides = slides.length;
+
+    if (!container || totalSlides === 0) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function showSlide(index: number, announceChange = true) {
+      // Update slides
+      slides.forEach((slide, i) => {
+        const isActive = i === index;
+        slide.classList.toggle('active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+        slide.setAttribute('tabindex', isActive ? '0' : '-1');
+
+        // Update link tabindex
+        const link = slide.querySelector('a');
+        if (link) {
+          link.setAttribute('tabindex', isActive ? '0' : '-1');
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        const isActive = i === index;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', String(isActive));
+      });
+
+      currentSlide = index;
+
+      // Announce change to screen readers (only when user-initiated)
+      if (announceChange) {
+        container.setAttribute('aria-live', 'polite');
+        setTimeout(() => {
+          container.setAttribute('aria-live', 'off');
+        }, 1000);
+      }
+    }
+
+    function nextSlide(userInitiated = false) {
+      const next = (currentSlide + 1) % totalSlides;
+      showSlide(next, userInitiated);
+    }
+
+    function prevSlide() {
+      const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(prev, true);
+    }
+
+    function startAutoplay() {
+      if (prefersReducedMotion) return;
+
+      const interval = parseInt(container.getAttribute('data-autoplay-interval') || '5000');
+      autoplayInterval = window.setInterval(() => nextSlide(false), interval);
+      isPlaying = true;
+
+      if (autoplayButton) {
+        const pauseLabel = autoplayButton.getAttribute('data-pause-label') || 'Pause';
+        autoplayButton.setAttribute('aria-label', pauseLabel);
+        autoplayButton.setAttribute('data-playing', 'true');
+        const icon = autoplayButton.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-play');
+          icon.classList.add('fa-pause');
+        }
+      }
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+      isPlaying = false;
+
+      if (autoplayButton) {
+        const playLabel = autoplayButton.getAttribute('data-play-label') || 'Play';
+        autoplayButton.setAttribute('aria-label', playLabel);
+        autoplayButton.setAttribute('data-playing', 'false');
+        const icon = autoplayButton.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+        }
+      }
+    }
+
+    function toggleAutoplay() {
+      if (isPlaying) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    }
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index, true);
+        stopAutoplay();
+        startAutoplay();
+      });
+
+      // Keyboard navigation for dots
+      dot.addEventListener('keydown', (e: Event) => {
+        const keyEvent = e as KeyboardEvent;
+        let newIndex: number | null = null;
+
+        switch (keyEvent.key) {
+          case 'ArrowLeft':
+          case 'ArrowUp':
+            newIndex = (index - 1 + totalSlides) % totalSlides;
+            break;
+          case 'ArrowRight':
+          case 'ArrowDown':
+            newIndex = (index + 1) % totalSlides;
+            break;
+          case 'Home':
+            newIndex = 0;
+            break;
+          case 'End':
+            newIndex = totalSlides - 1;
+            break;
+        }
+
+        if (newIndex !== null) {
+          keyEvent.preventDefault();
+          showSlide(newIndex, true);
+          (dots[newIndex] as HTMLElement).focus();
+          stopAutoplay();
+          startAutoplay();
+        }
+      });
+    });
+
+    // Arrow button listeners
+    prevButton?.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide();
+      stopAutoplay();
+      startAutoplay();
+    });
+
+    nextButton?.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide(true);
+      stopAutoplay();
+      startAutoplay();
+    });
+
+    // Autoplay toggle
+    autoplayButton?.addEventListener('click', toggleAutoplay);
+
+    // Pause on hover (except for reduced motion preference)
+    if (!prefersReducedMotion) {
+      container.addEventListener('mouseenter', () => {
+        if (isPlaying && autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
+      });
+
+      container.addEventListener('mouseleave', () => {
+        if (isPlaying && !autoplayInterval) {
+          startAutoplay();
+        }
+      });
+    }
+
+    // Pause on focus within carousel
+    container.addEventListener('focusin', () => {
+      if (isPlaying && autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    });
+
+    container.addEventListener('focusout', (e: FocusEvent) => {
+      // Only restart if focus moves outside the carousel
+      if (isPlaying && !container.contains(e.relatedTarget as Node)) {
+        startAutoplay();
+      }
+    });
+
+    // Start autoplay on load (only if reduced motion not preferred)
+    if (!prefersReducedMotion) {
+      startAutoplay();
+    } else {
+      // If reduced motion, show pause state
+      stopAutoplay();
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCarousel);
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initCarousel);
+</script>

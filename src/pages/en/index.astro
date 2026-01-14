@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroCarousel from '../../components/HeroCarousel.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import CTASection from '../../components/CTASection.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+import ProviderLogos from '../../components/ProviderLogos.astro';
+---
+
+<BaseLayout
+  title="PA.VE.SA. srl - Flooring, Painting, Sandblasting"
+  description="Flooring, Painting, Sandblasting and Waterproofing services. Industrial flooring in resins and polyurea, industrial painting, sandblasting and waterproofing with polyurea."
+  keywords={['flooring', 'painting', 'sandblasting', 'waterproofing', 'polyurea', 'resins']}
+  lang="en"
+>
+  <HeroCarousel lang="en" />
+
+  <!-- Separator -->
+  <hr class="my-0 border-gray-300 dark:border-gray-700" />
+
+  <!-- Logo Section -->
+  <div class="bg-white dark:bg-[#1e1e1e] py-8 transition-colors">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-center">
+        <img
+          src="/images/logo/logo_pavesa.png"
+          alt="PA.VE.SA. srl logo"
+          class="h-20 md:h-24 w-auto dark:brightness-90 dark:contrast-110"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Separator -->
+  <hr class="my-0 border-gray-300 dark:border-gray-700" />
+
+  <!-- Services Grid -->
+  <div id="services">
+    <ServiceGrid lang="en" />
+  </div>
+
+  <!-- CTA Section -->
+  <CTASection lang="en" />
+
+  <!-- Client Logos -->
+  <ClientLogos lang="en" />
+
+  <!-- Provider Logos -->
+  <ProviderLogos lang="en" />
+</BaseLayout>

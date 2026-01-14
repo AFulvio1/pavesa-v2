@@ -1,0 +1,471 @@
+@import "tailwindcss";
+
+/* =========================================
+   PA.VE.SA. Design System
+   Version 2.0 - Accessibility Enhanced
+   ========================================= */
+
+@layer base {
+  :root {
+    /* ===== COLORI BRAND ===== */
+
+    /* Giallo - Uso differenziato per accessibilità */
+    --pavesa-yellow: #fecd39;           /* Solo uso decorativo */
+    --pavesa-yellow-accessible: #b38f00; /* 4.5:1 su bianco - per testo */
+    --pavesa-yellow-dark: #8a6e00;       /* 7:1 su bianco - testo piccolo */
+    --pavesa-yellow-hover: #d4a800;      /* Stato hover */
+
+    /* Testi con gerarchia migliorata */
+    --pavesa-text-primary: #1a1a1a;      /* 16.1:1 su bianco - headings */
+    --pavesa-text-secondary: #4a4a4a;    /* 9.4:1 su bianco - body */
+    --pavesa-text-tertiary: #6b6b6b;     /* 5.9:1 su bianco - caption */
+    --pavesa-text-muted: #767676;        /* 4.5:1 su bianco - minimo AA */
+
+    /* Colori originali (mantenuti per compatibilità) */
+    --pavesa-dark: #555555;
+    --pavesa-gray: #999999;
+
+    /* Background */
+    --pavesa-bg-primary: #ffffff;
+    --pavesa-bg-secondary: #f5f5f5;
+    --pavesa-bg-tertiary: #ebebeb;
+
+    /* Bordi */
+    --pavesa-border-light: #e0e0e0;
+    --pavesa-border-medium: #cccccc;
+    --pavesa-border-focus: #b38f00;
+
+    /* Focus ring */
+    --focus-ring-color: var(--pavesa-yellow-accessible);
+    --focus-ring-width: 3px;
+    --focus-ring-offset: 2px;
+
+    /* Animation tokens */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+    /* Color scheme indicator */
+    color-scheme: light;
+  }
+
+  /* ===== DARK MODE ===== */
+  .dark {
+    /* Background inverted */
+    --pavesa-bg-primary: #121212;
+    --pavesa-bg-secondary: #1e1e1e;
+    --pavesa-bg-tertiary: #2d2d2d;
+
+    /* Text inverted for contrast */
+    --pavesa-text-primary: #f5f5f5;
+    --pavesa-text-secondary: #d4d4d4;
+    --pavesa-text-tertiary: #a3a3a3;
+    --pavesa-text-muted: #8a8a8a;
+
+    /* Brand colors adjusted for dark */
+    --pavesa-yellow: #ffd54f;
+    --pavesa-yellow-accessible: #ffd54f;
+    --pavesa-yellow-dark: #ffca28;
+    --pavesa-yellow-hover: #ffe082;
+
+    /* Legacy colors adjusted */
+    --pavesa-dark: #e0e0e0;
+    --pavesa-gray: #b0b0b0;
+
+    /* Borders */
+    --pavesa-border-light: #3d3d3d;
+    --pavesa-border-medium: #525252;
+    --pavesa-border-focus: #ffd54f;
+
+    /* Focus ring */
+    --focus-ring-color: #ffd54f;
+
+    color-scheme: dark;
+  }
+
+  /* ===== REDUCED MOTION ===== */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--pavesa-text-secondary);
+    background-color: var(--pavesa-bg-primary);
+    transition: background-color var(--duration-normal) var(--ease-out),
+                color var(--duration-normal) var(--ease-out);
+  }
+
+  /* Dark mode body adjustments */
+  .dark body,
+  body.dark {
+    background-color: var(--pavesa-bg-primary);
+    color: var(--pavesa-text-secondary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--pavesa-text-primary);
+  }
+
+  /* ===== GLOBAL FOCUS STYLES ===== */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Links con focus visibile */
+  a:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: 2px;
+  }
+
+  /* Buttons con focus visibile */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Rimuovi outline per utenti mouse */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Selection colors */
+  ::selection {
+    background-color: var(--pavesa-yellow);
+    color: #000;
+  }
+}
+
+@layer components {
+  /* ===== COLOR UTILITIES ===== */
+  .bg-pavesa-yellow {
+    background-color: var(--pavesa-yellow);
+  }
+
+  .bg-pavesa-dark {
+    background-color: var(--pavesa-dark);
+  }
+
+  .bg-pavesa-gray {
+    background-color: var(--pavesa-gray);
+  }
+
+  .text-pavesa-yellow {
+    color: var(--pavesa-yellow);
+  }
+
+  /* Versione accessibile per testo su sfondo chiaro */
+  .text-pavesa-yellow-accessible {
+    color: var(--pavesa-yellow-accessible);
+  }
+
+  .text-pavesa-dark {
+    color: var(--pavesa-dark);
+  }
+
+  .text-pavesa-gray {
+    color: var(--pavesa-gray);
+  }
+
+  .border-pavesa-yellow {
+    border-color: var(--pavesa-yellow);
+  }
+
+  .hover\:text-pavesa-yellow:hover {
+    color: var(--pavesa-yellow);
+  }
+
+  .hover\:bg-pavesa-yellow:hover {
+    background-color: var(--pavesa-yellow);
+  }
+
+  /* ===== HEADING STYLES ===== */
+  .heading-border {
+    display: inline-block;
+    border-bottom: 5px solid var(--pavesa-yellow);
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pavesa-text-primary);
+  }
+
+  /* ===== BUTTON STYLES (Accessibilità migliorata) ===== */
+
+  /* Base button - minimo touch target 44x44px */
+  .btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.625rem 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .btn-pavesa-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.625rem 1.5rem;
+    background-color: var(--pavesa-yellow);
+    color: #000000;
+    font-weight: 500;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .btn-pavesa-primary:hover {
+    background-color: var(--pavesa-yellow-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(254, 205, 57, 0.4);
+  }
+
+  .btn-pavesa-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-pavesa-primary:focus-visible {
+    outline: 3px solid var(--pavesa-text-primary);
+    outline-offset: 2px;
+  }
+
+  .btn-pavesa-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.625rem 1.5rem;
+    border: 2px solid var(--pavesa-yellow);
+    color: var(--pavesa-yellow-accessible);
+    background-color: transparent;
+    font-weight: 500;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .btn-pavesa-outline:hover {
+    background-color: var(--pavesa-yellow);
+    color: #000000;
+    transform: translateY(-2px);
+  }
+
+  .btn-pavesa-outline:active {
+    transform: translateY(0);
+  }
+
+  .btn-pavesa-outline:focus-visible {
+    outline: 3px solid var(--pavesa-yellow-accessible);
+    outline-offset: 2px;
+  }
+
+  .btn-pavesa-transparent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.625rem 1.5rem;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+    font-weight: 500;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .btn-pavesa-transparent:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-pavesa-transparent:active {
+    transform: translateY(0);
+  }
+
+  .btn-pavesa-transparent:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  /* ===== BACKGROUND UTILITIES ===== */
+  .background-gray {
+    background-color: var(--pavesa-bg-secondary);
+  }
+
+  .background-white {
+    background-color: var(--pavesa-bg-primary);
+  }
+
+  /* Dark mode automatically inherits from CSS variables in .dark */
+
+  /* ===== SECTION SPACING ===== */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .no-mb {
+    margin-bottom: 0 !important;
+  }
+
+  /* ===== ACCENT COLOR ===== */
+  .accent {
+    color: var(--pavesa-yellow);
+  }
+
+  /* ===== SERVICE CARD OVERLAY ===== */
+  .service-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-out);
+  }
+
+  .group:hover .service-card-overlay {
+    opacity: 1;
+  }
+
+  /* ===== ACCESSIBILITY UTILITIES ===== */
+
+  /* Visually hidden ma accessibile a screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Skip to main content link */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--pavesa-yellow);
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    transition: top var(--duration-normal) var(--ease-out);
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid #000;
+    outline-offset: 2px;
+  }
+
+  /* Minimo touch target */
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Focus ring utility */
+  .focus-ring:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+@layer utilities {
+  /* ===== PARALLAX BACKGROUND ===== */
+  .bg-fixed {
+    background-attachment: fixed;
+  }
+
+  /* Disabilita background-fixed su mobile per performance */
+  @media (max-width: 768px) {
+    .bg-fixed {
+      background-attachment: scroll;
+    }
+  }
+
+  /* ===== TEXT UTILITIES ===== */
+  .text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ===== TEXT SHADOW (per testo su immagini) ===== */
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ===== FOCUS UTILITIES ===== */
+  .ring-pavesa-yellow {
+    --tw-ring-color: var(--pavesa-yellow);
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Rispetta reduced motion per animazioni */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,16 +1,52 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import ProviderLogos from '../components/ProviderLogos.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="PA.VE.SA. srl - Pavimenti, Verniciatura, Sabbiatura"
+  description="Pavimenti, Verniciatura, Sabbiatura e Impermeabilizzazione per l'industria e il privato"
+  keywords={['pavimenti', 'verniciatura', 'sabbiatura', 'impermeabilizzazione', 'poliurea', 'resine']}
+  lang="it"
+>
+  <!-- Hero Carousel -->
+  <HeroCarousel lang="it" />
+
+  <!-- Separator -->
+  <hr class="my-0 border-gray-300 dark:border-gray-700" />
+
+  <!-- Logo Section -->
+  <div class="bg-white dark:bg-[#1e1e1e] py-8 transition-colors">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-center">
+        <img
+          src="/images/logo/logo_pavesa.png"
+          alt="PA.VE.SA. srl logo"
+          class="h-20 md:h-24 w-auto dark:brightness-90 dark:contrast-110"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Separator -->
+  <hr class="my-0 border-gray-300 dark:border-gray-700" />
+
+  <!-- Services Grid -->
+  <div id="servizi">
+    <ServiceGrid lang="it" />
+  </div>
+
+  <!-- CTA Section -->
+  <CTASection lang="it" />
+
+  <!-- Client Logos -->
+  <ClientLogos lang="it" />
+
+  <!-- Provider Logos -->
+  <ProviderLogos lang="it" />
+</BaseLayout>

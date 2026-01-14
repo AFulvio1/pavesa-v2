@@ -1,0 +1,34 @@
+[
+  {
+    "weight": 1,
+    "title": "PAVIMENTI",
+    "description": "Resine flessibili e resistenti per pavimentazioni continue per l'industria e il privato",
+    "image": "/images/banner/pavimento.jpg",
+    "alt": "img-pavimentazione",
+    "url": "/servizi/pavimenti"
+  },
+  {
+    "weight": 2,
+    "title": "VERNICIATURA",
+    "description": "Per la protezione di tutte le superfici, piane e verticali",
+    "image": "/images/banner/verniciatura.jpg",
+    "alt": "img-verniciatura",
+    "url": "/servizi/verniciatura"
+  },
+  {
+    "weight": 3,
+    "title": "SABBIATURA",
+    "description": "Per la pulizia di metalli e altri materiali",
+    "image": "/images/banner/sabbiatura.jpg",
+    "alt": "img-sabbiatura",
+    "url": "/servizi/sabbiatura"
+  },
+  {
+    "weight": 4,
+    "title": "IMPERMEABILIZZAZIONE",
+    "description": "Tecnologie innovative con prodotti ad alta resistenza per l'industria e per il privato",
+    "image": "/images/banner/impermeabilizzazione.jpg",
+    "alt": "img-impermeabilizzazione",
+    "url": "/servizi/impermeabilizzazione-poliurea"
+  }
+]

@@ -1,0 +1,74 @@
+---
+import { useTranslations } from '../i18n/utils';
+import providersData from '../data/providers.json';
+
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="bg-white dark:bg-[#121212] py-16 transition-colors">
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="heading-border text-2xl md:text-3xl font-bold dark:text-gray-100">
+        {t('providers.title')}
+      </h2>
+    </div>
+
+    <!-- Providers Carousel Container -->
+    <div class="relative overflow-hidden">
+      <div class="providers-carousel-track flex gap-8 items-center">
+        {/* Duplicate items for infinite scroll */}
+        {[...providersData, ...providersData].map((provider, index) => (
+          <div class="flex-shrink-0 flex items-center justify-center p-4" key={`provider-${index}`}>
+            {provider.url ? (
+              <a
+                href={provider.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300 hover:scale-110"
+              >
+                <img
+                  src={provider.image}
+                  alt={provider.alt}
+                  class="h-16 md:h-20 w-auto grayscale hover:grayscale-0 dark:brightness-90 dark:invert dark:grayscale transition-all duration-300"
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <img
+                src={provider.image}
+                alt={provider.alt}
+                class="h-16 md:h-20 w-auto grayscale hover:grayscale-0 dark:brightness-90 dark:invert dark:grayscale transition-all duration-300"
+                loading="lazy"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .providers-carousel-track {
+    animation: scroll 40s linear infinite;
+  }
+
+  .providers-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

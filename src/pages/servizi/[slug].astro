@@ -1,0 +1,344 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkGallery from '../../components/WorkGallery.astro';
+import WorkDouble from '../../components/WorkDouble.astro';
+import CTASection from '../../components/CTASection.astro';
+
+// Configurazione gallerie per ogni servizio
+const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 'triple' | 'double'; images: { prima: string; durante?: string; dopo: string }; alt: string }> }> = {
+  'pavimenti': {
+    title: 'Esempi di Lavori',
+    galleries: [
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/pavimenti/poliuretanico/prima.jpg',
+          durante: '/images/portfolio/pavimenti/poliuretanico/durante.jpg',
+          dopo: '/images/portfolio/pavimenti/poliuretanico/dopo.jpg'
+        },
+        alt: 'Pavimento poliuretanico'
+      },
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/pavimenti/ucrete/leonardo/prima.jpg',
+          durante: '/images/portfolio/pavimenti/ucrete/leonardo/durante.jpg',
+          dopo: '/images/portfolio/pavimenti/ucrete/leonardo/dopo.jpg'
+        },
+        alt: 'Pavimento Ucrete'
+      }
+    ]
+  },
+  'verniciatura': {
+    title: 'Esempi di Lavori',
+    galleries: [
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/verniciatura/prima.jpg',
+          durante: '/images/portfolio/verniciatura/durante.jpg',
+          dopo: '/images/portfolio/verniciatura/dopo.jpg'
+        },
+        alt: 'Verniciatura industriale'
+      },
+      {
+        type: 'double',
+        images: {
+          prima: '/images/portfolio/verniciatura/NUOVE/prima1.jpg',
+          dopo: '/images/portfolio/verniciatura/NUOVE/dopo1.jpg'
+        },
+        alt: 'Verniciatura'
+      }
+    ]
+  },
+  'sabbiatura': {
+    title: 'Esempi di Lavori',
+    galleries: [
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/sabbiatura/sabbiatura-prima.jpg',
+          durante: '/images/portfolio/sabbiatura/sabbiatura-durante.jpg',
+          dopo: '/images/portfolio/sabbiatura/sabbiatura-dopo.jpg'
+        },
+        alt: 'Sabbiatura'
+      },
+      {
+        type: 'double',
+        images: {
+          prima: '/images/portfolio/sabbiatura/sabbiatura-mattoni-faccia-a-vista-prima1.jpg',
+          dopo: '/images/portfolio/sabbiatura/sabbiatura-mattoni-faccia-a-vista-dopo1.jpg'
+        },
+        alt: 'Sabbiatura mattoni faccia a vista'
+      },
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-esterno-prima.jpg',
+          durante: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-esterno-durante.jpg',
+          dopo: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-esterno-dopo.jpg'
+        },
+        alt: 'Sabbiatura serbatoio esterno'
+      },
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-prima.jpg',
+          durante: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-durante.jpg',
+          dopo: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-dopo.jpg'
+        },
+        alt: 'Sabbiatura serbatoio interno'
+      }
+    ]
+  },
+  'impermeabilizzazione-poliurea': {
+    title: 'Esempi di Lavori',
+    galleries: [
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-prima.jpg',
+          durante: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-durante.jpg',
+          dopo: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-dopo.jpg'
+        },
+        alt: 'Impermeabilizzazione piscina'
+      },
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/impermeabilizzazione/stadio-del-conero/prima.jpg',
+          durante: '/images/portfolio/impermeabilizzazione/stadio-del-conero/durante.jpg',
+          dopo: '/images/portfolio/impermeabilizzazione/stadio-del-conero/dopo.jpg'
+        },
+        alt: 'Impermeabilizzazione Stadio del Conero'
+      },
+      {
+        type: 'triple',
+        images: {
+          prima: '/images/portfolio/impermeabilizzazione/trenitalia/prima_uodoo6.jpg',
+          durante: '/images/portfolio/impermeabilizzazione/trenitalia/durante_n8cd9h.jpg',
+          dopo: '/images/portfolio/impermeabilizzazione/trenitalia/dopo_pudkub.jpg'
+        },
+        alt: 'Impermeabilizzazione Trenitalia'
+      },
+      {
+        type: 'double',
+        images: {
+          prima: '/images/portfolio/impermeabilizzazione/tribunale-campobasso/prima.jpg',
+          dopo: '/images/portfolio/impermeabilizzazione/tribunale-campobasso/dopo.jpg'
+        },
+        alt: 'Impermeabilizzazione Tribunale Campobasso'
+      }
+    ]
+  }
+};
+
+export async function getStaticPaths() {
+  const services = await getCollection('services', ({ id }) => {
+    return id.startsWith('it/');
+  });
+
+  return services.map(service => ({
+    params: { slug: service.slug.replace('it/', '') },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await service.render();
+const { title, description, keywords, banner, alt } = service.data;
+
+// Ottieni lo slug corrente
+const currentSlug = service.slug.replace('it/', '');
+const galleryData = galleriesConfig[currentSlug];
+---
+
+<BaseLayout
+  title={`${title} - PA.VE.SA. srl`}
+  description={description}
+  keywords={keywords}
+  lang="it"
+>
+  <!-- Hero Image Section -->
+  <section class="relative h-96 overflow-hidden">
+    <img
+      src={banner}
+      alt={alt}
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white uppercase tracking-wider">
+        {title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100 dark:bg-[#1e1e1e] py-3 transition-colors">
+    <div class="container mx-auto px-4">
+      <nav class="text-sm">
+        <ol class="flex items-center space-x-2 text-pavesa-gray dark:text-gray-400">
+          <li>
+            <a href="/" class="hover:text-pavesa-yellow transition-colors">Home</a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right"></i>
+          </li>
+          <li>
+            <a href="/#servizi" class="hover:text-pavesa-yellow transition-colors">Servizi</a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right"></i>
+          </li>
+          <li class="text-pavesa-dark dark:text-gray-100 font-medium">
+            {title}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Service Content -->
+        <article class="prose prose-lg max-w-none dark:prose-invert">
+          <Content />
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Gallery Section -->
+  {galleryData && (
+    <section class="py-16 bg-gray-50 dark:bg-[#1e1e1e] transition-colors">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="heading-border text-2xl md:text-3xl font-bold dark:text-gray-100">
+            {galleryData.title}
+          </h2>
+        </div>
+
+        {galleryData.galleries.map((gallery) => (
+          gallery.type === 'triple' ? (
+            <WorkGallery
+              imgPrima={gallery.images.prima}
+              imgDurante={gallery.images.durante!}
+              imgDopo={gallery.images.dopo}
+              altPrima={`${gallery.alt} - Prima`}
+              altDurante={`${gallery.alt} - Durante`}
+              altDopo={`${gallery.alt} - Dopo`}
+              lang="it"
+            />
+          ) : (
+            <WorkDouble
+              imgPrima={gallery.images.prima}
+              imgDopo={gallery.images.dopo}
+              altPrima={`${gallery.alt} - Prima`}
+              altDopo={`${gallery.alt} - Dopo`}
+              lang="it"
+            />
+          )
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <CTASection lang="it" />
+</BaseLayout>
+
+<style>
+  /* Prose styling for markdown content */
+  .prose {
+    color: var(--pavesa-dark);
+  }
+
+  :global(.dark) .prose {
+    color: #d1d5db;
+  }
+
+  .prose h2 {
+    color: var(--pavesa-dark);
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  :global(.dark) .prose h2 {
+    color: #f3f4f6;
+  }
+
+  .prose h3 {
+    color: var(--pavesa-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  :global(.dark) .prose h3 {
+    color: #f3f4f6;
+  }
+
+  .prose h4 {
+    color: var(--pavesa-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.dark) .prose h4 {
+    color: #f3f4f6;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  .prose ul {
+    list-style-type: none;
+    margin: 1rem 0;
+    padding-left: 0;
+  }
+
+  .prose ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose ul li::before {
+    content: "▸";
+    color: var(--pavesa-yellow);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .prose strong {
+    color: var(--pavesa-dark);
+    font-weight: 600;
+  }
+
+  :global(.dark) .prose strong {
+    color: #f3f4f6;
+  }
+
+  .prose a {
+    color: var(--pavesa-yellow);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .prose a:hover {
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import { useTranslations } from '../i18n/utils';
+import clientsData from '../data/clients.json';
+
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="bg-[#f5f5f5] dark:bg-[#1e1e1e] py-16 transition-colors">
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="heading-border text-2xl md:text-3xl font-bold dark:text-gray-100">
+        {t('clients.title')}
+      </h2>
+    </div>
+
+    <!-- Clients Carousel Container -->
+    <div class="relative overflow-hidden">
+      <div class="clients-carousel-track flex gap-8 items-center">
+        {/* Duplicate items for infinite scroll */}
+        {[...clientsData, ...clientsData].map((client, index) => (
+          <div class="flex-shrink-0 flex items-center justify-center p-4" key={`client-${index}`}>
+            {client.url ? (
+              <a
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300 hover:scale-110"
+              >
+                <img
+                  src={client.image}
+                  alt={client.alt}
+                  class="h-16 md:h-20 w-auto grayscale hover:grayscale-0 dark:brightness-90 dark:invert dark:grayscale transition-all duration-300"
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <img
+                src={client.image}
+                alt={client.alt}
+                class="h-16 md:h-20 w-auto grayscale hover:grayscale-0 dark:brightness-90 dark:invert dark:grayscale transition-all duration-300"
+                loading="lazy"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-carousel-track {
+    animation: scroll 30s linear infinite;
+  }
+
+  .clients-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

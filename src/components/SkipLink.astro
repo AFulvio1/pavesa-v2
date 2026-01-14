@@ -1,0 +1,26 @@
+---
+/**
+ * SkipLink Component
+ *
+ * Fornisce un link accessibile per saltare direttamente al contenuto principale.
+ * Visibile solo quando riceve il focus (utenti keyboard).
+ * Requisito WCAG 2.1 - Bypass Blocks (2.4.1)
+ */
+
+interface Props {
+  /** Lingua per il testo localizzato */
+  lang?: 'it' | 'en';
+  /** ID del target (default: main-content) */
+  targetId?: string;
+}
+
+const { lang = 'it', targetId = 'main-content' } = Astro.props;
+
+const skipText = lang === 'it'
+  ? 'Vai al contenuto principale'
+  : 'Skip to main content';
+---
+
+<a href={`#${targetId}`} class="skip-link">
+  {skipText}
+</a>

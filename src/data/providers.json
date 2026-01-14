@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Sika",
+    "image": "/images/fornitori/sika.png",
+    "url": "https://ita.sika.com/it/home.html",
+    "alt": "logo-sika"
+  },
+  {
+    "name": "Graco",
+    "image": "/images/fornitori/graco.png",
+    "url": "https://www.graco.com/it/it.html",
+    "alt": "logo-Graco"
+  },
+  {
+    "name": "Master Builder",
+    "image": "/images/fornitori/master-builders.png",
+    "url": "https://www.master-builders-solutions.com/it-it",
+    "alt": "logo-MasterBuilders"
+  },
+  {
+    "name": "Sigma",
+    "image": "/images/fornitori/sigma.png",
+    "url": "https://www.sigmaspa.com/new/index.php?lang=it",
+    "alt": "logo-Sigma"
+  },
+  {
+    "name": "Damiani",
+    "image": "/images/fornitori/damiani.png",
+    "url": "http://color-damiani.com/",
+    "alt": "logo-Damiani"
+  },
+  {
+    "name": "Edimac",
+    "image": "/images/fornitori/edimac.png",
+    "url": "https://www.edimac.it/",
+    "alt": "logo-Edimac"
+  },
+  {
+    "name": "Elcrom",
+    "image": "/images/fornitori/elcrom.png",
+    "url": "https://www.elcrom.it/",
+    "alt": "logo-Elcrom"
+  },
+  {
+    "name": "Imer",
+    "image": "/images/fornitori/imer.jpg",
+    "url": "https://www.imergroup.com/en/jsp/Template1/HomePage.jsp",
+    "alt": "logo-Imer"
+  },
+  {
+    "name": "Mirodur",
+    "image": "/images/fornitori/mirodur.png",
+    "url": "http://www.mirodur.it/",
+    "alt": "logo-Mirodur"
+  },
+  {
+    "name": "MPM",
+    "image": "/images/fornitori/mpm.png",
+    "url": "https://www.mpm.it/",
+    "alt": "logo-MPM"
+  },
+  {
+    "name": "Tractel",
+    "image": "/images/fornitori/tractel.png",
+    "url": "https://www.tractel.com/it/",
+    "alt": "logo-Tractel"
+  },
+  {
+    "name": "Trimmer",
+    "image": "/images/fornitori/trimmer.png",
+    "url": "https://www.trimmer.it/",
+    "alt": "logo-Trimmer"
+  },
+  {
+    "name": "Vespa",
+    "image": "/images/fornitori/vespa.jpg",
+    "url": "https://www.vespatools.com/",
+    "alt": "logo-Vespa"
+  }
+]

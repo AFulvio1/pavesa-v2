@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+  [plugins.inputs]
+    baseUrl = "https://www.pavesasrl.it"
+    sitemapPath = "/sitemap-index.xml"
+    providers = [
+      "google",
+      "bing"
+    ]

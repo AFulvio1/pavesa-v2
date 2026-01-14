@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact - PA.VE.SA. srl"
+  description="Contact PA.VE.SA. srl for industrial flooring, painting, sandblasting and waterproofing services. Phone, email and office addresses."
+  keywords={['contact', 'phone', 'email', 'address', 'office']}
+  lang="en"
+>
+  <!-- Page Header -->
+  <section class="bg-gray-100 dark:bg-[#1e1e1e] py-16 transition-colors">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-border text-3xl md:text-4xl font-bold text-center dark:text-gray-100">
+        Contact Us
+      </h1>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Email Section -->
+        <div class="mb-12 text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-pavesa-yellow rounded-full mb-4">
+            <i class="fas fa-envelope text-2xl text-white"></i>
+          </div>
+          <h2 class="text-2xl font-bold mb-3 text-pavesa-dark dark:text-gray-100">Email</h2>
+          <h4 class="text-xl">
+            <a href="mailto:info@pavesasrl.it" class="text-pavesa-yellow hover:underline">
+              info@pavesasrl.it
+            </a>
+          </h4>
+        </div>
+
+        <!-- Phone Section -->
+        <div class="mb-12">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-pavesa-yellow rounded-full mb-4">
+              <i class="fas fa-phone text-2xl text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-pavesa-dark dark:text-gray-100">Phone Numbers</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Main Numbers -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-lg font-semibold mb-3 text-pavesa-dark dark:text-gray-100">Main Office</h3>
+              <div class="space-y-2">
+                <p class="flex items-center dark:text-gray-300">
+                  <i class="fas fa-phone-square text-pavesa-yellow mr-2"></i>
+                  <span class="font-medium">Landline:</span>
+                  <a href="tel:+390875808184" class="ml-2 text-pavesa-yellow hover:underline">
+                    0875808184
+                  </a>
+                </p>
+                <p class="flex items-center dark:text-gray-300">
+                  <i class="fas fa-mobile-alt text-pavesa-yellow mr-2"></i>
+                  <span class="font-medium">Mobile:</span>
+                  <a href="tel:+393277425486" class="ml-2 text-pavesa-yellow hover:underline">
+                    3277425486
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact Persons -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-lg font-semibold mb-3 text-pavesa-dark dark:text-gray-100">Direct Contacts</h3>
+              <div class="space-y-2">
+                <p class="flex items-center dark:text-gray-300">
+                  <i class="fas fa-user text-pavesa-yellow mr-2"></i>
+                  <span class="font-medium">Ercole:</span>
+                  <a href="tel:+393477333796" class="ml-2 text-pavesa-yellow hover:underline">
+                    3477333796
+                  </a>
+                </p>
+                <p class="flex items-center dark:text-gray-300">
+                  <i class="fas fa-user text-pavesa-yellow mr-2"></i>
+                  <span class="font-medium">Nicholas:</span>
+                  <a href="tel:+393663619031" class="ml-2 text-pavesa-yellow hover:underline">
+                    3663619031
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Addresses Section -->
+        <div class="mb-12">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-pavesa-yellow rounded-full mb-4">
+              <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-pavesa-dark dark:text-gray-100">Our Offices</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Registered Office -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-lg font-semibold mb-3 text-pavesa-dark dark:text-gray-100 flex items-center">
+                <i class="fas fa-building text-pavesa-yellow mr-2"></i>
+                Registered Office
+              </h3>
+              <p class="text-pavesa-gray dark:text-gray-400">
+                Via Germania, 4<br />
+                86034 Guglionesi (CB)<br />
+                Italy
+              </p>
+            </div>
+
+            <!-- Administrative Office -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-lg font-semibold mb-3 text-pavesa-dark dark:text-gray-100 flex items-center">
+                <i class="fas fa-briefcase text-pavesa-yellow mr-2"></i>
+                Administrative Office
+              </h3>
+              <p class="text-pavesa-gray dark:text-gray-400">
+                Contrada piane di Larino, 90<br />
+                86035 Larino (CB)<br />
+                Italy
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="mb-8">
+          <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-pavesa-dark dark:text-gray-100">Find Us</h2>
+          </div>
+
+          <div class="rounded-lg overflow-hidden shadow-lg dark:shadow-black/30">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2975.4573912897845!2d14.904475315440985!3d41.74849987923518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a5f0e5f0e0e0e%3A0x0!2zNDHCsDQ0JzU0LjYiTiAxNMKwNTQnMjMuMCJF!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit"
+              width="100%"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="PA.VE.SA. srl location map"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg text-center transition-colors">
+          <h3 class="text-lg font-semibold mb-3 text-pavesa-dark dark:text-gray-100">
+            <i class="fas fa-clock text-pavesa-yellow mr-2"></i>
+            Business Hours
+          </h3>
+          <p class="text-pavesa-gray dark:text-gray-400">
+            Monday - Friday: 8:00 AM - 5:00 PM<br />
+            Saturday - Sunday: Closed
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

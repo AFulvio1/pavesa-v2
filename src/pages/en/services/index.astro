@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ServiceGrid from '../../../components/ServiceGrid.astro';
+import CTASection from '../../../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Our Services - PA.VE.SA. srl"
+  description="Discover all services offered by PA.VE.SA. srl: industrial flooring, waterproofing with polyurea, industrial painting and professional sandblasting."
+  keywords={['services', 'industrial flooring', 'waterproofing', 'painting', 'sandblasting', 'polyurea']}
+  lang="en"
+>
+  <!-- Page Header -->
+  <section class="bg-gray-100 dark:bg-[#1e1e1e] py-16 transition-colors">
+    <div class="container mx-auto px-4">
+      <h1 class="heading-border text-3xl md:text-4xl font-bold text-center dark:text-gray-100">
+        Our Services
+      </h1>
+      <p class="text-center mt-6 text-lg text-pavesa-gray dark:text-gray-400 max-w-3xl mx-auto">
+        PA.VE.SA. srl offers high-quality professional services for industry and private sector.
+        Specialized in flooring, waterproofing, painting and sandblasting.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <ServiceGrid lang="en" />
+
+  <!-- CTA Section -->
+  <CTASection lang="en" />
+</BaseLayout>

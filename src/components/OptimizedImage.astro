@@ -1,0 +1,177 @@
+---
+/**
+ * OptimizedImage Component
+ *
+ * Wrapper per immagini ottimizzate con:
+ * - Skeleton loading state
+ * - Lazy loading automatico
+ * - Aspect ratio preservation
+ * - Supporto reduced motion
+ * - Fade-in animation al caricamento
+ */
+
+interface Props {
+  /** Path dell'immagine (relativo a public/) */
+  src: string;
+  /** Alt text per accessibilità */
+  alt: string;
+  /** Larghezza immagine */
+  width: number;
+  /** Altezza immagine */
+  height: number;
+  /** Classi CSS aggiuntive */
+  class?: string;
+  /** Loading strategy */
+  loading?: 'lazy' | 'eager';
+  /** Fetch priority */
+  fetchpriority?: 'high' | 'low' | 'auto';
+  /** Aspect ratio personalizzato (es. "16/9") */
+  aspectRatio?: string;
+  /** Mostra skeleton durante caricamento */
+  showSkeleton?: boolean;
+  /** Object fit */
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none';
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  aspectRatio,
+  showSkeleton = true,
+  objectFit = 'cover'
+} = Astro.props;
+
+// Calcola aspect ratio dal width/height se non specificato
+const computedAspectRatio = aspectRatio || `${width} / ${height}`;
+
+// ID univoco per lo skeleton
+const uniqueId = `img-${Math.random().toString(36).substring(2, 9)}`;
+---
+
+<div
+  class:list={['optimized-image-wrapper', { 'with-skeleton': showSkeleton }]}
+  style={`aspect-ratio: ${computedAspectRatio};`}
+  data-image-id={uniqueId}
+>
+  {showSkeleton && (
+    <div class="image-skeleton" aria-hidden="true">
+      <div class="skeleton-shimmer"></div>
+    </div>
+  )}
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding={loading === 'eager' ? 'sync' : 'async'}
+    class:list={['optimized-image', className]}
+    style={`object-fit: ${objectFit};`}
+    onload="this.parentElement.classList.add('loaded')"
+    onerror="this.parentElement.classList.add('error')"
+  />
+</div>
+
+<style>
+  .optimized-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--pavesa-bg-secondary, #f5f5f5);
+  }
+
+  /* Stato iniziale: immagine nascosta */
+  .optimized-image-wrapper.with-skeleton .optimized-image {
+    opacity: 0;
+    transition: opacity var(--duration-normal, 250ms) var(--ease-out, ease-out);
+  }
+
+  /* Stato caricato: immagine visibile */
+  .optimized-image-wrapper.loaded .optimized-image {
+    opacity: 1;
+  }
+
+  /* Nascondi skeleton quando caricato */
+  .optimized-image-wrapper.loaded .image-skeleton {
+    display: none;
+  }
+
+  /* Stile immagine */
+  .optimized-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Skeleton base */
+  .image-skeleton {
+    position: absolute;
+    inset: 0;
+    background-color: var(--pavesa-bg-tertiary, #ebebeb);
+  }
+
+  /* Shimmer animation */
+  .skeleton-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Error state */
+  .optimized-image-wrapper.error .image-skeleton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .optimized-image-wrapper.error .skeleton-shimmer {
+    display: none;
+  }
+
+  .optimized-image-wrapper.error::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pavesa-bg-tertiary, #ebebeb);
+  }
+
+  /* Reduced motion: niente animazioni */
+  @media (prefers-reduced-motion: reduce) {
+    .optimized-image-wrapper.with-skeleton .optimized-image {
+      transition: none;
+      opacity: 1;
+    }
+
+    .skeleton-shimmer {
+      animation: none;
+    }
+
+    .image-skeleton {
+      display: none;
+    }
+  }
+</style>

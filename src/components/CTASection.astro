@@ -1,0 +1,52 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+const t = useTranslations(lang);
+
+const ctaContent = {
+  it: {
+    title: t('cta.experience'),
+    linkText: t('cta.contact'),
+    linkUrl: '/contatti',
+  },
+  en: {
+    title: t('cta.experience'),
+    link_text: t('cta.contact'),
+    link_url: '/en/contact',
+  }
+};
+
+const content = lang === 'it' ? {
+  title: 'Più di 10 anni di esperienza',
+  linkText: 'contattaci',
+  linkUrl: '/contatti'
+} : {
+  title: 'More than 10 years of experience',
+  linkText: 'contact us',
+  linkUrl: '/en/contact'
+};
+---
+
+<section
+  class="relative py-24 text-white text-center bg-fixed bg-center bg-cover"
+  style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/backgrounds/fixed-background.jpg');"
+>
+  <div class="container mx-auto px-4 relative z-10">
+    <h3 class="text-3xl md:text-4xl font-bold uppercase mb-6 text-shadow-lg">
+      {lang === 'it' ? 'Più di 10 anni di esperienza' : 'More than 10 years of experience'}
+    </h3>
+    <p class="text-center">
+      <a
+        href={lang === 'it' ? '/contatti' : '/en/contact'}
+        class="btn-pavesa-transparent inline-block uppercase font-medium text-sm tracking-wider"
+      >
+        {lang === 'it' ? 'contattaci' : 'contact us'}
+      </a>
+    </p>
+  </div>
+</section>

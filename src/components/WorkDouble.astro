@@ -1,0 +1,98 @@
+---
+/**
+ * WorkDouble Component
+ *
+ * Galleria prima/dopo (2 colonne) con:
+ * - Skeleton loading
+ * - Hover zoom effect
+ * - Layout responsive 1->2 colonne
+ */
+
+import { useTranslations } from '../i18n/utils';
+import OptimizedImage from './OptimizedImage.astro';
+
+interface Props {
+  imgPrima: string;
+  imgDopo: string;
+  altPrima?: string;
+  altDopo?: string;
+  lang?: 'it' | 'en';
+}
+
+const {
+  imgPrima,
+  imgDopo,
+  altPrima,
+  altDopo,
+  lang = 'it'
+} = Astro.props;
+
+const t = useTranslations(lang);
+
+// Default alt texts localizzati
+const defaultAltPrima = lang === 'it' ? 'Stato prima dell\'intervento' : 'State before intervention';
+const defaultAltDopo = lang === 'it' ? 'Risultato finale' : 'Final result';
+---
+
+<div class="container mx-auto px-4 my-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Prima -->
+    <div class="text-center">
+      <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg mb-4">
+        <OptimizedImage
+          src={imgPrima}
+          alt={altPrima || defaultAltPrima}
+          width={600}
+          height={400}
+          class="gallery-image"
+          aspectRatio="3 / 2"
+        />
+      </div>
+      <h3 class="text-xl font-bold uppercase text-pavesa-dark">
+        {t('work.before')}
+      </h3>
+    </div>
+
+    <!-- Dopo -->
+    <div class="text-center">
+      <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg mb-4">
+        <OptimizedImage
+          src={imgDopo}
+          alt={altDopo || defaultAltDopo}
+          width={600}
+          height={400}
+          class="gallery-image"
+          aspectRatio="3 / 2"
+        />
+      </div>
+      <h3 class="text-xl font-bold uppercase text-pavesa-dark">
+        {t('work.after')}
+      </h3>
+    </div>
+  </div>
+</div>
+
+<style>
+  .gallery-image-container {
+    position: relative;
+  }
+
+  .gallery-image-container :global(.optimized-image) {
+    transition: transform var(--duration-slow, 400ms) var(--ease-out, ease-out);
+  }
+
+  .gallery-image-container:hover :global(.optimized-image) {
+    transform: scale(1.05);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-image-container :global(.optimized-image) {
+      transition: none;
+    }
+
+    .gallery-image-container:hover :global(.optimized-image) {
+      transform: none;
+    }
+  }
+</style>

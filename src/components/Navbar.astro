@@ -1,0 +1,391 @@
+---
+/**
+ * Navbar Component
+ *
+ * Navigazione principale con supporto completo accessibilità:
+ * - ARIA landmarks e ruoli
+ * - Navigazione keyboard
+ * - Focus management
+ * - Stato attivo con aria-current
+ * - Language switcher
+ * - Dark mode toggle
+ */
+
+import type { Locale } from '../types';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'it' } = Astro.props;
+const t = useTranslations(lang);
+
+const menuItems = [
+  { name: 'Home', url: lang === 'it' ? '/' : '/en', identifier: 'home' },
+  { name: lang === 'it' ? 'Azienda' : 'About', url: lang === 'it' ? '/azienda' : '/en/about', identifier: 'azienda' },
+  { name: lang === 'it' ? 'Servizi' : 'Services', url: lang === 'it' ? '/servizi' : '/en/services', identifier: 'servizi' },
+  { name: lang === 'it' ? 'Contatti' : 'Contact', url: lang === 'it' ? '/contatti' : '/en/contact', identifier: 'contatti' },
+];
+
+// Get current path to determine active menu item
+const currentPath = Astro.url.pathname;
+
+/**
+ * Determina se un menu item è attivo
+ * Gestisce correttamente home, pagine esatte e child routes
+ */
+function isActive(itemUrl: string, identifier: string): boolean {
+  // Normalizza i path (rimuovi trailing slash per confronto)
+  const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
+  const normalizedItem = itemUrl.replace(/\/$/, '') || '/';
+
+  // Home ha bisogno di match esatto
+  if (identifier === 'home') {
+    return normalizedCurrent === '/' || normalizedCurrent === '/en';
+  }
+
+  // Match esatto
+  if (normalizedCurrent === normalizedItem) {
+    return true;
+  }
+
+  // Check per child routes (es. /servizi/pavimenti matcha /servizi)
+  return normalizedCurrent.startsWith(normalizedItem + '/');
+}
+
+/**
+ * Get the equivalent path in the other language
+ */
+function getAlternateLanguagePath(): string {
+  if (lang === 'it') {
+    // Convert IT path to EN
+    if (currentPath === '/' || currentPath === '') return '/en/';
+    if (currentPath.startsWith('/azienda')) return '/en/about' + currentPath.slice(8);
+    if (currentPath.startsWith('/servizi')) return '/en/services' + currentPath.slice(8);
+    if (currentPath.startsWith('/contatti')) return '/en/contact';
+    if (currentPath.startsWith('/privacy')) return '/en/privacy';
+    return '/en' + currentPath;
+  } else {
+    // Convert EN path to IT
+    if (currentPath === '/en' || currentPath === '/en/') return '/';
+    if (currentPath.startsWith('/en/about')) return '/azienda' + currentPath.slice(9);
+    if (currentPath.startsWith('/en/services')) return '/servizi' + currentPath.slice(12);
+    if (currentPath.startsWith('/en/contact')) return '/contatti';
+    if (currentPath.startsWith('/en/privacy')) return '/privacy';
+    return currentPath.replace('/en', '');
+  }
+}
+
+const navLabel = lang === 'it' ? 'Navigazione principale' : 'Main navigation';
+const homeLabel = lang === 'it' ? 'PA.VE.SA. - Torna alla home' : 'PA.VE.SA. - Go to homepage';
+const alternateLang = lang === 'it' ? 'en' : 'it';
+const alternateLangLabel = lang === 'it' ? 'English' : 'Italiano';
+const switchLangLabel = lang === 'it' ? 'Passa a English' : 'Switch to Italiano';
+const darkModeLabel = lang === 'it' ? 'Attiva tema scuro' : 'Enable dark mode';
+const lightModeLabel = lang === 'it' ? 'Attiva tema chiaro' : 'Enable light mode';
+---
+
+<header class="sticky top-0 z-50 bg-white dark:bg-[#1e1e1e] shadow-md dark:shadow-black/30 transition-colors">
+  <nav class="container mx-auto px-4" aria-label={navLabel}>
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a
+        href={lang === 'it' ? '/' : '/en/'}
+        class="flex items-center rounded"
+        aria-label={homeLabel}
+      >
+        <img
+          src="/images/logo/logo_pavesa.png"
+          alt="PA.VE.SA. srl"
+          class="h-12 w-auto"
+          width="180"
+          height="48"
+        />
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-6">
+        <ul class="flex space-x-8" role="menubar">
+          {menuItems.map(item => {
+            const active = isActive(item.url, item.identifier);
+            return (
+              <li role="none">
+                <a
+                  href={item.url}
+                  role="menuitem"
+                  aria-current={active ? 'page' : undefined}
+                  class={`
+                    relative text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow
+                    transition-colors duration-200 font-medium uppercase
+                    tracking-wide text-sm pb-1 rounded
+                    ${active ? 'text-pavesa-yellow' : ''}
+                  `}
+                >
+                  {item.name}
+                  {active && (
+                    <span class="absolute bottom-0 left-0 right-0 h-[3px] bg-pavesa-yellow" aria-hidden="true"></span>
+                  )}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <!-- Utility buttons -->
+        <div class="flex items-center space-x-2 pl-4 border-l border-gray-200 dark:border-gray-600">
+          <!-- Language Switcher -->
+          <a
+            href={getAlternateLanguagePath()}
+            class="flex items-center justify-center min-w-[44px] min-h-[44px] px-3 text-sm font-medium text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors rounded"
+            aria-label={switchLangLabel}
+            hreflang={alternateLang}
+          >
+            <span class="uppercase">{alternateLang}</span>
+          </a>
+
+          <!-- Dark Mode Toggle -->
+          <button
+            id="dark-mode-toggle"
+            type="button"
+            class="flex items-center justify-center min-w-[44px] min-h-[44px] text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors rounded"
+            aria-label={darkModeLabel}
+            data-dark-label={darkModeLabel}
+            data-light-label={lightModeLabel}
+          >
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-2xl text-pavesa-yellow dark:text-pavesa-yellow rounded"
+        aria-label={t('nav.toggle')}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden pb-4 border-t border-gray-200 dark:border-gray-700 mt-2"
+      role="menu"
+      aria-labelledby="mobile-menu-toggle"
+    >
+      <ul class="flex flex-col space-y-2 pt-4">
+        {menuItems.map(item => {
+          const active = isActive(item.url, item.identifier);
+          return (
+            <li role="none">
+              <a
+                href={item.url}
+                role="menuitem"
+                aria-current={active ? 'page' : undefined}
+                class={`
+                  block py-2 px-4 text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow
+                  hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 uppercase tracking-wide
+                  rounded
+                  ${active ? 'text-pavesa-yellow font-bold bg-gray-50 dark:bg-gray-700' : ''}
+                `}
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <!-- Mobile Utility Row -->
+      <div class="flex items-center justify-between mt-4 pt-4 px-4 border-t border-gray-200 dark:border-gray-600">
+        <!-- Language Switcher -->
+        <a
+          href={getAlternateLanguagePath()}
+          class="flex items-center min-h-[44px] px-3 text-sm font-medium text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors rounded"
+          aria-label={switchLangLabel}
+          hreflang={alternateLang}
+        >
+          <i class="fas fa-globe mr-2" aria-hidden="true"></i>
+          <span>{alternateLangLabel}</span>
+        </a>
+
+        <!-- Dark Mode Toggle -->
+        <button
+          id="dark-mode-toggle-mobile"
+          type="button"
+          class="flex items-center min-h-[44px] px-3 text-sm font-medium text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors rounded"
+          aria-label={darkModeLabel}
+          data-dark-label={darkModeLabel}
+          data-light-label={lightModeLabel}
+        >
+          <i class="fas fa-moon mr-2" aria-hidden="true"></i>
+          <span class="dark-mode-text">{lang === 'it' ? 'Tema scuro' : 'Dark mode'}</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuToggle?.querySelector('i');
+
+    if (!menuToggle || !mobileMenu) return;
+
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      menuIcon?.classList.remove('fa-bars');
+      menuIcon?.classList.add('fa-times');
+
+      // Focus primo link del menu per accessibilità
+      const firstLink = mobileMenu.querySelector('a');
+      firstLink?.focus();
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuIcon?.classList.remove('fa-times');
+      menuIcon?.classList.add('fa-bars');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Chiudi menu al click su un link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Chiudi menu con tasto Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    // Trap focus nel menu mobile quando aperto
+    mobileMenu.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+
+      const focusableElements = mobileMenu.querySelectorAll('a[href]');
+      const firstElement = focusableElements[0] as HTMLElement;
+      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        menuToggle.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        menuToggle.focus();
+      }
+    });
+  }
+
+  // ===== DARK MODE =====
+  function initDarkMode() {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
+    const html = document.documentElement;
+
+    // Check for saved preference or system preference
+    function getPreferredTheme(): 'dark' | 'light' {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Apply theme
+    function setTheme(theme: 'dark' | 'light') {
+      if (theme === 'dark') {
+        html.classList.add('dark');
+      } else {
+        html.classList.remove('dark');
+      }
+      localStorage.setItem('theme', theme);
+      updateButtonState(theme);
+    }
+
+    // Update button icons and labels
+    function updateButtonState(theme: 'dark' | 'light') {
+      const isDark = theme === 'dark';
+
+      [darkModeToggle, darkModeToggleMobile].forEach(btn => {
+        if (!btn) return;
+        const icon = btn.querySelector('i');
+        const text = btn.querySelector('.dark-mode-text');
+
+        if (icon) {
+          icon.classList.remove('fa-moon', 'fa-sun');
+          icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+        }
+
+        if (text) {
+          text.textContent = isDark
+            ? (document.documentElement.lang === 'it' ? 'Tema chiaro' : 'Light mode')
+            : (document.documentElement.lang === 'it' ? 'Tema scuro' : 'Dark mode');
+        }
+
+        const label = isDark ? btn.dataset.lightLabel : btn.dataset.darkLabel;
+        if (label) btn.setAttribute('aria-label', label);
+      });
+    }
+
+    // Toggle theme
+    function toggleTheme() {
+      const current = html.classList.contains('dark') ? 'dark' : 'light';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Initialize
+    setTheme(getPreferredTheme());
+
+    // Event listeners
+    darkModeToggle?.addEventListener('click', toggleTheme);
+    darkModeToggleMobile?.addEventListener('click', toggleTheme);
+
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+
+  // Inizializza al caricamento pagina
+  document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+    initDarkMode();
+  });
+
+  // Re-inizializza dopo Astro view transitions
+  document.addEventListener('astro:page-load', () => {
+    initMobileMenu();
+    initDarkMode();
+  });
+</script>
+
+<!-- Prevent flash of wrong theme -->
+<script is:inline>
+  (function() {
+    const theme = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.classList.add('dark');
+  })();
+</script>

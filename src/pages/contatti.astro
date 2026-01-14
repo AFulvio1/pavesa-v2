@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contatti - PA.VE.SA. srl"
+  description="Contattaci: chiamaci/Scrivici per qualsiasi informazione o per un preventivo gratuito!"
+  keywords={['preventivo', 'contatti', 'telefono', 'mail', 'info']}
+  lang="it"
+>
+  <div class="bg-white dark:bg-[#121212] transition-colors">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Page Title -->
+        <div class="text-center mb-12">
+          <h1 class="heading-border text-3xl md:text-4xl font-bold dark:text-gray-100">
+            Contatti
+          </h1>
+          <p class="mt-4 text-lg text-pavesa-gray dark:text-gray-400">
+            Contattaci per qualsiasi informazione o per un preventivo gratuito!
+          </p>
+        </div>
+
+        <!-- Email Section -->
+        <div class="text-center mb-12">
+          <div class="flex justify-center mb-4">
+            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
+              <i class="fas fa-envelope text-white text-2xl"></i>
+            </div>
+          </div>
+          <h4 class="text-2xl font-bold text-pavesa-dark dark:text-gray-100">
+            <a href="mailto:info@pavesasrl.it" class="hover:text-pavesa-yellow transition-colors">
+              info@pavesasrl.it
+            </a>
+          </h4>
+        </div>
+
+        <hr class="my-8 border-pavesa-yellow" />
+
+        <!-- Phone Section -->
+        <div class="text-center mb-12">
+          <div class="flex justify-center mb-4">
+            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
+              <i class="fas fa-phone text-white text-2xl"></i>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-3">Ufficio:</h4>
+            <div class="space-y-2">
+              <h3 class="text-lg">
+                <span class="text-pavesa-gray dark:text-gray-400">Fisso:</span>
+                <a href="tel:+390875808184" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
+                  0875808184
+                </a>
+              </h3>
+              <h3 class="text-lg">
+                <span class="text-pavesa-gray dark:text-gray-400">Cell.:</span>
+                <a href="tel:+393277425486" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
+                  3277425486
+                </a>
+              </h3>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-3">Referenti:</h4>
+            <div class="space-y-2">
+              <h3 class="text-lg">
+                <span class="text-pavesa-gray dark:text-gray-400">Ercole:</span>
+                <a href="tel:+393477333796" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
+                  3477333796
+                </a>
+              </h3>
+              <h3 class="text-lg">
+                <span class="text-pavesa-gray dark:text-gray-400">Nicholas:</span>
+                <a href="tel:+393663619031" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
+                  3663619031
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-8 border-pavesa-yellow" />
+
+        <!-- Address Section -->
+        <div class="text-center mb-12">
+          <div class="flex justify-center mb-4">
+            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede legale:</h3>
+              <p class="text-lg text-pavesa-gray dark:text-gray-400">Via Germania, 4 - Guglionesi (CB)</p>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
+              <h3 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede amministrativa:</h3>
+              <p class="text-lg text-pavesa-gray dark:text-gray-400">Contrada piane di Larino, 90 - Larino (CB)</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-8 border-pavesa-yellow" />
+
+        <!-- Google Maps -->
+        <div class="mb-8">
+          <iframe
+            class="w-full rounded-lg shadow-lg dark:shadow-black/30"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.040807451273!2d14.911240315682475!3d41.91348147117792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330c9bd0f74bfdb%3A0x5127f532c42d82fe!2sPA.VE.SA.!5e0!3m2!1sit!2sit!4v1627315898664!5m2!1sit!2sit"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            title="Mappa PA.VE.SA. srl"
+          ></iframe>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12">
+          <p class="text-lg text-pavesa-gray dark:text-gray-400 mb-4">
+            Non esitare a contattarci per un preventivo gratuito!
+          </p>
+          <a
+            href="mailto:info@pavesasrl.it"
+            class="btn-pavesa-primary inline-block text-lg uppercase tracking-wide"
+          >
+            <i class="fas fa-envelope mr-2"></i>
+            Scrivici ora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
