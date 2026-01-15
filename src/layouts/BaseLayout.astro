@@ -3,6 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 import SkipLink from '../components/SkipLink.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -98,9 +99,34 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
     })} />
 
     <ViewTransitions />
+
+    <!-- Dark mode script - must be in head to prevent flash -->
+    <script is:inline>
+      // Apply theme immediately to prevent flash
+      (function() {
+        const theme = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
+    <!-- Preserve dark mode during View Transitions -->
+    <script is:inline>
+      document.addEventListener('astro:before-swap', (event) => {
+        const theme = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') {
+          event.newDocument.documentElement.classList.add('dark');
+        }
+      });
+    </script>
   </head>
 
-  <body class="font-roboto text-pavesa-dark">
+  <body class="font-roboto text-pavesa-dark dark:text-gray-200 dark:bg-[#121212] transition-colors">
     <SkipLink lang={lang} />
 
     <div id="all">
@@ -112,6 +138,9 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
 
       <Footer lang={lang} />
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <CookieConsent lang={lang} />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFBRL6FWS8"></script>

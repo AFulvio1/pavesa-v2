@@ -90,175 +90,171 @@ const labels = {
 ---
 
 <section
-  class="hero-carousel bg-pavesa-yellow py-4 md:py-6"
+  class="hero-carousel relative w-full overflow-hidden bg-gray-900"
   aria-label={labels.carouselLabel}
   aria-roledescription="carousel"
 >
-  <div class="container mx-auto px-4">
-    <div
-      class="carousel-container relative rounded-lg overflow-hidden border-4 border-white shadow-lg bg-gray-900"
-      role="group"
-      aria-live="off"
-      data-autoplay-interval="5000"
-    >
-      <!-- Slides -->
-      {slides.map((item, index) => (
-        <div
-          class={`carousel-slide ${index === 0 ? 'active' : ''}`}
-          data-slide={index}
-          role="tabpanel"
-          id={`slide-${index}`}
-          aria-roledescription="slide"
-          aria-label={`${index + 1} ${labels.ofLabel} ${slides.length}: ${item.title}`}
-          aria-hidden={index !== 0}
-          tabindex={index === 0 ? 0 : -1}
-        >
-          <div class="relative h-[400px] md:h-[500px] lg:h-[600px]">
-            <!-- Image -->
-            <img
-              src={item.image}
-              alt={item.alt}
-              width="1200"
-              height="600"
-              class="absolute top-0 left-0 w-full h-full object-cover"
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchpriority={index === 0 ? "high" : "auto"}
-              decoding={index === 0 ? "sync" : "async"}
-            />
-            <!-- Dark Overlay -->
-            <div class="absolute top-0 left-0 w-full h-full bg-black/30 z-10" aria-hidden="true"></div>
-            <!-- Content -->
+  <div
+    class="carousel-container relative w-full h-[calc(100vh-80px)] min-h-[500px]"
+    role="group"
+    aria-live="off"
+    data-autoplay-interval="6000"
+  >
+    <!-- Slides -->
+    {slides.map((item, index) => (
+      <div
+        class={`carousel-slide absolute inset-0 w-full h-full ${index === 0 ? 'active' : ''}`}
+        data-slide={index}
+        role="tabpanel"
+        id={`slide-${index}`}
+        aria-roledescription="slide"
+        aria-label={`${index + 1} ${labels.ofLabel} ${slides.length}: ${item.title}`}
+        aria-hidden={index !== 0}
+        tabindex={index === 0 ? 0 : -1}
+      >
+        <!-- Image -->
+        <img
+          src={item.image}
+          alt={item.alt}
+          class="absolute inset-0 w-full h-full object-cover"
+          loading={index === 0 ? "eager" : "lazy"}
+          fetchpriority={index === 0 ? "high" : "auto"}
+          decoding={index === 0 ? "sync" : "async"}
+        />
+        
+        <!-- Dark Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 z-10" aria-hidden="true"></div>
+        
+        <!-- Content -->
+        <div class="absolute inset-0 z-20 flex items-center justify-center text-center px-4 md:px-8">
+          <div class="max-w-4xl opacity-0 translate-y-8 animate-content">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wider text-shadow-lg leading-tight">
+              {item.title}
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-100 mb-8 font-light text-shadow max-w-2xl mx-auto">
+              {item.description}
+            </p>
             <a
               href={item.url}
-              class="absolute top-0 left-0 w-full h-full z-20 rounded"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black uppercase tracking-widest bg-pavesa-yellow hover:bg-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg rounded"
               tabindex={index === 0 ? 0 : -1}
             >
-              <div class="container mx-auto h-full flex items-center px-4 md:px-8">
-                <div class="text-white max-w-2xl">
-                  <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase tracking-wide text-shadow-lg">
-                    {item.title}
-                  </h2>
-                  <p class="text-lg md:text-xl lg:text-2xl text-shadow">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              {lang === 'it' ? 'Scopri di più' : 'Discover more'}
             </a>
           </div>
         </div>
-      ))}
-
-      <!-- Navigation Dots -->
-      <div
-        class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-30"
-        role="tablist"
-        aria-label={lang === 'it' ? 'Seleziona slide' : 'Select slide'}
-      >
-        {slides.map((item, index) => (
-          <button
-            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
-            data-slide={index}
-            role="tab"
-            aria-selected={index === 0}
-            aria-controls={`slide-${index}`}
-            aria-label={`${labels.slideLabel} ${index + 1}: ${item.title}`}
-          ></button>
-        ))}
       </div>
+    ))}
 
-      <!-- Navigation Arrows -->
-      <button
-        class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-12 h-12 flex items-center justify-center text-3xl leading-none transition"
-        aria-label={labels.prevLabel}
-        type="button"
-      >
-        <span aria-hidden="true">&#8249;</span>
-      </button>
-      <button
-        class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-12 h-12 flex items-center justify-center text-3xl leading-none transition"
-        aria-label={labels.nextLabel}
-        type="button"
-      >
-        <span aria-hidden="true">&#8250;</span>
-      </button>
-
-      <!-- Pause/Play Button -->
-      <button
-        class="carousel-autoplay absolute bottom-4 right-4 z-30 bg-white/50 hover:bg-white/75 text-pavesa-dark rounded-full w-10 h-10 flex items-center justify-center transition"
-        aria-label={labels.pauseLabel}
-        data-pause-label={labels.pauseLabel}
-        data-play-label={labels.playLabel}
-        data-playing="true"
-        type="button"
-      >
-        <i class="fas fa-pause text-sm" aria-hidden="true"></i>
-      </button>
+    <!-- Navigation Dots -->
+    <div
+      class="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-30"
+      role="tablist"
+      aria-label={lang === 'it' ? 'Seleziona slide' : 'Select slide'}
+    >
+      {slides.map((item, index) => (
+        <button
+          class={`carousel-dot w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-white/50 bg-transparent transition-all duration-300 hover:bg-white hover:border-white ${index === 0 ? 'active' : ''}`}
+          data-slide={index}
+          role="tab"
+          aria-selected={index === 0}
+          aria-controls={`slide-${index}`}
+          aria-label={`${labels.slideLabel} ${index + 1}: ${item.title}`}
+        ></button>
+      ))}
     </div>
+
+    <!-- Navigation Arrows -->
+    <button
+      class="carousel-prev hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-pavesa-yellow hover:scale-110 transition-all duration-300 text-6xl leading-none"
+      aria-label={labels.prevLabel}
+      type="button"
+    >
+      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button
+      class="carousel-next hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-pavesa-yellow hover:scale-110 transition-all duration-300 text-6xl leading-none"
+      aria-label={labels.nextLabel}
+      type="button"
+    >
+      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+    </button>
+
+    <!-- Pause/Play Button (Subtle) -->
+    <button
+      class="carousel-autoplay absolute bottom-8 right-8 z-30 text-white/50 hover:text-white transition-colors"
+      aria-label={labels.pauseLabel}
+      data-pause-label={labels.pauseLabel}
+      data-play-label={labels.playLabel}
+      data-playing="true"
+      type="button"
+    >
+      <i class="fas fa-pause text-sm" aria-hidden="true"></i>
+    </button>
   </div>
 </section>
 
 <style>
-  .hero-carousel {
-    position: relative;
-  }
-
-  .carousel-container {
-    position: relative;
-    width: 100%;
-  }
-
+  /* Base Slide Styles */
   .carousel-slide {
-    display: none;
-    width: 100%;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none; /* Prevent clicking hidden slides */
   }
 
   .carousel-slide.active {
-    display: block;
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
   }
 
-  .carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: white;
-    opacity: 0.7;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  /* Content Animation */
+  @keyframes contentFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .carousel-slide.active .animate-content {
+    animation: contentFadeUp 0.8s ease-out forwards 0.3s;
+  }
+  
+  /* Reset animation when not active to allow re-trigger */
+  .carousel-slide:not(.active) .animate-content {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: none;
   }
 
   .carousel-dot.active {
-    background: var(--pavesa-yellow);
-    opacity: 1;
+    background-color: var(--pavesa-yellow);
+    border-color: var(--pavesa-yellow);
     transform: scale(1.2);
   }
 
-  .carousel-dot:hover,
-  .carousel-dot:focus-visible {
-    opacity: 1;
-  }
-
-  .carousel-dot:focus-visible {
-    outline: 2px solid var(--pavesa-yellow);
-    outline-offset: 2px;
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   }
 
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-
-  .text-shadow-lg {
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .carousel-slide {
-      transition: none;
+      transition: none !important;
     }
-
-    .carousel-dot {
-      transition: none;
+    .animate-content {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 </style>

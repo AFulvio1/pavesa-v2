@@ -4,136 +4,126 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Contatti - PA.VE.SA. srl"
-  description="Contattaci: chiamaci/Scrivici per qualsiasi informazione o per un preventivo gratuito!"
-  keywords={['preventivo', 'contatti', 'telefono', 'mail', 'info']}
+  description="Contatta PA.VE.SA. srl per servizi di pavimentazioni industriali, verniciatura, sabbiatura e impermeabilizzazione. Telefono, email e indirizzi uffici."
+  keywords={['contatti', 'telefono', 'email', 'indirizzo', 'ufficio']}
   lang="it"
 >
-  <div class="bg-white dark:bg-[#121212] transition-colors">
-    <div class="container mx-auto px-4 py-16">
-      <div class="max-w-4xl mx-auto">
-        <!-- Page Title -->
-        <div class="text-center mb-12">
-          <h1 class="heading-border text-3xl md:text-4xl font-bold dark:text-gray-100">
-            Contatti
-          </h1>
-          <p class="mt-4 text-lg text-pavesa-gray dark:text-gray-400">
-            Contattaci per qualsiasi informazione o per un preventivo gratuito!
-          </p>
-        </div>
+  <!-- Page Header -->
+  <section class="bg-gray-100 dark:bg-[#1e1e1e] py-20 transition-colors">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="heading-border inline-block text-4xl md:text-5xl font-bold dark:text-gray-100 mb-6">
+        Contatti
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Siamo a tua disposizione per qualsiasi informazione, preventivo o consulenza tecnica.
+      </p>
+    </div>
+  </section>
 
-        <!-- Email Section -->
-        <div class="text-center mb-12">
-          <div class="flex justify-center mb-4">
-            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
-              <i class="fas fa-envelope text-white text-2xl"></i>
-            </div>
-          </div>
-          <h4 class="text-2xl font-bold text-pavesa-dark dark:text-gray-100">
-            <a href="mailto:info@pavesasrl.it" class="hover:text-pavesa-yellow transition-colors">
-              info@pavesasrl.it
-            </a>
-          </h4>
-        </div>
-
-        <hr class="my-8 border-pavesa-yellow" />
-
-        <!-- Phone Section -->
-        <div class="text-center mb-12">
-          <div class="flex justify-center mb-4">
-            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
-              <i class="fas fa-phone text-white text-2xl"></i>
-            </div>
-          </div>
-
-          <div class="mb-6">
-            <h4 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-3">Ufficio:</h4>
-            <div class="space-y-2">
-              <h3 class="text-lg">
-                <span class="text-pavesa-gray dark:text-gray-400">Fisso:</span>
-                <a href="tel:+390875808184" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
-                  0875808184
-                </a>
-              </h3>
-              <h3 class="text-lg">
-                <span class="text-pavesa-gray dark:text-gray-400">Cell.:</span>
-                <a href="tel:+393277425486" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
-                  3277425486
-                </a>
-              </h3>
-            </div>
-          </div>
-
+  <!-- Contact Content -->
+  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        
+        <!-- Left Column: Direct Contact -->
+        <div class="space-y-8">
           <div>
-            <h4 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-3">Referenti:</h4>
-            <div class="space-y-2">
-              <h3 class="text-lg">
-                <span class="text-pavesa-gray dark:text-gray-400">Ercole:</span>
-                <a href="tel:+393477333796" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
-                  3477333796
-                </a>
-              </h3>
-              <h3 class="text-lg">
-                <span class="text-pavesa-gray dark:text-gray-400">Nicholas:</span>
-                <a href="tel:+393663619031" class="text-pavesa-dark dark:text-gray-200 hover:text-pavesa-yellow transition-colors font-bold ml-2">
-                  3663619031
-                </a>
-              </h3>
+            <h2 class="text-2xl font-bold mb-6 text-pavesa-dark dark:text-gray-100 border-b-2 border-pavesa-yellow inline-block pb-2">
+              Canali Diretti
+            </h2>
+            
+            <!-- Email -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow mb-6 group">
+              <div class="flex items-start">
+                <div class="bg-pavesa-yellow/10 p-3 rounded-lg mr-4 group-hover:bg-pavesa-yellow group-hover:text-white transition-colors text-pavesa-yellow">
+                   <i class="fas fa-envelope text-xl"></i>
+                </div>
+                <div>
+                   <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100 mb-1">Scrivici una Email</h3>
+                   <a href="mailto:info@pavesasrl.it" class="text-lg text-gray-600 dark:text-gray-300 hover:text-pavesa-yellow transition-colors">
+                     info@pavesasrl.it
+                   </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phones -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow mb-6">
+              <div class="flex items-start mb-4">
+                 <div class="bg-pavesa-yellow/10 p-3 rounded-lg mr-4 text-pavesa-yellow">
+                   <i class="fas fa-phone-alt text-xl"></i>
+                </div>
+                <div>
+                   <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100">Chiamaci</h3>
+                </div>
+              </div>
+              
+              <div class="pl-[4.5rem] space-y-4">
+                 <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Ufficio</p>
+                    <a href="tel:+390875808184" class="text-gray-700 dark:text-gray-200 hover:text-pavesa-yellow block">0875 808184</a>
+                    <a href="tel:+393277425486" class="text-gray-700 dark:text-gray-200 hover:text-pavesa-yellow block">327 7425486</a>
+                 </div>
+                 <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Referenti Tecnici</p>
+                    <p class="text-gray-700 dark:text-gray-200"><span class="font-medium">Ercole:</span> <a href="tel:+393477333796" class="hover:text-pavesa-yellow">347 7333796</a></p>
+                    <p class="text-gray-700 dark:text-gray-200"><span class="font-medium">Nicholas:</span> <a href="tel:+393663619031" class="hover:text-pavesa-yellow">366 3619031</a></p>
+                 </div>
+              </div>
+            </div>
+
+            <!-- Hours -->
+             <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-start">
+                <div class="bg-pavesa-yellow/10 p-3 rounded-lg mr-4 text-pavesa-yellow">
+                   <i class="fas fa-clock text-xl"></i>
+                </div>
+                <div>
+                   <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100 mb-2">Orari di Apertura</h3>
+                   <p class="text-gray-600 dark:text-gray-300">Lunedì - Venerdì<br>8:00 - 17:00</p>
+                   <p class="text-red-500/80 text-sm mt-2 font-medium">Sabato e Domenica Chiuso</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <hr class="my-8 border-pavesa-yellow" />
+        <!-- Right Column: Location -->
+        <div class="space-y-8">
+           <div>
+            <h2 class="text-2xl font-bold mb-6 text-pavesa-dark dark:text-gray-100 border-b-2 border-pavesa-yellow inline-block pb-2">
+              Vieni a Trovarci
+            </h2>
 
-        <!-- Address Section -->
-        <div class="text-center mb-12">
-          <div class="flex justify-center mb-4">
-            <div class="w-16 h-16 bg-pavesa-yellow rounded-full flex items-center justify-center">
-              <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+             <!-- Addresses -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-5 rounded-xl border-l-4 border-pavesa-yellow">
+                  <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede Legale</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Via Germania, 4<br>86034 Guglionesi (CB)</p>
+               </div>
+               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-5 rounded-xl border-l-4 border-pavesa-yellow">
+                  <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede Amm.va</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">C.da piane di Larino, 90<br>86035 Larino (CB)</p>
+               </div>
             </div>
-          </div>
 
-          <div class="space-y-4">
-            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
-              <h3 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede legale:</h3>
-              <p class="text-lg text-pavesa-gray dark:text-gray-400">Via Germania, 4 - Guglionesi (CB)</p>
+            <!-- Map -->
+            <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 h-[400px]">
+               <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.040807451273!2d14.911240315682475!3d41.91348147117792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330c9bd0f74bfdb%3A0x5127f532c42d82fe!2sPA.VE.SA.!5e0!3m2!1sit!2sit!4v1627315898664!5m2!1sit!2sit"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mappa posizione PA.VE.SA. srl"
+            ></iframe>
             </div>
 
-            <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-lg transition-colors">
-              <h3 class="text-xl font-bold text-pavesa-dark dark:text-gray-100 mb-2">Sede amministrativa:</h3>
-              <p class="text-lg text-pavesa-gray dark:text-gray-400">Contrada piane di Larino, 90 - Larino (CB)</p>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-8 border-pavesa-yellow" />
-
-        <!-- Google Maps -->
-        <div class="mb-8">
-          <iframe
-            class="w-full rounded-lg shadow-lg dark:shadow-black/30"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.040807451273!2d14.911240315682475!3d41.91348147117792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330c9bd0f74bfdb%3A0x5127f532c42d82fe!2sPA.VE.SA.!5e0!3m2!1sit!2sit!4v1627315898664!5m2!1sit!2sit"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            title="Mappa PA.VE.SA. srl"
-          ></iframe>
-        </div>
-
-        <!-- CTA -->
-        <div class="text-center mt-12">
-          <p class="text-lg text-pavesa-gray dark:text-gray-400 mb-4">
-            Non esitare a contattarci per un preventivo gratuito!
-          </p>
-          <a
-            href="mailto:info@pavesasrl.it"
-            class="btn-pavesa-primary inline-block text-lg uppercase tracking-wide"
-          >
-            <i class="fas fa-envelope mr-2"></i>
-            Scrivici ora
-          </a>
+           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>

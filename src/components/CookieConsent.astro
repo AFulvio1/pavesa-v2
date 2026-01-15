@@ -1,0 +1,106 @@
+---
+interface Props {
+  lang?: 'it' | 'en';
+}
+
+const { lang = 'it' } = Astro.props;
+
+const content = {
+  it: {
+    message: "Questo sito utilizza i cookie per migliorare la tua esperienza.",
+    accept: "Accetta",
+    decline: "Rifiuta",
+    policy: "Leggi la Privacy Policy",
+    policyLink: "/privacy"
+  },
+  en: {
+    message: "This website uses cookies to ensure you get the best experience.",
+    accept: "Accept",
+    decline: "Decline",
+    policy: "Read Privacy Policy",
+    policyLink: "/en/privacy"
+  }
+};
+
+const text = lang === 'it' ? content.it : content.en;
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-6 right-6 z-50 max-w-md p-8 bg-white dark:bg-[#1e1e1e] rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 transform translate-y-full opacity-0 transition-all duration-500 ease-out hidden"
+  role="alertdialog"
+  aria-live="polite"
+  aria-label="Cookie Consent"
+>
+  <div class="flex flex-col space-y-6">
+    <div class="flex items-start space-x-5">
+      <div class="flex-shrink-0 text-pavesa-yellow">
+        <i class="fas fa-cookie-bite text-3xl"></i>
+      </div>
+      <div>
+        <p class="text-base text-pavesa-secondary dark:text-gray-300 leading-relaxed">
+          {text.message}
+          <a href={text.policyLink} class="text-pavesa-yellow hover:underline block mt-2 font-medium">{text.policy}</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-4 justify-end pt-2">
+      <button
+        id="cookie-decline"
+        class="px-5 py-2.5 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors"
+      >
+        {text.decline}
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-6 py-2.5 text-base font-bold text-black bg-pavesa-yellow rounded-md hover:bg-pavesa-yellow-hover hover:scale-105 transition-all transform shadow-sm"
+      >
+        {text.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
+
+    if (!banner || !acceptBtn || !declineBtn) return;
+
+    // Check if user has already made a choice
+    const consent = localStorage.getItem('cookie-consent');
+
+    if (!consent) {
+      // Show banner after a small delay
+      banner.classList.remove('hidden');
+      setTimeout(() => {
+        banner.classList.remove('translate-y-full', 'opacity-0');
+      }, 500);
+    }
+
+    function closeBanner() {
+      banner?.classList.add('translate-y-full', 'opacity-0');
+      setTimeout(() => {
+        banner?.classList.add('hidden');
+      }, 500);
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'accepted');
+      // Here you would trigger your analytics scripts
+      closeBanner();
+    });
+
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'declined');
+      closeBanner();
+    });
+  }
+
+  // Init on page load
+  document.addEventListener('DOMContentLoaded', initCookieConsent);
+  document.addEventListener('astro:page-load', initCookieConsent);
+</script>

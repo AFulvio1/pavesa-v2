@@ -161,14 +161,14 @@ const galleryData = galleriesConfig[currentSlug];
   lang="en"
 >
   <!-- Hero Image Section -->
-  <section class="relative h-96 overflow-hidden">
+  <section class="relative h-[50vh] min-h-[400px] md:h-[60vh] overflow-hidden bg-gray-900">
     <img
       src={banner}
       alt={alt}
       class="w-full h-full object-cover"
     />
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-white uppercase tracking-wider">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex items-center justify-center text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold text-white uppercase tracking-wider text-shadow-lg animate-fade-in-up">
         {title}
       </h1>
     </div>
@@ -253,92 +253,110 @@ const galleryData = galleriesConfig[currentSlug];
 <style>
   /* Prose styling for markdown content */
   .prose {
-    color: var(--pavesa-dark);
+    color: var(--pavesa-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.8;
   }
 
   :global(.dark) .prose {
-    color: #d1d5db;
+    color: #cbd5e1;
   }
 
+  /* Headings Main */
   .prose h2 {
-    color: var(--pavesa-dark);
-    font-size: 1.875rem;
+    color: var(--pavesa-text-primary);
+    font-size: 2rem;
     font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--pavesa-yellow);
+    display: inline-block;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   :global(.dark) .prose h2 {
-    color: #f3f4f6;
+    color: #f1f5f9;
   }
 
+  /* Subheadings */
   .prose h3 {
-    color: var(--pavesa-dark);
+    color: var(--pavesa-text-primary);
     font-size: 1.5rem;
     font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.025em;
   }
 
   :global(.dark) .prose h3 {
-    color: #f3f4f6;
+    color: #e2e8f0;
   }
 
   .prose h4 {
-    color: var(--pavesa-dark);
+    color: var(--pavesa-text-primary);
     font-size: 1.25rem;
     font-weight: 600;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
   }
 
   :global(.dark) .prose h4 {
-    color: #f3f4f6;
+    color: #e2e8f0;
   }
 
+  /* Body Text */
   .prose p {
-    margin-bottom: 1rem;
-    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    max-width: 65ch; /* Optimal reading length */
   }
 
+  /* Lists */
   .prose ul {
     list-style-type: none;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     padding-left: 0;
   }
 
   .prose ul li {
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .prose ul li::before {
-    content: "▸";
-    color: var(--pavesa-yellow);
-    font-weight: bold;
+    content: "";
     position: absolute;
     left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background-color: var(--pavesa-yellow);
+    border-radius: 50%;
   }
 
   .prose strong {
-    color: var(--pavesa-dark);
-    font-weight: 600;
+    color: var(--pavesa-text-primary);
+    font-weight: 700;
   }
 
   :global(.dark) .prose strong {
-    color: #f3f4f6;
+    color: #f8fafc;
   }
 
   .prose a {
-    color: var(--pavesa-yellow);
-    text-decoration: none;
-    transition: opacity 0.2s;
+    color: var(--pavesa-yellow-accessible);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
   }
 
   .prose a:hover {
-    opacity: 0.8;
+    color: var(--pavesa-yellow);
+  }
+
+  :global(.dark) .prose a {
+    color: var(--pavesa-yellow);
   }
 </style>
