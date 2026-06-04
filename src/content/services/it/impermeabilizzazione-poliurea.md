@@ -1,37 +1,35 @@
 ---
-title: "Impermeabilizzazione e Poliurea"
-description: "Tecnologie innovative con prodotti ad alta resistenza per l'industria e per il privato. La poliurea è un elastomero di grande qualità che può essere usata con risultati eccellenti in diversi campi."
-keywords: ["impermeabilizzazione", "poliurea", "elastomero", "copertura tetti", "vasche", "protezione"]
+title: "Impermeabilizzazione in Poliurea a Spruzzo"
+description: "Sistemi di impermeabilizzazione continua con poliurea a spruzzo ad alta pressione. Ideale per coperture industriali, vasche e serbatoi senza demolizione."
+keywords: ["impermeabilizzazione poliurea", "poliurea a spruzzo", "impermeabilizzazione tetti", "impermeabilizzazione senza demolire", "poliurea a freddo", "poliurea a caldo"]
 banner: "/images/banner/impermeabilizzazione.jpg"
-alt: "img-impermeabilizzazione"
+alt: "img-impermeabilizzazione-poliurea"
 weight: 1
-summary: "Tecnologie innovative con prodotti ad alta resistenza per l'industria e per il privato. La poliurea è un elastomero di grande qualità che può essere usata con risultati eccellenti in diversi campi, dalla copertura di tetti, alla protezione di vasche, fino alla realizzazione di pavimentazioni."
+summary: "Sistemi di impermeabilizzazione continua mediante applicazione di poliurea a spruzzo con bi-mixer ad alta pressione. Soluzione definitiva senza demolizione della vecchia guaina, calpestabile in soli 60 secondi."
 lang: "it"
 ---
 
-## Impermeabilizzazione e Poliurea
+## Impermeabilizzazione in Poliurea a Spruzzo
 
-La **PA.VE.SA. srl** offre servizi di impermeabilizzazione utilizzando tecnologie innovative e prodotti ad alta resistenza, ideali sia per l'industria che per il settore privato.
+La **PA.VE.SA. srl** offre servizi di impermeabilizzazione continua utilizzando tecnologie innovative e prodotti ad alta resistenza a base di **poliurea applicata a spruzzo** con sistemi bi-mixer ad alta pressione. Questo trattamento è ideale sia per coperture industriali che per vasche civili, garantendo rapidità ed efficacia duratura.
 
 ### Che cos'è la Poliurea?
 
-La **poliurea** è un elastomero di grande qualità che si distingue per le sue eccezionali proprietà fisiche e chimiche. Grazie alla sua versatilità, può essere applicata con risultati eccellenti in diversi campi:
+La **poliurea** è un elastomero puro di altissima qualità che si distingue per le sue eccezionali proprietà fisiche e chimiche. Grazie alla spruzzatura ad alta pressione, si crea una membrana impermeabile continua, priva di giunzioni e sormonti, applicabile in diversi campi:
 
-- **Copertura di tetti** - Protezione impermeabile e duratura per coperture industriali e civili
-- **Protezione di vasche** - Rivestimento impermeabile per vasche di contenimento, piscine e serbatoi
-- **Pavimentazioni** - Realizzazione di pavimenti impermeabili, resistenti e flessibili
-- **Rivestimenti protettivi** - Protezione di superfici esposte ad agenti atmosferici e sostanze chimiche
+- **Copertura di tetti e terrazzi** - Protezione impermeabile definitiva per coperture industriali e civili senza rimuovere la vecchia guaina.
+- **Protezione di vasche e piscine** - Rivestimento elastico impermeabile per vasche di contenimento, piscine e depuratori.
+- **Pavimentazioni carrabili** - Realizzazione di pavimenti impermeabili, resistenti al traffico veicolare e ai sali disgelanti.
+- **Rivestimenti protettivi anticorrosione** - Protezione di superfici metalliche o in calcestruzzo esposte ad agenti chimici aggressivi.
 
-### Vantaggi della Poliurea
+### Vantaggi della Poliurea a Spruzzo (Zero Demolizioni)
 
-La poliurea offre numerosi vantaggi rispetto ai tradizionali sistemi di impermeabilizzazione:
+La poliurea a spruzzo offre enormi vantaggi in termini di costi e tempi rispetto ai tradizionali sistemi di impermeabilizzazione:
 
-- **Elevata resistenza chimica** - Resiste agli agenti chimici più aggressivi
-- **Rapidità di applicazione** - Asciugatura veloce che riduce i tempi di fermo
-- **Flessibilità** - Si adatta ai movimenti strutturali senza rompersi
-- **Durabilità** - Lunga durata nel tempo con minima manutenzione
-- **Impermeabilità totale** - Protezione completa contro infiltrazioni d'acqua
-- **Resistenza meccanica** - Sopporta sollecitazioni e usura
+- **Risparmio Economico (Zero Demolizioni)** - Si applica direttamente sulla vecchia guaina o supporto esistente, eliminando i costi di smantellamento, trasporto e smaltimento in discarica.
+- **Calpestabile in 60 secondi** - Il tempo di indurimento è di pochissimi secondi, consentendo l'immediato ripristino delle attività nell'area trattata.
+- **Flessibilità ed Elasticità straordinarie** - Allungamento superiore al 400%, capace di assecondare qualsiasi movimento o fessurazione del supporto senza rompersi.
+- **Membrana continua senza giunti** - Elimina i punti critici tipici delle guaine tradizionali a rotoli.
 
 ### Applicazioni
 

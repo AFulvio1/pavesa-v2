@@ -1,17 +1,17 @@
 ---
-title: "Industrial and Civil Flooring"
-description: "Flooring created by PA.VE.SA. srl is varied and tailored to customer needs. Characterized by flexible materials that resist stress with excellent performance."
-keywords: ["flooring", "industrial flooring", "resins", "civil flooring", "resin floors"]
+title: "Industrial Resin Flooring"
+description: "Implementation of high-quality industrial resin flooring in epoxy, polyurethane and acrylic. HACCP certified systems for the food industry and ESD solutions."
+keywords: ["resin floors", "industrial flooring", "epoxy resins", "haccp floors", "esd floors", "polyurethane resin"]
 banner: "/images/banner/pavimento.jpg"
-alt: "img-flooring"
+alt: "img-industrial-flooring"
 weight: 2
-summary: "Flooring created by PA.VE.SA. srl is varied and tailored to customer needs. Characterized by flexible materials that allow resistance to internal and external stress with excellent performance."
+summary: "High-quality industrial resin flooring in epoxy, polyurethane and acrylic. HACCP certified systems for the food industry and ESD antistatic solutions."
 lang: "en"
 ---
 
-## Industrial and Civil Flooring
+## Industrial Resin Flooring
 
-**PA.VE.SA. srl** specializes in creating high-quality **industrial and civil flooring**, using state-of-the-art resins and materials to ensure resistance, durability and excellent performance.
+**PA.VE.SA. srl** specializes in creating high-quality **industrial and civil flooring in resin**, using state-of-the-art formulations to ensure resistance, durability and compliance with regulations.
 
 ### Types of Flooring
 

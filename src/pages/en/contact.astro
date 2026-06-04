@@ -97,13 +97,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
              <!-- Addresses -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-5 rounded-xl border-l-4 border-pavesa-yellow">
-                  <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-2">Registered Office</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Via Germania, 4<br>86034 Guglionesi (CB)</p>
+               <!-- Registered Office -->
+               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow group flex items-start">
+                  <div class="bg-pavesa-yellow/10 p-3 rounded-lg mr-4 text-pavesa-yellow group-hover:bg-pavesa-yellow group-hover:text-white transition-colors shrink-0">
+                     <i class="fas fa-map-marker-alt text-xl"></i>
+                  </div>
+                  <div>
+                     <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-1">Registered Office</h4>
+                     <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Via Germania, 4<br>86034 Guglionesi (CB)</p>
+                  </div>
                </div>
-               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-5 rounded-xl border-l-4 border-pavesa-yellow">
-                  <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-2">Admin Office</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">C.da piane di Larino, 90<br>86035 Larino (CB)</p>
+               
+               <!-- Admin Office -->
+               <div class="bg-gray-50 dark:bg-[#1e1e1e] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow group flex items-start">
+                  <div class="bg-pavesa-yellow/10 p-3 rounded-lg mr-4 text-pavesa-yellow group-hover:bg-pavesa-yellow group-hover:text-white transition-colors shrink-0">
+                     <i class="fas fa-building text-xl"></i>
+                  </div>
+                  <div>
+                     <h4 class="font-bold text-pavesa-dark dark:text-gray-100 mb-1">Admin Office</h4>
+                     <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">C.da piane di Larino, 90<br>86035 Larino (CB)</p>
+                  </div>
                </div>
             </div>
 

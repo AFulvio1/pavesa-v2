@@ -6,12 +6,13 @@ import WorkDouble from '../../components/WorkDouble.astro';
 import CTASection from '../../components/CTASection.astro';
 
 // Configurazione gallerie per ogni servizio
-const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 'triple' | 'double'; images: { prima: string; durante?: string; dopo: string }; alt: string }> }> = {
+const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 'triple' | 'double'; images: { prima: string; durante?: string; dopo: string }; alt: string; workTitle?: string }> }> = {
   'pavimenti': {
     title: 'Esempi di Lavori',
     galleries: [
       {
         type: 'triple',
+        workTitle: 'Centro di Riabilitazione Padre Pio ONLUS - San Giovanni Rotondo (FG)',
         images: {
           prima: '/images/portfolio/pavimenti/poliuretanico/prima.jpg',
           durante: '/images/portfolio/pavimenti/poliuretanico/durante.jpg',
@@ -21,6 +22,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'triple',
+        workTitle: 'Leonardo Company - Foggia (FG)',
         images: {
           prima: '/images/portfolio/pavimenti/ucrete/leonardo/prima.jpg',
           durante: '/images/portfolio/pavimenti/ucrete/leonardo/durante.jpg',
@@ -35,6 +37,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
     galleries: [
       {
         type: 'triple',
+        workTitle: 'Verniciatura Industriale Protettiva',
         images: {
           prima: '/images/portfolio/verniciatura/prima.jpg',
           durante: '/images/portfolio/verniciatura/durante.jpg',
@@ -44,6 +47,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'double',
+        workTitle: 'Vetrificazione Interna Vasche in Cemento Armato',
         images: {
           prima: '/images/portfolio/verniciatura/NUOVE/prima1.jpg',
           dopo: '/images/portfolio/verniciatura/NUOVE/dopo1.jpg'
@@ -57,6 +61,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
     galleries: [
       {
         type: 'triple',
+        workTitle: 'Sabbiatura e Verniciatura Esterna Serbatoio in Ferro - Cantina di Casalbordino (CH)',
         images: {
           prima: '/images/portfolio/sabbiatura/sabbiatura-prima.jpg',
           durante: '/images/portfolio/sabbiatura/sabbiatura-durante.jpg',
@@ -66,6 +71,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'double',
+        workTitle: 'Sabbiatura Mattoni Faccia a Vista',
         images: {
           prima: '/images/portfolio/sabbiatura/sabbiatura-mattoni-faccia-a-vista-prima1.jpg',
           dopo: '/images/portfolio/sabbiatura/sabbiatura-mattoni-faccia-a-vista-dopo1.jpg'
@@ -74,6 +80,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'triple',
+        workTitle: 'Sabbiatura Esterna Serbatoio in Ferro - Inoxa - Villanova (PE)',
         images: {
           prima: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-esterno-prima.jpg',
           durante: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-esterno-durante.jpg',
@@ -83,6 +90,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'triple',
+        workTitle: 'Sabbiatura Interno Serbatoio in Ferro - Inoxa - Villanova (PE)',
         images: {
           prima: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-prima.jpg',
           durante: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-durante.jpg',
@@ -97,6 +105,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
     galleries: [
       {
         type: 'triple',
+        workTitle: 'Piscina Hotel Don Juan - Giulianova (TE)',
         images: {
           prima: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-prima.jpg',
           durante: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-durante.jpg',
@@ -106,6 +115,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'triple',
+        workTitle: 'Stadio del Conero - Ancona (AN)',
         images: {
           prima: '/images/portfolio/impermeabilizzazione/stadio-del-conero/prima.jpg',
           durante: '/images/portfolio/impermeabilizzazione/stadio-del-conero/durante.jpg',
@@ -115,6 +125,7 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'triple',
+        workTitle: 'Trenitalia - Firenze (FI)',
         images: {
           prima: '/images/portfolio/impermeabilizzazione/trenitalia/prima_uodoo6.jpg',
           durante: '/images/portfolio/impermeabilizzazione/trenitalia/durante_n8cd9h.jpg',
@@ -124,11 +135,27 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
       },
       {
         type: 'double',
+        workTitle: 'Tribunale - Campobasso (CB)',
         images: {
           prima: '/images/portfolio/impermeabilizzazione/tribunale-campobasso/prima.jpg',
           dopo: '/images/portfolio/impermeabilizzazione/tribunale-campobasso/dopo.jpg'
         },
         alt: 'Impermeabilizzazione Tribunale Campobasso'
+      }
+    ]
+  },
+  'vetrificazione': {
+    title: 'Esempi di Lavori',
+    galleries: [
+      {
+        type: 'triple',
+        workTitle: 'Vetrificazione Vasi Vinari - Cantina Sangro - Fossacesia (CH)',
+        images: {
+          prima: 'https://res.cloudinary.com/afulvio/image/upload/w_auto/dpr_auto,c_scale/c_fill,q_auto,f_auto/v1619620936/lavori/verniciatura/prima.jpg',
+          durante: 'https://res.cloudinary.com/afulvio/image/upload/w_auto/dpr_auto,c_scale/c_fill,q_auto,f_auto/v1619620935/lavori/verniciatura/durante.jpg',
+          dopo: 'https://res.cloudinary.com/afulvio/image/upload/w_auto/dpr_auto,c_scale/c_fill,q_auto,f_auto/v1619620935/lavori/verniciatura/dopo.jpg'
+        },
+        alt: 'Vetrificazione vasi vinari'
       }
     ]
   }
@@ -224,6 +251,7 @@ const galleryData = galleriesConfig[currentSlug];
         {galleryData.galleries.map((gallery) => (
           gallery.type === 'triple' ? (
             <WorkGallery
+              title={gallery.workTitle}
               imgPrima={gallery.images.prima}
               imgDurante={gallery.images.durante!}
               imgDopo={gallery.images.dopo}
@@ -234,6 +262,7 @@ const galleryData = galleriesConfig[currentSlug];
             />
           ) : (
             <WorkDouble
+              title={gallery.workTitle}
               imgPrima={gallery.images.prima}
               imgDopo={gallery.images.dopo}
               altPrima={`${gallery.alt} - Prima`}

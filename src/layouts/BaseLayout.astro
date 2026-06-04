@@ -4,6 +4,11 @@ import SkipLink from '../components/SkipLink.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/outfit/700.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import '../styles/global.css';
 
 interface Props {
@@ -52,29 +57,6 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${siteUrl}/logo-pavesa.png`} />
-
-    <!-- Google Fonts - Roboto (ottimizzato: solo pesi usati) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome (caricamento async per performance) -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-      crossorigin="anonymous"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-      />
-    </noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -126,7 +108,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
     </script>
   </head>
 
-  <body class="font-roboto text-pavesa-dark dark:text-gray-200 dark:bg-[#121212] transition-colors">
+  <body class="font-sans text-pavesa-dark dark:text-gray-200 dark:bg-[#121212] transition-colors">
     <SkipLink lang={lang} />
 
     <div id="all">

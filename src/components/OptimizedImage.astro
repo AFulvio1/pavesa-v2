@@ -3,15 +3,17 @@
  * OptimizedImage Component
  *
  * Wrapper per immagini ottimizzate con:
+ * - Astro's native Image optimization (WebP/AVIF compression)
  * - Skeleton loading state
  * - Lazy loading automatico
  * - Aspect ratio preservation
  * - Supporto reduced motion
  * - Fade-in animation al caricamento
  */
+import { Image } from 'astro:assets';
 
 interface Props {
-  /** Path dell'immagine (relativo a public/) */
+  /** Path dell'immagine (relativo a public/ o src/assets/) */
   src: string;
   /** Alt text per accessibilità */
   alt: string;
@@ -46,6 +48,20 @@ const {
   objectFit = 'cover'
 } = Astro.props;
 
+// Dynamically import all images in src/assets/images
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp,svg}');
+
+// Resolve the correct path in assets for a public path like "/images/banner/pavimento.jpg"
+let assetPath = src;
+if (src.startsWith('/images/')) {
+  assetPath = src.replace('/images/', '/src/assets/images/');
+}
+
+// Find the image metadata
+const imageImport = images[assetPath];
+const isAsset = !!imageImport;
+const imageMetadata = isAsset ? (await imageImport()).default : null;
+
 // Calcola aspect ratio dal width/height se non specificato
 const computedAspectRatio = aspectRatio || `${width} / ${height}`;
 
@@ -63,19 +79,35 @@ const uniqueId = `img-${Math.random().toString(36).substring(2, 9)}`;
       <div class="skeleton-shimmer"></div>
     </div>
   )}
-  <img
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={loading}
-    fetchpriority={fetchpriority}
-    decoding={loading === 'eager' ? 'sync' : 'async'}
-    class:list={['optimized-image', className]}
-    style={`object-fit: ${objectFit};`}
-    onload="this.parentElement.classList.add('loaded')"
-    onerror="this.parentElement.classList.add('error')"
-  />
+  {isAsset ? (
+    <Image
+      src={imageMetadata!}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      fetchpriority={fetchpriority}
+      decoding={loading === 'eager' ? 'sync' : 'async'}
+      class:list={['optimized-image', className]}
+      style={`object-fit: ${objectFit};`}
+      onload="this.parentElement.classList.add('loaded')"
+      onerror="this.parentElement.classList.add('error')"
+    />
+  ) : (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      fetchpriority={fetchpriority}
+      decoding={loading === 'eager' ? 'sync' : 'async'}
+      class:list={['optimized-image', className]}
+      style={`object-fit: ${objectFit};`}
+      onload="this.parentElement.classList.add('loaded')"
+      onerror="this.parentElement.classList.add('error')"
+    />
+  )}
 </div>
 
 <style>

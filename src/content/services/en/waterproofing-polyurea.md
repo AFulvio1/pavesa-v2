@@ -1,37 +1,35 @@
 ---
-title: "Waterproofing and Polyurea"
-description: "Innovative technologies with high-resistance products for industry and private sector. Polyurea is a high-quality elastomer that can be used with excellent results in different fields."
-keywords: ["waterproofing", "polyurea", "elastomer", "roof covering", "tanks", "protection"]
+title: "Spray-Applied Polyurea Waterproofing"
+description: "Continuous waterproofing systems with high-pressure spray-applied polyurea. Ideal for industrial roofs, tanks, and reservoirs without demolition."
+keywords: ["polyurea waterproofing", "spray polyurea", "roof waterproofing", "waterproofing without demolition", "hot polyurea", "cold polyurea"]
 banner: "/images/banner/impermeabilizzazione.jpg"
-alt: "img-waterproofing"
+alt: "img-polyurea-waterproofing"
 weight: 1
-summary: "Innovative technologies with high-resistance products for industry and private sector. Polyurea is a high-quality elastomer that can be used with excellent results in different fields, from roof covering to tank protection and flooring."
+summary: "Continuous waterproofing systems through high-pressure spray-applied polyurea using bi-mixer equipment. Definitive solution without demolition of the old membrane, walkable in just 60 seconds."
 lang: "en"
 ---
 
-## Waterproofing and Polyurea
+## Spray-Applied Polyurea Waterproofing
 
-**PA.VE.SA. srl** offers waterproofing services using innovative technologies and high-resistance products, ideal for both industrial and private sectors.
+**PA.VE.SA. srl** offers continuous waterproofing services using innovative technologies and high-resistance products based on **spray-applied polyurea** with high-pressure bi-mixer systems. This treatment is ideal for both industrial roofs and civil tanks, ensuring fast and durable execution.
 
 ### What is Polyurea?
 
-**Polyurea** is a high-quality elastomer distinguished by its exceptional physical and chemical properties. Thanks to its versatility, it can be applied with excellent results in various fields:
+**Polyurea** is a pure, high-quality elastomer distinguished by its exceptional physical and chemical properties. Thanks to high-pressure spraying, it creates a continuous, joint-free waterproof membrane applicable in various fields:
 
-- **Roof covering** - Waterproof and durable protection for industrial and civil roofing
-- **Tank protection** - Waterproof coating for containment tanks, pools and reservoirs
-- **Flooring** - Creation of waterproof, resistant and flexible floors
-- **Protective coatings** - Protection of surfaces exposed to weather and chemicals
+- **Roof and terrace covering** - Definitive waterproof protection for industrial and civil roofing without removing the old membrane.
+- **Tank and pool protection** - Elastic waterproof lining for containment tanks, swimming pools, and purification systems.
+- **Driveable flooring** - Creation of waterproof floors resistant to vehicular traffic and de-icing salts.
+- **Protective anti-corrosion coatings** - Protection of metal or concrete surfaces exposed to aggressive chemical agents.
 
-### Advantages of Polyurea
+### Advantages of Spray-Applied Polyurea (Zero Demolition)
 
-Polyurea offers numerous advantages over traditional waterproofing systems:
+Spray-applied polyurea offers enormous advantages in terms of cost and time compared to traditional waterproofing systems:
 
-- **High chemical resistance** - Resists the most aggressive chemical agents
-- **Fast application** - Quick drying that reduces downtime
-- **Flexibility** - Adapts to structural movements without breaking
-- **Durability** - Long-lasting with minimal maintenance
-- **Total impermeability** - Complete protection against water infiltration
-- **Mechanical resistance** - Withstands stress and wear
+- **Economic Savings (Zero Demolition)** - Applied directly on the old membrane or existing substrate, eliminating the costs of dismantling, transport, and landfill disposal.
+- **Walkable in 60 seconds** - The curing time takes just a few seconds, allowing immediate resumption of activities in the treated area.
+- **Extraordinary Flexibility and Elasticity** - Elongation exceeding 400%, capable of following any structural movement or cracking of the substrate without breaking.
+- **Continuous joint-free membrane** - Eliminates critical points typical of traditional roll membranes.
 
 ### Applications
 

@@ -8,90 +8,36 @@
  * - i18n completo
  * - Touch target minimi 44px
  */
-
+import { getCollection } from 'astro:content';
 import { useTranslations } from '../i18n/utils';
 import OptimizedImage from './OptimizedImage.astro';
 
 interface Props {
   lang?: 'it' | 'en';
+  showTitle?: boolean;
 }
 
-const { lang = 'it' } = Astro.props;
+const { lang = 'it', showTitle = true } = Astro.props;
 const t = useTranslations(lang);
 
-// Services data by language con alt text migliorati
-const servicesData = {
-  it: [
-    {
-      slug: 'pavimenti',
-      title: 'Pavimenti',
-      summary: 'Le pavimentazioni realizzate dalla PA.VE.SA. srl sono molteplici e a seconda delle esigenze del cliente. Sono caratterizzate da materiali flessibili che permettono di resistere alle sollecitazioni interne ed esterne con grandi prestazioni.',
-      banner: '/images/banner/pavimento.jpg',
-      alt: 'Pavimentazione industriale in resina epossidica',
-      weight: 2
-    },
-    {
-      slug: 'impermeabilizzazione-poliurea',
-      title: 'Impermeabilizzazione',
-      summary: 'Tecnologie innovative con prodotti ad alta resistenza per l\'industria e per il privato. La poliurea è un elastomero di grande qualità che può essere usata con risultati eccellenti in diversi campi, dalla copertura di tetti, alla protezione di vasche, fino alla realizzazione di pavimentazioni.',
-      banner: '/images/banner/impermeabilizzazione.jpg',
-      alt: 'Applicazione impermeabilizzazione in poliurea',
-      weight: 1
-    },
-    {
-      slug: 'verniciatura',
-      title: 'Verniciatura',
-      summary: 'Per la protezione di tutte le superfici, piane e verticali. La PA.VE.SA. srl esegue verniciatura di superfici sia piane che verticali con prodotti bi-componenti acrilici ed altri prodotti specifici, mediante l\'utilizzo di airless ad alta pressione.',
-      banner: '/images/banner/verniciatura.jpg',
-      alt: 'Verniciatura protettiva industriale',
-      weight: 3
-    },
-    {
-      slug: 'sabbiatura',
-      title: 'Sabbiatura',
-      summary: 'Per la pulizia di metalli e altri materiali. La sabbiatura è un processo di pulizia di metalli e di altri materiali. La PA.VE.SA. srl grazie alle proprie attrezzature è in grado di effettuare sabbiature sia a secco sia ad umido.',
-      banner: '/images/banner/sabbiatura.jpg',
-      alt: 'Processo di sabbiatura su superficie metallica',
-      weight: 4
-    }
-  ],
-  en: [
-    {
-      slug: 'flooring',
-      title: 'Flooring',
-      summary: 'Flooring created by PA.VE.SA. srl is varied and tailored to customer needs. Characterized by flexible materials that allow resistance to internal and external stress with excellent performance.',
-      banner: '/images/banner/pavimento.jpg',
-      alt: 'Industrial epoxy resin flooring',
-      weight: 2
-    },
-    {
-      slug: 'waterproofing-polyurea',
-      title: 'Waterproofing',
-      summary: 'Innovative technologies with high-resistance products for industry and private sector. Polyurea is a high-quality elastomer that can be used with excellent results in different fields, from roof covering to tank protection and flooring.',
-      banner: '/images/banner/impermeabilizzazione.jpg',
-      alt: 'Polyurea waterproofing application',
-      weight: 1
-    },
-    {
-      slug: 'painting',
-      title: 'Painting',
-      summary: 'For the protection of all surfaces, flat and vertical. PA.VE.SA. srl performs painting of both flat and vertical surfaces with two-component acrylic products and other specific products, using high-pressure airless systems.',
-      banner: '/images/banner/verniciatura.jpg',
-      alt: 'Industrial protective painting',
-      weight: 3
-    },
-    {
-      slug: 'sandblasting',
-      title: 'Sandblasting',
-      summary: 'For cleaning metals and other materials. Sandblasting is a process for cleaning metals and other materials. PA.VE.SA. srl, thanks to its equipment, is able to perform both dry and wet sandblasting.',
-      banner: '/images/banner/sabbiatura.jpg',
-      alt: 'Sandblasting process on metal surface',
-      weight: 4
-    }
-  ]
-};
+// Query services from content collection dynamically based on language
+const rawServices = await getCollection('services', ({ data }) => {
+  return data.lang === lang;
+});
 
-const services = servicesData[lang].sort((a, b) => a.weight - b.weight);
+const services = rawServices.map(service => {
+  // Extract slug name without locale prefix
+  const slugName = service.slug.split('/').pop() || service.slug;
+  return {
+    slug: slugName,
+    title: service.data.title,
+    summary: service.data.summary,
+    banner: service.data.banner,
+    alt: service.data.alt,
+    weight: service.data.weight,
+  };
+}).sort((a, b) => a.weight - b.weight);
+
 const servicesBasePath = lang === 'it' ? '/servizi' : '/en/services';
 
 // Testi localizzati
@@ -100,68 +46,65 @@ const readMoreText = lang === 'it' ? 'leggi di più' : 'read more';
 const goToPageText = lang === 'it' ? 'vai alla pagina dedicata' : 'go to dedicated page';
 ---
 
-<section class="py-16 bg-white dark:bg-[#121212] transition-colors" aria-labelledby="services-heading">
+<section class="py-16 bg-white dark:bg-[#121212] transition-colors" aria-label={!showTitle ? sectionTitle : undefined} aria-labelledby={showTitle ? "services-heading" : undefined}>
   <div class="container mx-auto px-4">
     <!-- Section Title -->
-    <div class="text-center mb-12">
-      <h2 id="services-heading" class="heading-border text-2xl md:text-3xl font-bold">
-        {sectionTitle}
-      </h2>
-    </div>
+    {showTitle && (
+      <div class="text-center mb-12">
+        <h2 id="services-heading" class="heading-border text-2xl md:text-3xl font-bold">
+          {sectionTitle}
+        </h2>
+      </div>
+    )}
 
     <!-- Services Grid -->
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 list-none p-0 m-0" role="list">
       {services.map((service, index) => (
         <li>
-          <article class="group relative overflow-hidden rounded-lg shadow-lg dark:shadow-black/30 transition-transform duration-300 hover:-translate-y-2 h-full flex flex-col bg-white dark:bg-[#1e1e1e]">
-            <!-- Image Container -->
-            <div class="relative h-52 overflow-hidden">
+          <article class="group relative overflow-hidden rounded-xl border border-black/[0.06] dark:border-white/[0.08] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col bg-white dark:bg-[#1e1e1e]">
+            <!-- Image Container (Clean & Zoom Only) -->
+            <div class="relative h-48 overflow-hidden">
               <OptimizedImage
                 src={service.banner}
                 alt={service.alt}
                 width={400}
                 height={208}
-                class="service-card-image"
+                class="service-card-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 aspectRatio="400 / 208"
                 loading={index < 2 ? 'eager' : 'lazy'}
                 fetchpriority={index < 2 ? 'high' : 'auto'}
               />
-
-              <!-- Overlay -->
-              <div class="service-card-overlay" aria-hidden="true"></div>
-
-              <!-- Hover CTA -->
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                <a
-                  href={`${servicesBasePath}/${service.slug}`}
-                  class="px-6 py-3 min-h-[44px] border-2 border-pavesa-yellow text-white hover:bg-pavesa-yellow hover:text-black transition-all duration-200 inline-flex items-center rounded"
-                  aria-label={`${readMoreText}: ${service.title}`}
-                >
-                  <i class="fas fa-link mr-2" aria-hidden="true"></i>
-                  {readMoreText}
-                </a>
-              </div>
             </div>
 
-            <!-- Content -->
-            <div class="p-6 bg-white dark:bg-[#1e1e1e] flex-1 flex flex-col transition-colors">
-              <h3 class="text-xl font-bold mb-3 text-pavesa-dark dark:text-gray-100">
-                <a
-                  href={`${servicesBasePath}/${service.slug}`}
-                  class="hover:text-pavesa-yellow transition-colors rounded"
-                >
-                  {service.title}
-                </a>
-              </h3>
-              <p class="text-pavesa-gray dark:text-gray-400 mb-4 line-clamp-3 text-sm flex-1">
-                {service.summary}
-              </p>
-              <a
-                href={`${servicesBasePath}/${service.slug}`}
-                class="btn-pavesa-primary inline-block text-sm uppercase tracking-wide self-start"
-              >
-                {goToPageText}
-              </a>
+            <!-- Content Card -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- Semantic Title containing the only Stretched Link -->
+                <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100 flex items-center justify-between mb-2">
+                  <a
+                    href={`${servicesBasePath}/${service.slug}`}
+                    class="hover:text-pavesa-yellow-accessible dark:hover:text-pavesa-yellow transition-colors after:absolute after:inset-0 after:z-10 focus:outline-none"
+                    aria-label={`${service.title} - ${goToPageText}`}
+                  >
+                    {service.title}
+                  </a>
+                  <!-- Sleek visual arrow icon indicator -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-pavesa-yellow-accessible dark:text-pavesa-yellow transform transition-transform duration-300 group-hover:translate-x-1.5 shrink-0 ml-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </h3>
+                <p class="text-pavesa-text-secondary dark:text-gray-400 line-clamp-3 text-sm leading-relaxed">
+                  {service.summary}
+                </p>
+              </div>
             </div>
           </article>
         </li>

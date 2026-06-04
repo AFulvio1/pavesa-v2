@@ -1,4 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+}
+
 @variant dark (&:where(.dark, .dark *));
 
 /* =========================================
@@ -98,7 +103,7 @@
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-sans);
     color: var(--pavesa-text-secondary);
     background-color: var(--pavesa-bg-primary);
     transition: background-color var(--duration-normal) var(--ease-out),
@@ -206,6 +211,13 @@
     color: var(--pavesa-text-primary);
   }
 
+  .heading-border.text-center {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /* ===== BUTTON STYLES (Accessibilità migliorata) ===== */
 
   /* Base button - minimo touch target 44x44px */
@@ -237,7 +249,7 @@
   .btn-pavesa-primary:hover {
     background-color: var(--pavesa-yellow-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(254, 205, 57, 0.4);
+    box-shadow: 0 10px 20px rgba(254, 205, 57, 0.2);
   }
 
   .btn-pavesa-primary:active {
@@ -340,6 +352,7 @@
       transparent 100%
     );
     opacity: 0;
+    backdrop-filter: blur(4px);
     transition: opacity var(--duration-normal) var(--ease-out);
   }
 

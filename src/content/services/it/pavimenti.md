@@ -1,17 +1,17 @@
 ---
-title: "Pavimenti Industriali e Civili"
-description: "Le pavimentazioni realizzate dalla PA.VE.SA. srl sono molteplici e a seconda delle esigenze del cliente. Caratterizzate da materiali flessibili che resistono alle sollecitazioni con grandi prestazioni."
-keywords: ["pavimenti", "pavimentazioni", "resine", "pavimenti industriali", "pavimenti civili"]
+title: "Pavimenti Industriali in Resina"
+description: "Realizzazione di pavimentazioni industriali in resina epossidica, poliuretanica e acrilica. Sistemi certificati HACCP per l'industria alimentare ed ESD."
+keywords: ["pavimenti resina", "pavimentazioni industriali", "resine epossidiche", "pavimenti haccp", "pavimenti esd", "resina poliuretanica"]
 banner: "/images/banner/pavimento.jpg"
-alt: "img-pavimentazione"
+alt: "img-pavimentazione-industriale"
 weight: 2
-summary: "Le pavimentazioni realizzate dalla PA.VE.SA. srl sono molteplici e a seconda delle esigenze del cliente. Sono caratterizzate da materiali flessibili che permettono di resistere alle sollecitazioni interne ed esterne con grandi prestazioni."
+summary: "Realizzazione di pavimentazioni industriali in resina epossidica, poliuretanica e acrilica. Sistemi certificati HACCP per l'industria alimentare e soluzioni ESD antistatiche."
 lang: "it"
 ---
 
-## Pavimenti Industriali e Civili
+## Pavimenti Industriali in Resina
 
-La **PA.VE.SA. srl** è specializzata nella realizzazione di **pavimentazioni industriali e civili** di alta qualità, utilizzando resine e materiali all'avanguardia per garantire resistenza, durabilità e prestazioni eccellenti.
+La **PA.VE.SA. srl** è specializzata nella realizzazione di **pavimentazioni industriali e civili** di alta qualità in resina, utilizzando formulati all'avanguardia per garantire resistenza, durabilità e conformità alle normative vigenti.
 
 ### Tipologie di Pavimentazioni
 

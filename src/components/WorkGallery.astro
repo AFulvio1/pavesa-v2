@@ -4,14 +4,17 @@
  *
  * Galleria prima/durante/dopo con:
  * - Skeleton loading
- * - Hover zoom effect
- * - Layout responsive 1->3 colonne
+ * - Badge sovrapposti per fase
+ * - Connettori di processo (frecce)
+ * - Supporto dark mode e accessibilità migliorati
+ * - Wrapper background per separare istanze multiple
  */
 
 import { useTranslations } from '../i18n/utils';
 import OptimizedImage from './OptimizedImage.astro';
 
 interface Props {
+  title?: string;
   imgPrima: string;
   imgDurante: string;
   imgDopo: string;
@@ -22,6 +25,7 @@ interface Props {
 }
 
 const {
+  title,
   imgPrima,
   imgDurante,
   imgDopo,
@@ -37,66 +41,93 @@ const t = useTranslations(lang);
 const defaultAltPrima = lang === 'it' ? 'Stato prima dell\'intervento' : 'State before intervention';
 const defaultAltDurante = lang === 'it' ? 'Lavori in corso' : 'Work in progress';
 const defaultAltDopo = lang === 'it' ? 'Risultato finale' : 'Final result';
+
+const steps = [
+  {
+    phase: t('work.before'),
+    img: imgPrima,
+    alt: altPrima || defaultAltPrima,
+    badgeClass: 'bg-black/75 text-white',
+    stepNumber: '01'
+  },
+  {
+    phase: t('work.during'),
+    img: imgDurante,
+    alt: altDurante || defaultAltDurante,
+    badgeClass: 'bg-pavesa-yellow text-black font-semibold',
+    stepNumber: '02'
+  },
+  {
+    phase: t('work.after'),
+    img: imgDopo,
+    alt: altDopo || defaultAltDopo,
+    badgeClass: 'bg-pavesa-yellow-accessible text-white font-semibold',
+    stepNumber: '03'
+  }
+];
 ---
 
 <div class="container mx-auto px-4 my-12">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- Prima -->
-    <div class="text-center">
-      <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg mb-4">
-        <OptimizedImage
-          src={imgPrima}
-          alt={altPrima || defaultAltPrima}
-          width={400}
-          height={400}
-          class="gallery-image"
-          aspectRatio="1 / 1"
-        />
-      </div>
-      <h3 class="text-xl font-bold uppercase text-pavesa-dark">
-        {t('work.before')}
+  <div class="bg-gray-50 dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.08] rounded-3xl p-6 md:p-8 shadow-sm">
+    {title && (
+      <h3 class="text-xl md:text-2xl font-bold text-center text-pavesa-dark dark:text-gray-100 mb-8 uppercase tracking-wider">
+        {title}
       </h3>
-    </div>
+    )}
 
-    <!-- Durante -->
-    <div class="text-center">
-      <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg mb-4">
-        <OptimizedImage
-          src={imgDurante}
-          alt={altDurante || defaultAltDurante}
-          width={400}
-          height={400}
-          class="gallery-image"
-          aspectRatio="1 / 1"
-        />
-      </div>
-      <h3 class="text-xl font-bold uppercase text-pavesa-dark">
-        {t('work.during')}
-      </h3>
-    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      {steps.map((step, index) => (
+        <>
+          <!-- Step Card -->
+          <div class="w-full md:flex-1 bg-white dark:bg-[#1e1e1e] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="relative overflow-hidden rounded-xl shadow-inner aspect-square mb-4">
+              <div class="w-full h-full gallery-image-container">
+                <OptimizedImage
+                  src={step.img}
+                  alt={step.alt}
+                  width={400}
+                  height={400}
+                  class="gallery-image w-full h-full object-cover"
+                  aspectRatio="1 / 1"
+                />
+              </div>
+              <!-- Phase Badge Overlay -->
+              <span class={`absolute top-3 left-3 px-3 py-1.5 rounded-lg text-xs uppercase tracking-wider z-20 ${step.badgeClass}`}>
+                {step.phase}
+              </span>
+              <!-- Numerical Step Indicator -->
+              <span class="absolute bottom-3 right-3 text-white/40 text-sm font-mono font-bold z-20">
+                {step.stepNumber}
+              </span>
+              <!-- Ambient Overlay Gradient -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20 pointer-events-none" aria-hidden="true"></div>
+            </div>
+            <h4 class="text-lg font-bold text-center uppercase tracking-wide text-pavesa-dark dark:text-gray-100 py-1">
+              {step.phase}
+            </h4>
+          </div>
 
-    <!-- Dopo -->
-    <div class="text-center">
-      <div class="gallery-image-container overflow-hidden rounded-lg shadow-lg mb-4">
-        <OptimizedImage
-          src={imgDopo}
-          alt={altDopo || defaultAltDopo}
-          width={400}
-          height={400}
-          class="gallery-image"
-          aspectRatio="1 / 1"
-        />
-      </div>
-      <h3 class="text-xl font-bold uppercase text-pavesa-dark">
-        {t('work.after')}
-      </h3>
+          <!-- Flow Connector Arrow (Only show between steps on desktop) -->
+          {index < steps.length - 1 && (
+            <div class="hidden md:flex items-center justify-center text-gray-300 dark:text-gray-700 shrink-0" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 animate-pulse-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          )}
+        </>
+      ))}
     </div>
   </div>
 </div>
 
 <style>
-  .gallery-image-container {
-    position: relative;
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.3; transform: translateX(-2px); }
+    50% { opacity: 0.8; transform: translateX(2px); }
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
   }
 
   .gallery-image-container :global(.optimized-image) {
@@ -107,14 +138,15 @@ const defaultAltDopo = lang === 'it' ? 'Risultato finale' : 'Final result';
     transform: scale(1.05);
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .gallery-image-container :global(.optimized-image) {
       transition: none;
     }
-
     .gallery-image-container:hover :global(.optimized-image) {
       transform: none;
+    }
+    .animate-pulse-slow {
+      animation: none;
     }
   }
 </style>
