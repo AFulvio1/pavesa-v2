@@ -1,5 +1,5 @@
 ---
-title: "Lavori Edili"
+title: "Lavori Edili e Restauro"
 description: "Lavori edili quali la tinteggiatura di muri, rasatura di pareti e piccoli lavori in muratura."
 keywords: ["rasatura", "pareti", "muratura", "muri", "tinteggiatura", "edilizia", "sabbiatura"]
 banner: "/images/banner/lavori-edili.jpg"
@@ -9,18 +9,34 @@ summary: "Lavori edili quali la tinteggiatura di muri, rasatura di pareti e picc
 lang: "it"
 ---
 
-## Lavori Edili
+## Lavori Edili e Restauro Conservativo
 
-Dotata di un impianto mobile per la sabbiatura, la nostra ditta è in grado di compiere restauri e fornire trattamenti anche su immobili e tutto ciò che riguarda l'edilizia. Attraverso la microsabbiatura si ottiene un'accurata pulizia di travature, sottotetti in legno e muratura in genere.
+La **PA.VE.SA. srl** offre servizi completi per l'**edilizia civile e industriale**, combinando le lavorazioni edili tradizionali con le più moderne tecniche di restauro e risanamento conservativo. Grazie alla disponibilità di impianti mobili autonomi, siamo in grado di eseguire ristrutturazioni esterne ed interne, ripristino di facciate e interventi di risanamento su qualsiasi tipo di edificio.
 
-La ditta **PA.VE.SA. srl** scrosta e pulisce muratura da intonaci cadenti, sabbia calcestruzzi, mattoni, pietre e marmi faccia a vista. Inoltre, offre trattamenti impermeabilizzanti professionali contro muffe ed intemperie.
+Dalla tinteggiatura industriale alla microsabbiatura di superfici storiche pregiate, offriamo soluzioni chiavi in mano per preservare e rivalutare il tuo patrimonio immobiliare.
 
-Su facciate esterne adottiamo la tecnica dell'idrosabbiatura per abbattere fortemente la produzione di polveri leggere e garantire il rispetto dell'ambiente e dei contesti urbani.
+---
 
-### I nostri interventi in edilizia
+### La Nostra Gamma di Interventi Edili
 
-- **Tinteggiatura e pitturazione** - Pitturazioni civili e industriali con prodotti di alta qualità resistenti agli agenti atmosferici.
-- **Rasatura e finitura pareti** - Preparazione accurata delle superfici per una finitura liscia ed esteticamente impeccabile.
-- **Ripristino intonaci e muratura** - Rimozione di intonaci degradati e rifacimento di porzioni murarie.
-- **Trattamenti anti-muffa e protettivi** - Applicazione di soluzioni protettive durature contro umidità, alghe e muffe.
-- **Pulizia e restauro facciate** - Rimozione dello smog, dei graffiti e dei segni del tempo tramite idrosabbiatura a pressione controllata.
+*   **Tinteggiatura e Pitturazione**: Tinteggiature interne ed esterne per edifici residenziali, commerciali e capannoni industriali. Utilizziamo pitture silossaniche, al quarzo o acriliche ad alta resistenza agli agenti atmosferici.
+*   **Ripristino Calcestruzzo Armato**: Interventi di rimozione del calcestruzzo ammalorato, passivazione dei ferri d'armatura ossidati e ricostruzione volumetrica con malte antiritiro tixotropiche.
+*   **Restauro Facciate e Murature Faccia a Vista**: Pulizia profonda e rimozione dello smog mediante idrosabbiatura a pressione controllata o microsabbiatura, ideale per mattoni e pietre naturali.
+*   **Finiture, Rasature e Cartongesso**: Realizzazione di opere interne, pareti divisorie, controsoffitti e rasature a gesso per superfici perfettamente planari.
+
+---
+
+### Trattamenti Protettivi e Risanamento
+
+> [!TIP]
+> **Soluzioni Anti-Umidità e Muffa**: Applichiamo cicli completi di risanamento termico ed antimuffa per eliminare definitivamente i ponti termici e le infiltrazioni di umidità di risalita.
+
+*   **Impermeabilizzazione Balconi e Terrazzi**: Trattamenti impermeabilizzanti elastici senza demolizione delle mattonelle esistenti.
+*   **Trattamenti Idrorepellenti per Pietre e Mattoni**: Applicazione di protettivi silossanici invisibili che impediscono all'acqua di penetrare nei pori, lasciando respirare la muratura.
+*   **Rimozione Muffe e Alghe**: Trattamenti biocidi certificati per sanificare le pareti prima della pitturazione.
+
+---
+
+### Professionalità e Sicurezza in Cantiere
+
+Tutti i nostri cantieri sono gestiti da personale qualificato e costantemente formato in materia di sicurezza (D.Lgs. 81/08). La PA.VE.SA. srl dispone di attrezzature e ponteggi propri, garantendo una gestione rapida, efficiente e senza intermediari di tutte le fasi lavorative. Offriamo consulenza tecnica per l'accesso alle detrazioni fiscali vigenti in materia di ristrutturazione edilizia.

@@ -1,54 +1,49 @@
 ---
-title: "Spray-Applied Polyurea Waterproofing"
-description: "Continuous waterproofing systems with high-pressure spray-applied polyurea. Ideal for industrial roofs, tanks, and reservoirs without demolition."
-keywords: ["polyurea waterproofing", "spray polyurea", "roof waterproofing", "waterproofing without demolition", "hot polyurea", "cold polyurea"]
+title: "Polyurea Spray Waterproofing"
+description: "Continuous waterproofing systems with high-pressure spray polyurea. Ideal for industrial roofs, basins, and tanks without demolition."
+keywords: ["polyurea waterproofing", "spray polyurea", "roof waterproofing", "waterproofing without demolition", "cold polyurea", "hot polyurea"]
 banner: "/images/banner/impermeabilizzazione.jpg"
 alt: "img-polyurea-waterproofing"
 weight: 1
-summary: "Continuous waterproofing systems through high-pressure spray-applied polyurea using bi-mixer equipment. Definitive solution without demolition of the old membrane, walkable in just 60 seconds."
+summary: "Continuous waterproofing systems using high-pressure spray polyurea applied with bi-mixer systems. The ultimate solution without demolishing old membranes, trafficable in just 60 seconds."
 lang: "en"
 ---
 
-## Spray-Applied Polyurea Waterproofing
+## Polyurea Spray Waterproofing
 
-**PA.VE.SA. srl** offers continuous waterproofing services using innovative technologies and high-resistance products based on **spray-applied polyurea** with high-pressure bi-mixer systems. This treatment is ideal for both industrial roofs and civil tanks, ensuring fast and durable execution.
+**PA.VE.SA. srl** offers state-of-the-art continuous waterproofing systems using innovative, high-resistance **spray-applied polyurea** with high-pressure bi-mixer equipment. This methodology represents the most modern and effective solution to permanently resolve water infiltration issues in any structure, whether civil or industrial.
 
-### What is Polyurea?
+Applied hot at high pressure, the polyurea reacts instantly to create a seamless, highly elastic membrane. Free of joints and seams, it adapts perfectly to complex geometries and various substrates.
 
-**Polyurea** is a pure, high-quality elastomer distinguished by its exceptional physical and chemical properties. Thanks to high-pressure spraying, it creates a continuous, joint-free waterproof membrane applicable in various fields:
+### Key Applications
 
-- **Roof and terrace covering** - Definitive waterproof protection for industrial and civil roofing without removing the old membrane.
-- **Tank and pool protection** - Elastic waterproof lining for containment tanks, swimming pools, and purification systems.
-- **Driveable flooring** - Creation of waterproof floors resistant to vehicular traffic and de-icing salts.
-- **Protective anti-corrosion coatings** - Protection of metal or concrete surfaces exposed to aggressive chemical agents.
+*   **Industrial & Civil Roofs**: Definitive waterproof protection for roofs, terraces, and flat decks without removing the existing bitumen membrane or floor.
+*   **Containment Basins & Treatment Tanks**: Seamless, chemical-resistant elastic lining for water basins, treatment plants, tanks, and pools.
+*   **Vehicular Decks & Ramps**: Hard-wearing, waterproof coatings resistant to heavy vehicle traffic and de-icing salts.
+*   **Anticorrosive Protection**: Waterproof and anti-corrosion linings for metallic surfaces or concrete structures exposed to highly aggressive environments.
 
-### Advantages of Spray-Applied Polyurea (Zero Demolition)
+---
 
-Spray-applied polyurea offers enormous advantages in terms of cost and time compared to traditional waterproofing systems:
+### The Advantages of Polyurea (The "Zero Demolition" Technology)
 
-- **Economic Savings (Zero Demolition)** - Applied directly on the old membrane or existing substrate, eliminating the costs of dismantling, transport, and landfill disposal.
-- **Walkable in 60 seconds** - The curing time takes just a few seconds, allowing immediate resumption of activities in the treated area.
-- **Extraordinary Flexibility and Elasticity** - Elongation exceeding 400%, capable of following any structural movement or cracking of the substrate without breaking.
-- **Continuous joint-free membrane** - Eliminates critical points typical of traditional roll membranes.
+Choosing spray-applied polyurea delivers exceptional operational and economic benefits compared to traditional waterproofing methods:
 
-### Applications
+> [!TIP]
+> **Zero Demolition and Disposal Costs**: Polyurea is applied directly onto the existing substrate (bituminous membranes, concrete, metal, wood), completely eliminating costs associated with dismantling, transporting, and landfilling old materials.
 
-Our polyurea waterproofing systems are ideal for:
+*   **Fast Return to Service (Trafficable in 60 seconds)**: The product's curing time is immediate. The surface is walkable within one minute of application, minimizing site downtime and operational interruptions.
+*   **Outstanding Flexibility and Elasticity**: With elongation at break exceeding **400%**, polyurea effectively absorbs structural movements and substrate micro-cracks without rupturing.
+*   **Seamless Monolithic Membrane**: Spray application creates a single, continuous shield, eliminating the critical overlap points common in traditional sheet rolls.
+*   **Chemical & Mechanical Resistance**: Excellent stability in contact with acids, bases, hydrocarbons, and remarkable resistance to punctures and abrasion.
 
-- Industrial plants
-- Commercial buildings
-- Civil structures
-- Terraces and balconies
-- Parking lots and ramps
-- Containment tanks
-- Tanks and cisterns
+---
 
-### State-of-the-Art Technologies
+### Technology and Service Quality
 
-PA.VE.SA. srl uses **professional equipment** and certified products from the best international manufacturers, ensuring top-quality results compliant with current regulations.
+PA.VE.SA. srl utilizes exclusively **professional Graco bi-mixer equipment** operating at high pressure and controlled temperatures, ensuring the perfect mixing and chemical reaction of the components. Our technical staff undergoes continuous training to deliver flawless on-site execution.
 
-Our team of specialists is able to design and implement custom solutions for every need, from initial analysis to installation and final testing.
+Every project is preceded by a thorough substrate analysis and customized mechanical preparation (shot-blasting, grinding, or hydro-washing) to guarantee maximum adhesion of the membrane.
 
 ### Certifications and Warranties
 
-All our interventions are carried out according to **UNI EN** standards and are covered by warranty. We are **ISO 9001:2015** certified and work in partnership with major waterproofing system manufacturers.
+All our interventions are carried out in compliance with **UNI EN** standards and covered by insurance warranties. Our company is **ISO 9001:2015** certified and works in synergy with the world's leading manufacturers of resins and protective membranes, using materials certified with European Technical Assessment (ETA).

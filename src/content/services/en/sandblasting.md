@@ -1,110 +1,49 @@
 ---
 title: "Industrial Sandblasting"
-description: "For cleaning metals and other materials. PA.VE.SA. srl, thanks to its equipment, is able to perform both dry and wet sandblasting."
+description: "For cleaning metals and other materials. Thanks to its advanced machinery, PA.VE.SA. srl is able to perform both dry and wet sandblasting."
 keywords: ["sandblasting", "industrial sandblasting", "metal cleaning", "dry sandblasting", "wet sandblasting"]
 banner: "/images/banner/sabbiatura.jpg"
 alt: "img-sandblasting"
 weight: 4
-summary: "For cleaning metals and other materials. Sandblasting is a process for cleaning metals and other materials. PA.VE.SA. srl, thanks to its equipment, is able to perform both dry and wet sandblasting."
+summary: "For cleaning metals and other materials. Sandblasting is a surface cleaning and preparation process. Thanks to its advanced equipment, PA.VE.SA. srl is able to execute both dry and wet sandblasting."
 lang: "en"
 ---
 
-## Industrial Sandblasting
+## Industrial Sandblasting & Surface Restoration
 
-**PA.VE.SA. srl** specializes in **industrial sandblasting** for cleaning and preparing metal surfaces and other materials, using professional equipment and state-of-the-art techniques.
+**PA.VE.SA. srl** specializes in **industrial and civil sandblasting**, an essential process for deep cleaning, paint stripping, and mechanical preparation of metal, concrete, and stone surfaces. With a technologically advanced fleet of mobile machinery and certified eco-friendly abrasives, we perform operations both on-site and at our workshops.
 
-### Types of Sandblasting
+Sandblasting is the benchmark standard for removing rust, scale, old coatings, and contaminants, returning the material to its original state and ensuring optimal adhesion for subsequent treatments.
 
-We offer different sandblasting solutions based on specific requirements:
+---
 
-#### Dry Sandblasting
+### Our Sandblasting Methodologies
 
-**Dry sandblasting** uses compressed air to project abrasive materials onto the surface to be treated:
+*   **Dry Sandblasting**: Projects abrasive media using high-flow compressed air. The most common and effective method for heavy structural steel, piping, tanks, and iron structures.
+*   **Wet Sandblasting / Hydro-Blasting**: Controlled mixing of water and abrasive. This technique cuts up to **95% of airborne dust**, making it perfect for historical centers, urban environments, and confined spaces.
+*   **Micro-Sandblasting & Eco-Blasting**: Utilizes very fine abrasives at low pressure (such as sodium bicarbonate or walnut shells) for the conservation and cleaning of wood, premium marble, and historical monuments without damaging the substrate.
 
-- **Silica sand** - For deep cleaning and rust removal
-- **Metal shot** - For metal surfaces with uniform finish
-- **Corundum** - For hard and resistant materials
-- **Glass microbeads** - For delicate and decorative finishes
-- **Calcium carbonate** - For sensitive surfaces
+---
 
-#### Wet Sandblasting (Hydro-sandblasting)
+### Abrasive Media Selected per Substrate
 
-**Wet sandblasting** combines water and abrasive, offering specific advantages:
+> [!NOTE]
+> **Substrate Care**: Each material requires a specific abrasive in terms of hardness and grain size. Our engineers carefully select the ideal combination to avoid deformation or damage to your assets.
 
-- **Dust reduction** - Safer work environment
-- **Less wear** - Protection of delicate surfaces
-- **Greater effectiveness** - Optimal removal of contaminants
-- **Eco-compatibility** - Reduced environmental impact
+*   **Aluminum Oxide (Corundum)**: Ideal for hard metals, stainless steel, and creating a sharp profile for pre-painting.
+*   **Steel Shot / Grit**: Used for heavy cleaning, rust scale removal, and shot peening of structural steel.
+*   **Glass Beads**: Perfect for satin-finishing stainless steel, aluminum, and non-ferrous metals to produce a smooth, matte finish.
+*   **Eco-Friendly Mineral Media**: Free of free silica, allowing for safe operations that protect both health and the environment.
 
-### Applications
+---
 
-Sandblasting is essential for:
+### Main Fields of Application
 
-#### Surface Preparation
+*   **Structural Steel & Industrial Tanks**: Rust removal and surface profile preparation for high-performance protective coating cycles.
+*   **Civil Engineering & Restoration**: Cleaning of exposed bricks, natural stone, concrete facades, and graffiti removal.
+*   **Wood Restoration**: Safe paint stripping and restoration of historical timber beams, wooden ceilings, and facades.
+*   **Industrial Maintenance**: Cleaning of industrial molds, heat exchangers, and processing machinery.
 
-- **Pre-painting** - Optimal preparation for maximum adhesion
-- **Pre-galvanizing** - Cleaning before galvanic treatments
-- **Pre-welding** - Removal of oxides and impurities
+### Safety and Environmental Care
 
-#### Cleaning and Restoration
-
-- **Rust removal** - Complete elimination of corrosion
-- **Old paint removal** - Stripping of obsolete coatings
-- **Structure cleaning** - Restoration of metal frameworks
-- **Mold cleaning** - Maintenance of industrial equipment
-
-#### Aesthetic Finishing
-
-- **Satining** - Uniform matte finish
-- **Shot peening** - Decorative texture
-- **Paint stripping** - Restoration of original appearance
-
-### Treatable Materials
-
-Our experience covers various materials:
-
-- **Carbon steel** - Structures, frameworks, tanks
-- **Stainless steel** - Food, chemical, pharmaceutical plants
-- **Aluminum** - Fixtures, mechanical components
-- **Metal alloys** - Bronze, brass, copper
-- **Concrete** - Floors, walls, prefabricated elements
-- **Natural stone** - Facades, monuments
-
-### Advantages of Sandblasting
-
-- **Deep cleaning** - Complete removal of contaminants
-- **Optimal preparation** - Ideal surface for subsequent treatments
-- **Versatility** - Suitable for any geometry and size
-- **Efficiency** - Reduced time compared to manual methods
-- **Uniformity** - Homogeneous result over entire surface
-- **Eco-sustainability** - Possibility to recycle abrasive
-
-### Application Sectors
-
-We operate in various fields:
-
-- **Metalworking industry** - Steel frameworks, foundries, workshops
-- **Shipbuilding** - Hulls, marine components
-- **Oil industry** - Tanks, pipelines, platforms
-- **Restoration** - Monuments, artworks, historic structures
-- **Construction** - Facades, metal structures, bridges
-- **Automotive** - Frames, bodies, components
-
-### Professional Equipment
-
-PA.VE.SA. srl has:
-
-- **Mobile sandblasters** - For on-site interventions
-- **Sandblasting cabins** - For work in controlled environment
-- **High-power compressors** - Ensure constant pressure
-- **Extraction systems** - For operator safety
-- **Hydro-sandblasting equipment** - With water recovery and recycling
-
-### Safety and Regulations
-
-All our interventions are carried out in compliance with safety regulations:
-
-- **Certified PPE** - Complete equipment for operators
-- **Environmental protection** - Containment of dust and residues
-- **Regulatory compliance** - Respect for UNI EN directives
-- **ISO 9001:2015 certification** - Quality management system
+Our company operates in strict compliance with safety regulations and environmental directives. We use exclusively approved, non-toxic abrasives accompanied by official safety data sheets. Furthermore, we employ advanced containment and extraction systems to protect our operators and guarantee a clean work environment.

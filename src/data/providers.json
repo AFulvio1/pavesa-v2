@@ -43,7 +43,7 @@
   },
   {
     "name": "Imer",
-    "image": "/images/fornitori/imer.jpg",
+    "image": "/images/fornitori/imer.png",
     "url": "https://www.imergroup.com/en/jsp/Template1/HomePage.jsp",
     "alt": "logo-Imer"
   },
@@ -73,7 +73,7 @@
   },
   {
     "name": "Vespa",
-    "image": "/images/fornitori/vespa.jpg",
+    "image": "/images/fornitori/vespa.png",
     "url": "https://www.vespatools.com/",
     "alt": "logo-Vespa"
   }

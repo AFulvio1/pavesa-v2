@@ -179,6 +179,21 @@ const { title, description, keywords, banner, alt } = service.data;
 // Get current slug
 const currentSlug = service.slug.replace('en/', '');
 const galleryData = galleriesConfig[currentSlug];
+
+// Get other services for sidebar
+const allServices = await getCollection('services', ({ id }) => {
+  return id.startsWith('en/');
+});
+
+const otherServices = allServices
+  .filter(s => s.slug.replace('en/', '') !== currentSlug)
+  .map(s => {
+    const slugName = s.slug.replace('en/', '');
+    return {
+      title: s.data.title,
+      url: `/en/services/${slugName}`
+    };
+  });
 ---
 
 <BaseLayout
@@ -187,19 +202,7 @@ const galleryData = galleriesConfig[currentSlug];
   keywords={keywords}
   lang="en"
 >
-  <!-- Hero Image Section -->
-  <section class="relative h-[50vh] min-h-[400px] md:h-[60vh] overflow-hidden bg-gray-900">
-    <img
-      src={banner}
-      alt={alt}
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex items-center justify-center text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-bold text-white uppercase tracking-wider text-shadow-lg animate-fade-in-up">
-        {title}
-      </h1>
-    </div>
-  </section>
+
 
   <!-- Breadcrumb -->
   <div class="bg-gray-100 dark:bg-[#1e1e1e] py-3 transition-colors">
@@ -227,13 +230,110 @@ const galleryData = galleriesConfig[currentSlug];
   </div>
 
   <!-- Content Section -->
-  <section class="py-16 bg-white dark:bg-[#121212] transition-colors">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <!-- Service Content -->
-        <article class="prose prose-lg max-w-none dark:prose-invert">
-          <Content />
-        </article>
+  <section class="py-12 bg-white dark:bg-[#121212] transition-colors">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <!-- Title -->
+          <div class="mb-8">
+            <h1 class="heading-border text-3xl md:text-4xl font-bold dark:text-gray-100">
+              {title}
+            </h1>
+          </div>
+          <!-- Service Content -->
+          <article class="prose prose-lg max-w-none dark:prose-invert service-content">
+             <Content />
+           </article>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <aside class="space-y-8 lg:sticky lg:top-24">
+            <!-- Other Services Card -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] border border-black/5 dark:border-white/5 rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100 uppercase tracking-wider border-b-2 border-pavesa-yellow pb-2 mb-4">
+                Other Services
+              </h3>
+              <ul class="space-y-2.5">
+                {otherServices.map(item => (
+                  <li>
+                    <a
+                      href={item.url}
+                      class="flex items-center text-sm font-medium text-pavesa-dark dark:text-gray-300 hover:text-pavesa-yellow dark:hover:text-pavesa-yellow transition-colors duration-200"
+                    >
+                      <i class="fas fa-chevron-right text-xs mr-2 text-pavesa-yellow"></i>
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Certifications & Quality Card -->
+            <div class="bg-gray-50 dark:bg-[#1e1e1e] border border-black/5 dark:border-white/5 rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-pavesa-dark dark:text-gray-100 uppercase tracking-wider border-b-2 border-pavesa-yellow pb-2 mb-4">
+                Why Choose Us
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-pavesa-yellow/10 flex items-center justify-center text-pavesa-yellow mr-3 mt-0.5">
+                    <i class="fas fa-certificate text-sm"></i>
+                  </span>
+                  <div>
+                    <h4 class="text-sm font-bold text-pavesa-dark dark:text-gray-100">SOA Certification</h4>
+                    <p class="text-xs text-pavesa-gray dark:text-gray-400 mt-1">Authorized to execute major public infrastructure works.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-pavesa-yellow/10 flex items-center justify-center text-pavesa-yellow mr-3 mt-0.5">
+                    <i class="fas fa-users-gear text-sm"></i>
+                  </span>
+                  <div>
+                    <h4 class="text-sm font-bold text-pavesa-dark dark:text-gray-100">Decades of Experience</h4>
+                    <p class="text-xs text-pavesa-gray dark:text-gray-400 mt-1">Over 10 years specializing in industrial flooring and treatments.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-pavesa-yellow/10 flex items-center justify-center text-pavesa-yellow mr-3 mt-0.5">
+                    <i class="fas fa-handshake text-sm"></i>
+                  </span>
+                  <div>
+                    <h4 class="text-sm font-bold text-pavesa-dark dark:text-gray-100">Official Partners</h4>
+                    <p class="text-xs text-pavesa-gray dark:text-gray-400 mt-1">Exclusive use of certified products from Sika and Master Builders.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-pavesa-yellow/10 flex items-center justify-center text-pavesa-yellow mr-3 mt-0.5">
+                    <i class="fas fa-truck-fast text-sm"></i>
+                  </span>
+                  <div>
+                    <h4 class="text-sm font-bold text-pavesa-dark dark:text-gray-100">Nationwide Service</h4>
+                    <p class="text-xs text-pavesa-gray dark:text-gray-400 mt-1">Prompt installations across Italy with our own specialized fleet.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="bg-pavesa-dark dark:bg-[#1a1a1a] text-white rounded-xl p-6 shadow-sm border border-white/5 relative overflow-hidden">
+              <div class="absolute -right-12 -bottom-12 w-36 h-36 bg-pavesa-yellow/10 rounded-full blur-xl"></div>
+              <h3 class="text-lg font-bold uppercase tracking-wider mb-2 relative z-10 text-white">
+                Request a Quote
+              </h3>
+              <p class="text-xs text-gray-300 mb-5 leading-relaxed relative z-10">
+                Need a custom solution for your facility? Our engineering team is ready to analyze your requirements.
+              </p>
+              <a
+                href="/en/contact"
+                class="inline-flex items-center justify-center w-full py-3 px-4 bg-pavesa-yellow hover:bg-pavesa-yellow-accessible text-pavesa-dark font-bold rounded-lg transition-colors duration-200 uppercase tracking-wider text-xs relative z-10"
+              >
+                Contact Us Now
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
   </section>
@@ -388,4 +488,176 @@ const galleryData = galleriesConfig[currentSlug];
   :global(.dark) .prose a {
     color: var(--pavesa-yellow);
   }
+
+  /* Accordion Styles */
+  .prose :global(.accordion-header) {
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0 !important;
+  }
+  .prose :global(.accordion-header.active) {
+    border-bottom-color: var(--pavesa-yellow) !important;
+    color: var(--pavesa-yellow-accessible) !important;
+  }
+  :global(.dark) .prose :global(.accordion-header.active) {
+    color: var(--pavesa-yellow) !important;
+  }
+  .prose :global(.accordion-panel) {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+  }
+
+  /* Nested Accordion Styles */
+  .prose :global(.nested-panel) {
+    transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  }
+  .prose :global(.nested-header.active) {
+    color: var(--pavesa-yellow-accessible) !important;
+  }
+  :global(.dark) .prose :global(.nested-header.active) {
+    color: var(--pavesa-yellow) !important;
+  }
+  .prose :global(.nested-accordion) {
+    padding-left: 0 !important;
+  }
+  .prose :global(.nested-accordion::before) {
+    display: none !important;
+  }
 </style>
+
+<script>
+  function initServiceAccordions() {
+    const content = document.querySelector('.service-content');
+    if (!content) return;
+
+    const headings = content.querySelectorAll('h3');
+    headings.forEach((heading, index) => {
+      // Prevent double-initialization
+      if (heading.classList.contains('accordion-header')) return;
+
+      const titleText = heading.innerHTML;
+      heading.innerHTML = `<span class="accordion-title font-bold text-lg md:text-xl text-pavesa-dark dark:text-gray-100 group-hover:text-pavesa-yellow transition-colors">${titleText}</span>`;
+
+      // Setup classes
+      heading.className = 'accordion-header group flex items-center justify-between cursor-pointer py-4 border-b border-black/10 dark:border-white/10 select-none text-left w-full';
+
+      // Chevron Icon
+      const iconContainer = document.createElement('span');
+      iconContainer.className = 'flex-shrink-0 w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors duration-200 group-hover:bg-pavesa-yellow/10 ml-4';
+      iconContainer.innerHTML = '<i class="fas fa-chevron-down text-xs text-pavesa-gray group-hover:text-pavesa-yellow transition-transform duration-200"></i>';
+      heading.appendChild(iconContainer);
+
+      const icon = iconContainer.querySelector('i');
+
+      // Collect sibling elements until the next H3
+      const contentNodes: Element[] = [];
+      let next = heading.nextElementSibling;
+      while (next && next.tagName !== 'H3' && next.tagName !== 'H2') {
+        contentNodes.push(next);
+        next = next.nextElementSibling;
+      }
+
+      // Create panel wrapper
+      const panel = document.createElement('div');
+      panel.className = 'accordion-panel overflow-hidden transition-all duration-300 max-h-0 opacity-0';
+
+      // Insert panel
+      heading.parentNode?.insertBefore(panel, heading.nextSibling);
+      contentNodes.forEach(node => panel.appendChild(node));
+
+      // Parse nested accordions inside the panel
+      const listItems = panel.querySelectorAll('ul > li');
+      listItems.forEach(li => {
+        const strong = li.querySelector('strong');
+        if (strong && (li.firstElementChild === strong || li.firstElementChild?.contains(strong))) {
+          li.classList.add('nested-accordion', 'border-b', 'border-black/5', 'dark:border-white/5', 'pb-2.5', 'mb-2.5', 'list-none');
+
+          const subHeader = document.createElement('div');
+          subHeader.className = 'nested-header flex items-center justify-between cursor-pointer py-1.5 font-semibold text-pavesa-dark dark:text-gray-200 group/sub select-none text-sm md:text-base';
+          
+          strong.parentNode?.insertBefore(subHeader, strong);
+          subHeader.appendChild(strong);
+
+          const subIcon = document.createElement('i');
+          subIcon.className = 'fas fa-chevron-down text-[10px] text-pavesa-gray group-hover/sub:text-pavesa-yellow transition-transform duration-200 ml-2';
+          subHeader.appendChild(subIcon);
+
+          const subContentNodes: Node[] = [];
+          let child = subHeader.nextSibling;
+          while (child) {
+            subContentNodes.push(child);
+            child = child.nextSibling;
+          }
+
+          const subPanel = document.createElement('div');
+          subPanel.className = 'nested-panel overflow-hidden transition-all duration-200 max-h-0 opacity-0 text-sm leading-relaxed text-pavesa-gray dark:text-gray-400 mt-1';
+          li.appendChild(subPanel);
+
+          subContentNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && node.nodeValue) {
+              node.nodeValue = node.nodeValue.replace(/^[:\s\-\–\—]+/g, '');
+            }
+            subPanel.appendChild(node);
+          });
+
+          subHeader.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isSubOpen = subHeader.classList.contains('active');
+            if (isSubOpen) {
+              subHeader.classList.remove('active');
+              subIcon.classList.remove('rotate-180');
+              subPanel.style.maxHeight = '0';
+              subPanel.style.opacity = '0';
+            } else {
+              subHeader.classList.add('active');
+              subIcon.classList.add('rotate-180');
+              subPanel.style.maxHeight = subPanel.scrollHeight + 20 + 'px';
+              subPanel.style.opacity = '1';
+              
+              if (panel.style.maxHeight !== 'none') {
+                panel.style.maxHeight = panel.scrollHeight + subPanel.scrollHeight + 50 + 'px';
+              }
+            }
+          });
+        }
+      });
+
+      // Open the first accordion section by default
+      if (index === 0) {
+        heading.classList.add('active');
+        icon?.classList.add('rotate-180');
+        iconContainer.classList.add('bg-pavesa-yellow/10');
+        icon?.classList.replace('text-pavesa-gray', 'text-pavesa-yellow');
+        panel.classList.add('py-4');
+        setTimeout(() => {
+          panel.style.maxHeight = panel.scrollHeight + 50 + 'px';
+          panel.style.opacity = '1';
+        }, 100);
+      }
+
+      // Event listener
+      heading.addEventListener('click', () => {
+        const isOpen = heading.classList.contains('active');
+        if (isOpen) {
+          heading.classList.remove('active');
+          icon?.classList.remove('rotate-180');
+          iconContainer.classList.remove('bg-pavesa-yellow/10');
+          icon?.classList.replace('text-pavesa-yellow', 'text-pavesa-gray');
+          panel.style.maxHeight = '0';
+          panel.style.opacity = '0';
+          panel.classList.remove('py-4');
+        } else {
+          heading.classList.add('active');
+          icon?.classList.add('rotate-180');
+          iconContainer.classList.add('bg-pavesa-yellow/10');
+          icon?.classList.replace('text-pavesa-gray', 'text-pavesa-yellow');
+          panel.classList.add('py-4');
+          panel.style.maxHeight = panel.scrollHeight + 50 + 'px';
+          panel.style.opacity = '1';
+        }
+      });
+    });
+  }
+
+  // Load and swap support for Astro View Transitions
+  document.addEventListener('astro:page-load', initServiceAccordions);
+</script>

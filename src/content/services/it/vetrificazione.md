@@ -11,28 +11,41 @@ lang: "it"
 
 ## Vetrificazione Vasi Vinari e Cisterne Alimentari
 
-Un altro tipo di verniciatura, in particolare riguardante le superfici interne di vasche in c.a. e silos in ferro che vengono a contatto con alimenti e acqua potabile, è la **vetrificazione**.
+La **PA.VE.SA. srl** offre servizi altamente specializzati di **vetrificazione** per il rivestimento interno protettivo di vasche in cemento armato e silos in ferro destinati a contenere liquidi alimentari, vino e acqua potabile. Questo trattamento avanzato crea una barriera vetrosa, impermeabile ed estremamente liscia, che impedisce la migrazione di sostanze e garantisce la purezza organolettica del prodotto stoccato.
 
-> **CERTIFICATO PER IL CONTATTO ALIMENTARE SECONDO REGOLAMENTO UE N. 10/2011 DELLA COMMISSIONE DEL 14/1/2011**
+Operiamo in conformità con i più severi regolamenti igienico-sanitari nazionali ed europei.
 
-Uno dei principali partner della **PA.VE.SA. srl** è la **MASTER BUILDERS SOLUTIONS ITALIA SPA**, azienda mondiale che offre soluzioni e prodotti in grado di aumentare l'efficienza delle lavorazioni, la durabilità dei manufatti e il risparmio energetico degli edifici.
+---
 
-La MASTER BUILDERS SOLUTIONS ITALIA SPA è l'azienda fornitrice del prodotto **MASTERSEAL M 391**, un rivestimento epossidico bicomponente, privo di ammine aromatiche, ftalati e alcool benzilico, a finitura lucida e certificato per il contatto con alimenti secondo Regolamento UE n. 10/2011 della Commissione del 14/1/2011.
+### Soluzioni Certificate per il Contatto Alimentare
 
-MASTERSEAL M 391 è indicato principalmente per la vetrificazione dei vasi vinari, delle cisterne per il contenimento dell'olio, acqua potabile e tutti gli alimenti previsti dal Regolamento.
+> [!IMPORTANT]
+> **Certificato UE N. 10/2011 e DM 174/2004**: Tutti i nostri rivestimenti sono testati per la migrazione specifica e certificati per il contatto diretto con sostanze alimentari, bevande e acqua destinata al consumo umano.
 
-### Versioni disponibili e colorazioni specifiche
+In qualità di applicatori fiduciari di **Master Builders Solutions**, utilizziamo il sistema **MasterSeal M 391** (precedentemente noto come Mastertop 391), un rivestimento epossidico bicomponente puro (100% solidi), privo di solventi, alcol benzilico, ftalati e ammine aromatiche.
 
-- **GIALLA** - Specifica per il contatto con il vino e, per questioni cromatiche, indicato preferibilmente per quello bianco.
-- **ROSSA** - Specifica per il contatto con il vino e, per questioni cromatiche, indicato preferibilmente per quello rosso.
-- **CELESTE e BIANCO** - Specifici per il contatto con acqua potabile, olio, cereali ed altre sostanze alimentari.
+#### Applicazioni e Varianti Cromatiche Specifiche
 
-### Caratteristiche Peculiari del Trattamento
+*   **Finitura GIALLA**: Specifica per il contatto con il vino. Per ragioni cromatiche e di ispezione visiva, è indicata preferibilmente per la conservazione di vini bianchi.
+*   **Finitura ROSSA**: Specifica per il contatto con il vino, ottimizzata cromaticamente per lo stoccaggio di vini rossi.
+*   **Finitura CELESTE o BIANCA**: Ideale per il contatto con acqua potabile, oli vegetali, cereali, latte e altre sostanze alimentari previste dalle liste di simulazione del Regolamento UE.
 
-- **Privo di ammine aromatiche** e solventi (100% solidi).
-- **Privo di alcool benzilico** e ftalati.
-- **Certificato secondo il Regolamento UE n. 10/2011** per le prove di migrazione con i simulanti di tipo.
-- **Formulato secondo la "lista positiva"** prevista dal Regolamento UE n. 10/2011.
-- **Certificato secondo il DM 174 6/4/2004** per l'utilizzo in impianti fissi di captazione, trattamento, adduzione e distribuzione delle acque destinate al consumo umano.
-- **Rispetta i limiti e le restrizioni** previste dal Regolamento CE N. 1895/2005 relativo alla restrizione dell'uso di alcuni derivati epossidici destinati a entrare in contatto con alimenti (proibizione di "BFDGE" e di "NOGE" e rispetto dei limiti di migrazione specifica del "BADGE").
-- **Risponde ai principi definiti nella UNI EN 1504/2** ("Sistemi di protezione della superficie di calcestruzzo") e ai relativi limiti di accettazione.
+---
+
+### Vantaggi Straordinari della Vetrificazione
+
+*   **Superficie Monolitica Impermeabile**: Elimina la porosità naturale del calcestruzzo, impedendo l'annidamento di batteri, muffe o tartrati tipici del settore enologico.
+*   **Privo di Sostanze Tossiche**: La totale assenza di alcol benzilico e solventi evita qualsiasi cessione di odori o sapori alteranti ai liquidi contenuti.
+*   **Massima Facilità di Lavaggio**: La finitura lucida, simile al vetro, consente operazioni di lavaggio, sanificazione e rimozione dei tartrati rapide, sicure e con un uso minimo di detergenti chimici.
+*   **Durabilità nel Tempo**: Elevata resistenza all'abrasione meccanica da lavaggio a pressione ed eccellente stabilità agli acidi organici contenuti negli alimenti (acido tartarico, citrico, malico, ecc.).
+
+---
+
+### Il Rigore del Nostro Processo Applicativo
+
+Un'applicazione eseguita a regola d'arte garantisce la sicurezza igienica del serbatoio per decenni:
+
+1.  **Bonifica e Preparazione**: Rimozione dei vecchi strati degradati tramite sabbiatura profonda del ferro o idrosabbiatura a pressione controllata del calcestruzzo.
+2.  **Rasatura e Regolarizzazione**: Ricostruzione di eventuali cavità o nidi di ghiaia nel cemento con malte epossidiche certificate per uso alimentare.
+3.  **Applicazione del Rivestimento**: Stesura a mani incrociate di MasterSeal M 391 a spessore controllato, prestando massima cura a spigoli, raccordi e tubazioni di flangia.
+4.  **Collaudo e Sanificazione**: Verifica dell'assenza di microporosità e ciclo di lavaggio finale pre-esercizio.

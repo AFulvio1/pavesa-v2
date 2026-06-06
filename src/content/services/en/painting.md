@@ -1,86 +1,50 @@
 ---
 title: "Industrial Painting"
-description: "For the protection of all surfaces, flat and vertical. PA.VE.SA. srl performs painting with two-component acrylic products using high-pressure airless systems."
-keywords: ["painting", "industrial painting", "surface protection", "airless", "two-component"]
+description: "For the protection of all surfaces, flat and vertical. PA.VE.SA. srl performs painting with bi-component acrylic products using high-pressure airless systems."
+keywords: ["painting", "industrial painting", "surface protection", "airless", "bi-components"]
 banner: "/images/banner/verniciatura.jpg"
-alt: "img-painting"
+alt: "img-industrial-painting"
 weight: 3
-summary: "For the protection of all surfaces, flat and vertical. PA.VE.SA. srl performs painting of both flat and vertical surfaces with two-component acrylic products and other specific products, using high-pressure airless systems."
+summary: "For the protection of all surfaces, flat and vertical. PA.VE.SA. srl executes high-quality painting on both flat and vertical surfaces using bi-component acrylics and other specific products applied via high-pressure airless spraying."
 lang: "en"
 ---
 
-## Industrial Painting
+## Professional Industrial Painting
 
-**PA.VE.SA. srl** offers professional **industrial painting** services for the protection and restoration of both flat and vertical surfaces, using certified products and state-of-the-art technologies.
+**PA.VE.SA. srl** offers specialized **industrial painting** services to protect, restore, and enhance steel structures, industrial facilities, and equipment of any size. We work on both flat and vertical surfaces, utilizing next-generation coatings and advanced airless spray systems to ensure uniform, durable finishes.
 
-### Painting Systems
+Industrial painting is not just an aesthetic upgrade; it is the critical defense line against corrosion, mechanical wear, and atmospheric or chemical degradation.
 
-We use different types of coating products based on specific needs:
+---
 
-#### Two-Component Paints
+### Technologies & Coating Systems
 
-- **Acrylic paints** - High resistance to weather conditions
-- **Epoxy paints** - Chemical and mechanical protection
-- **Polyurethane paints** - Glossy finish and UV resistant
-- **Polyurea paints** - Maximum protection in aggressive environments
+*   **Two-Component Epoxy Coatings**: The optimal choice for indoor environments, production halls, and machinery. They deliver exceptional surface hardness and outstanding resistance to solvents, oils, and frequent washing.
+*   **Polyurethane & Acrylic Coatings**: Ideal for outdoor applications (structural steel, facades, tanks). They guarantee excellent color retention, do not yellow under UV rays, and resist weathering perfectly.
+*   **Anti-Rust & Anticorrosive Treatments (C3 - C5)**: Certified systems for protecting steel in highly corrosive industrial or maritime environments.
+*   **Fire-Retardant & Intumescent Coatings**: Certified passive fire protection systems for structural steel or timber.
 
-#### Special Paints
+---
 
-- **Anti-rust paints** - Protection against corrosion
-- **Fire-resistant paints** - Fire protection
-- **Anti-slip paints** - For floors and ramps
-- **Decorative paints** - With customized aesthetic finishes
+### The Advantages of High-Pressure Airless Spraying
 
-### Airless Technology
+> [!TIP]
+> **Maximum Uniformity and Efficiency**: Airless technology atomizes the paint at extremely high pressure without using compressed air, eliminating overspray and ensuring seamless coverage even on complex geometries.
 
-**High-pressure airless painting** is the most effective method to achieve:
+*   **Consistent Film Thickness**: Uniform distribution of the protective barrier for superior long-term coating stability.
+*   **Reduced Turnaround Times**: Drastic reduction in application times, minimizing interference with the client's manufacturing schedule.
+*   **Outstanding Adhesion**: Paint is driven directly into the substrate pores, securing a robust mechanical bond.
 
-- **Layer uniformity** - Homogeneous product distribution
-- **Application speed** - Reduced intervention time
-- **Deep penetration** - Optimal adhesion even on irregular surfaces
-- **Waste reduction** - Maximum efficiency in material use
-- **Quality finishes** - Professional results without brush or roller marks
+---
 
-### Applications
+### Substrate Preparation: The Key to Coating Longevity
 
-Our painting services are ideal for:
+A professional painting cycle is only as good as the substrate preparation. Our technical team evaluates and applies the most effective pre-treatments:
 
-- **Metal structures** - Steel frameworks, sheds, frames
-- **Tanks and cisterns** - Interior and exterior
-- **Industrial plants** - Machinery, piping, equipment
-- **Buildings** - Facades, walls, ceilings
-- **Floors** - Concrete, asphalt or metal surfaces
-- **Marine works** - Docks, quays, vessels
+*   **Sandblasting / Grit Blasting**: Complete removal of rust, mill scale, and old coatings to achieve the required profile and cleanliness (SA 2.5 - SA 3).
+*   **Ultra-High Pressure (UHP) Hydro-Washing**: Degreasing and removing soluble salts and environmental contaminants.
+*   **Primer Application**: Immediate application of rust-inhibiting primers to prevent flash rusting.
 
-### Surface Preparation
+### Certifications and Technical Partners
 
-Before painting, we always perform thorough preparation which may include:
-
-- **Sandblasting** - Deep cleaning of metal surfaces
-- **High-pressure washing** - Removal of dirt and contaminants
-- **Anti-rust treatment** - Primers and converters
-- **Filling** - Leveling imperfections
-- **Sanding** - Mechanical preparation
-
-### Intervention Sectors
-
-We operate in various sectors:
-
-- Chemical and petrochemical industry
-- Food industry
-- Mechanical industry
-- Civil and industrial construction
-- Infrastructure and public works
-- Transportation and logistics
-
-### Benefits of Professional Painting
-
-- **Lasting protection** - Resistance to weather and chemicals
-- **Reduced maintenance** - Protected surfaces for years
-- **Aesthetic improvement** - Restoration of original appearance
-- **Regulatory compliance** - Respect for safety and environmental standards
-- **Quality guarantee** - Use of certified products
-
-### Certifications and Partnerships
-
-We work with the best industrial paint manufacturers such as **Sigma Coatings**, **Jotun**, **International Paint** and **PPG**. All our interventions comply with current regulations and are covered by warranty.
+We cooperate with the world's most prestigious paint manufacturers, including **Sigma Coatings**, **Jotun**, **International Paint**, and **PPG**. Every application cycle is monitored using wet and dry film thickness gages to certify compliance with technical specifications and the international ISO 12944 standard.

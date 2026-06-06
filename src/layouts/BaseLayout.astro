@@ -4,11 +4,11 @@ import SkipLink from '../components/SkipLink.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { getAlternateLanguagePath } from '../i18n/utils';
 import '@fontsource/outfit/400.css';
 import '@fontsource/outfit/500.css';
 import '@fontsource/outfit/600.css';
 import '@fontsource/outfit/700.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import '../styles/global.css';
 
 interface Props {
@@ -27,6 +27,12 @@ const {
 
 const siteUrl = 'https://www.pavesasrl.it';
 const currentUrl = new URL(Astro.url.pathname, siteUrl);
+
+const alternatePath = getAlternateLanguagePath(Astro.url.pathname, lang);
+const alternateItPath = lang === 'it' ? Astro.url.pathname : alternatePath;
+const alternateEnPath = lang === 'en' ? Astro.url.pathname : alternatePath;
+const alternateItUrl = new URL(alternateItPath, siteUrl).toString();
+const alternateEnUrl = new URL(alternateEnPath, siteUrl).toString();
 ---
 
 <!DOCTYPE html>
@@ -43,6 +49,9 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
       <meta name="keywords" content={keywords.join(', ')} />
     )}
     <link rel="canonical" href={currentUrl} />
+    <link rel="alternate" hreflang="it" href={alternateItUrl} />
+    <link rel="alternate" hreflang="en" href={alternateEnUrl} />
+    <link rel="alternate" hreflang="x-default" href={alternateItUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -60,6 +69,10 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- FontAwesome Asynchronous Load for Lighthouse Performance -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -124,13 +137,32 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl);
     <!-- Cookie Consent Banner -->
     <CookieConsent lang={lang} />
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFBRL6FWS8"></script>
+    <!-- Google Analytics (Delayed for Lighthouse Performance optimization) -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RFBRL6FWS8');
+      window.addEventListener('DOMContentLoaded', () => {
+        let loaded = false;
+        function loadGA() {
+          if (loaded) return;
+          loaded = true;
+          
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-RFBRL6FWS8';
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RFBRL6FWS8');
+        }
+
+        // Delay execution: load after 3.5s or on first user interaction
+        const timeout = setTimeout(loadGA, 3500);
+        const triggerEvents = ['scroll', 'keydown', 'mousemove', 'touchstart', 'click'];
+        triggerEvents.forEach(event => {
+          window.addEventListener(event, loadGA, { once: true, passive: true });
+        });
+      });
     </script>
   </body>
 </html>

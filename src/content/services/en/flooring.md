@@ -11,60 +11,43 @@ lang: "en"
 
 ## Industrial Resin Flooring
 
-**PA.VE.SA. srl** specializes in creating high-quality **industrial and civil flooring in resin**, using state-of-the-art formulations to ensure resistance, durability and compliance with regulations.
+**PA.VE.SA. srl** is highly specialized in the design and installation of high-performance **industrial and civil resin flooring**. We use advanced polymeric formulations to deliver seamless, heavy-duty surfaces that comply with the strictest hygiene and workplace safety regulations, built to stand the test of time.
 
-### Types of Flooring
+Each flooring system is tailored to the specific application, mechanical or chemical stress, and aesthetic preferences of the client.
 
-Our flooring is custom-designed based on specific customer requirements:
+---
 
-#### Resin Flooring
+### Resin Flooring Systems & Technologies
 
-- **Epoxy resins** - Ideal for industrial environments with heavy traffic
-- **Polyurethane resins** - Flexible and resistant to thermal shocks
-- **Acrylic resins** - Fast to apply with excellent chemical resistance
-- **Polyurea resins** - Maximum mechanical and chemical resistance
+*   **Epoxy Systems**: Perfect for warehouses, manufacturing plants, and logistics hubs. They offer excellent wear resistance from forklift traffic and a clean, dustproof, high-gloss finish.
+*   **Polyurethane & Polyurethane-Cement Systems**: Engineered for the food, chemical, and pharmaceutical industries (e.g., Sika or Ucrete systems). High resistance to thermal shocks from hot water washdowns (-40°C to +120°C) and aggressive chemicals.
+*   **Acrylic / Methyl Methacrylate (MMA) Systems**: Ideal for quick turnaround projects where downtime must be kept to a minimum. Full cure is achieved in just a few hours, even at sub-zero temperatures.
+*   **ESD / Antistatic Systems**: Conductive flooring essential for operating theatres, electronics manufacturing, laboratories, and explosive risk areas (ATEX zones).
 
-#### Special Flooring
+---
 
-- **Antistatic flooring** - For environments with sensitive electronic equipment
-- **Anti-slip flooring** - For wet areas and high-risk zones
-- **Decorative flooring** - With customized aesthetic finishes
-- **Food-grade flooring** - Compliant with HACCP regulations
+### Technical Properties and Benefits
 
-### Technical Characteristics
+> [!NOTE]
+> **Seamless & Hygienic**: The complete absence of joints and seams prevents the accumulation of dirt, bacteria, and moisture, making sanitization simple, fast, and highly effective.
 
-Our floors are characterized by:
+*   **Mechanical Strength**: Capable of supporting heavy static and dynamic loads, impact, and abrasion from intense daily industrial activity.
+*   **Certified Chemical Resistance**: Provides an impenetrable barrier against acids, oils, fuels, solvents, and salt solutions.
+*   **Anti-Slip Security (R9 - R13)**: Adjustable surface texture to prevent slips in wet or greasy processing areas.
+*   **HACCP Certification**: Approved systems for direct and indirect food contact, ideal for wineries, dairies, meat processing plants, and commercial kitchens.
 
-- **Flexibility** - Materials that absorb stress without breaking
-- **Mechanical resistance** - Support heavy loads and intensive traffic
-- **Chemical resistance** - Protection against acids, oils, solvents and other aggressive agents
-- **Impermeability** - Complete protection against infiltration
-- **Easy cleaning** - Smooth surfaces without joints
-- **Durability** - Long-lasting with minimal maintenance
+---
 
-### Application Sectors
+### Our Installation Process
 
-Our flooring is ideal for:
+The success of a resin floor is 80% dependent on proper substrate preparation. Because of this, PA.VE.SA. srl adheres to a rigorous installation protocol:
 
-- **Food industry** - Production, preservation and food processing companies
-- **Chemical and pharmaceutical industry** - Laboratories and production plants
-- **Logistics and warehouses** - Loading/unloading platforms and storage areas
-- **Mechanical workshops** - Production and maintenance areas
-- **Shopping centers** - High-traffic public areas
-- **Hospitals and healthcare facilities** - Environments requiring maximum hygiene
-- **Parking lots** - Underground and multi-story
+1.  **Substrate Diagnosis**: Measuring moisture content, flatness, mechanical strength of the concrete, and identifying previous coatings.
+2.  **Mechanical Preparation**: We execute shot-blasting, milling, or diamond grinding to open up the concrete pores and remove weak layers.
+3.  **Priming**: Applying specialized bonding agents to secure the system to the base.
+4.  **Resin Application**: Manual or squeegee application by certified, highly trained installers.
+5.  **Sealing & Topcoats**: Protective scratch-resistant and UV-resistant finishes (matte, satin, or gloss).
 
-### Implementation Process
+### Partnership with Market Leaders
 
-Our process ensures professional results:
-
-1. **Substrate analysis** - Assessment of subfloor conditions
-2. **Surface preparation** - Milling, grinding or sandblasting
-3. **Substrate treatment** - Primers and sealants
-4. **System application** - Resin application with professional techniques
-5. **Finishing** - Final sealants and protections
-6. **Testing** - Verification of technical characteristics
-
-### Certifications
-
-All our interventions are carried out with certified products and according to current regulations. We are partners of major international manufacturers such as **Sika**, **Master Builders Solutions**, **Graco** and other industry leaders.
+We are trusted, certified partners of global leaders such as **Sika** and **Master Builders Solutions**. This allows us to propose cutting-edge solutions backed by official warranties and direct technical field support.

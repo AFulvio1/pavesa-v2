@@ -157,3 +157,61 @@ export function getLocalizedPath(path: string, lang: Locale): string {
 export function isValidLocale(lang: string): lang is Locale {
   return lang in ui;
 }
+
+const serviceSlugMapITtoEN: Record<string, string> = {
+  'impermeabilizzazione-poliurea': 'waterproofing-polyurea',
+  'lavori-edili': 'building-works',
+  'pavimenti': 'flooring',
+  'sabbiatura': 'sandblasting',
+  'verniciatura': 'painting',
+  'vetrificazione': 'vitrification',
+};
+
+const serviceSlugMapENtoIT: Record<string, string> = {
+  'waterproofing-polyurea': 'impermeabilizzazione-poliurea',
+  'building-works': 'lavori-edili',
+  'flooring': 'pavimenti',
+  'sandblasting': 'sabbiatura',
+  'painting': 'verniciatura',
+  'vitrification': 'vetrificazione',
+};
+
+/**
+ * Get the equivalent path in the other language
+ * Handles all pages and slug translations dynamically
+ */
+export function getAlternateLanguagePath(currentPath: string, currentLang: Locale): string {
+  // Normalize path (remove trailing slash)
+  const path = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+
+  if (currentLang === 'it') {
+    // Convert IT path to EN
+    if (path === '/' || path === '') return '/en/';
+    if (path.startsWith('/azienda')) return '/en/about' + path.slice(8);
+    if (path.startsWith('/servizi')) {
+      const slug = path.slice(9); // extract slug after '/servizi/'
+      if (slug && serviceSlugMapITtoEN[slug]) {
+        return `/en/services/${serviceSlugMapITtoEN[slug]}`;
+      }
+      return '/en/services';
+    }
+    if (path.startsWith('/contatti')) return '/en/contact';
+    if (path.startsWith('/privacy')) return '/en/privacy';
+    return '/en' + (path.startsWith('/') ? path : '/' + path);
+  } else {
+    // Convert EN path to IT
+    if (path === '/en' || path === '/en/') return '/';
+    if (path.startsWith('/en/about')) return '/azienda' + path.slice(9);
+    if (path.startsWith('/en/services')) {
+      const slug = path.slice(13); // extract slug after '/en/services/'
+      if (slug && serviceSlugMapENtoIT[slug]) {
+        return `/servizi/${serviceSlugMapENtoIT[slug]}`;
+      }
+      return '/servizi';
+    }
+    if (path.startsWith('/en/contact')) return '/contatti';
+    if (path.startsWith('/en/privacy')) return '/privacy';
+    return path.replace('/en', '') || '/';
+  }
+}
+

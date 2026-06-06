@@ -97,7 +97,7 @@ const labels = {
   aria-roledescription="carousel"
 >
   <div
-    class="carousel-container relative w-full h-[calc(100vh-80px)] min-h-[500px]"
+    class="carousel-container relative w-full h-screen min-h-[500px]"
     role="group"
     aria-live="off"
     data-autoplay-interval="6000"
@@ -131,20 +131,22 @@ const labels = {
         
         <!-- Content -->
         <div class="absolute inset-0 z-20 flex items-center justify-center text-center px-4 md:px-8">
-          <div class="max-w-4xl opacity-0 translate-y-8 animate-content">
-            <h2 class="text-[6.5vw] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wider text-shadow-lg leading-tight">
+          <div class="max-w-4xl opacity-0 translate-y-8 animate-content mobile-content-relative">
+            <h2 class="text-[6.5vw] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wider text-shadow-lg leading-tight mobile-title-pos">
               {item.title}
             </h2>
-            <p class="text-xl md:text-2xl text-gray-100 mb-8 font-light text-shadow max-w-2xl mx-auto">
-              {item.description}
-            </p>
-            <a
-              href={item.url}
-              class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black uppercase tracking-widest bg-pavesa-yellow hover:bg-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg rounded"
-              tabindex={index === 0 ? 0 : -1}
-            >
-              {lang === 'it' ? 'Scopri di più' : 'Discover more'}
-            </a>
+            <div class="mobile-desc-btn-pos">
+              <p class="text-xl md:text-2xl text-gray-100 mb-8 font-light text-shadow max-w-2xl mx-auto">
+                {item.description}
+              </p>
+              <a
+                href={item.url}
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black uppercase tracking-widest bg-pavesa-yellow hover:bg-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg rounded"
+                tabindex={index === 0 ? 0 : -1}
+              >
+                {lang === 'it' ? 'Scopri di più' : 'Discover more'}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -256,6 +258,30 @@ const labels = {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
+    }
+  }
+
+  /* Mobile Layout - Title at 1/4 (25%), Description & Button at 3/4 (75%) */
+  @media (max-width: 767px) {
+    .mobile-content-relative {
+      position: relative !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+    .mobile-title-pos {
+      position: absolute !important;
+      top: 25% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 100% !important;
+      margin-bottom: 0 !important;
+    }
+    .mobile-desc-btn-pos {
+      position: absolute !important;
+      top: 75% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 100% !important;
     }
   }
 </style>

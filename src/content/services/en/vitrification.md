@@ -1,38 +1,51 @@
 ---
-title: "Wine Vessels & Cisterns Vitrification"
-description: "Certified EU 10/2011 food-contact epoxy coating for wine vessels and drinking water cistern vitrification. Approved MasterSeal M 391 applicator."
-keywords: ["tank vitrification", "wine vessel lining", "potable water cisterns", "food-grade epoxy coating", "masterseal m 391"]
+title: "Wine Tank & Basin Vitrification"
+description: "EU 10/2011 certified epoxy coating for wine tanks and drinking water cisterns. Certified MasterSeal M 391 applicator."
+keywords: ["tank vitrification", "wine tank lining", "drinking water cisterns", "food-grade epoxy lining", "masterseal m 391"]
 banner: "/images/banner/vetrificazione.jpg"
 alt: "img-vitrification"
 weight: 5
-summary: "Vitrification treatment for the protection of wine vessels, drinking water cisterns, and food tanks. Certified solvent-free, phthalate-free, and benzyl alcohol-free epoxy coatings."
+summary: "Vitrification treatment for protecting wine tanks, drinking water cisterns, and food-grade basins. Certified epoxy coatings free of solvents, phthalates, and benzyl alcohol."
 lang: "en"
 ---
 
-## Wine Vessels and Food Cisterns Vitrification
+## Wine Tank & Basin Vitrification
 
-Another type of painting, particularly concerning the internal surfaces of concrete tanks and iron silos that come into contact with food and drinking water, is **vitrification**.
+**PA.VE.SA. srl** offers highly specialized **vitrification** services for the internal protective lining of concrete basins and steel silos intended to store food liquids, wine, and drinking water. This advanced coating creates a glassy, impermeable, and ultra-smooth barrier that prevents chemical migration and preserves the organoleptic purity of the stored product.
 
-> **CERTIFIED FOR FOOD CONTACT ACCORDING TO EU REGULATION N. 10/2011 OF THE COMMISSION OF 14/1/2011**
+We operate in strict compliance with the most stringent national and European sanitary regulations.
 
-One of the main partners of **PA.VE.SA. srl** is **MASTER BUILDERS SOLUTIONS ITALIA SPA**, a global company that offers solutions and products capable of increasing process efficiency, structural durability, and energy savings in buildings.
+---
 
-MASTER BUILDERS SOLUTIONS ITALIA SPA is the supplier of **MASTERSEAL M 391**, a two-component, aromatic amine-free, phthalate-free, and benzyl alcohol-free epoxy coating with a glossy finish, certified for contact with food according to EU Commission Regulation No. 10/2011 of 14/1/2011.
+### Solutions Certified for Food Contact
 
-MASTERSEAL M 391 is mainly indicated for the vitrification of wine vessels, oil containment tanks, drinking water, and all foods covered by the Regulation.
+> [!IMPORTANT]
+> **EU Regulation 10/2011 & DM 174/2004 Certified**: All our lining systems are rigorously tested for migration and certified for direct contact with foodstuffs, alcoholic beverages, and water destined for human consumption.
 
-### Available Versions and Specific Colors
+As certified applicators of **Master Builders Solutions**, we utilize the **MasterSeal M 391** system (formerly Mastertop 391), a solvent-free, benzyl alcohol-free, phthalate-free, and aromatic amine-free 100% solids epoxy coating with a high-gloss finish.
 
-- **YELLOW** - Specifically for contact with wine; for chromatic reasons, it is preferred for white wine.
-- **RED** - Specifically for contact with wine; for chromatic reasons, it is preferred for red wine.
-- **BLUE and WHITE** - Specifically for contact with drinking water, oil, cereals, and other food substances.
+#### Applications and Specific Color Finishes
 
-### Special Features of the Treatment
+*   **YELLOW Finish**: Specifically certified for wine contact. Due to color-contrast properties, it is preferred for white wine storage.
+*   **RED Finish**: Specifically certified for wine contact, optimized for storing red wines.
+*   **BLUE / WHITE Finish**: Ideal for contact with drinking water, vegetable oils, grain silos, milk, and other food substances listed in EU simulation guides.
 
-- **Free of aromatic amines** and solvents (100% solids).
-- **Free of benzyl alcohol** and phthalates.
-- **Certified according to EU Regulation No. 10/2011** for migration tests with type simulants.
-- **Formulated according to the "positive list"** provided for by EU Regulation No. 10/2011.
-- **Certified according to DM 174 6/4/2004** for use in fixed systems for collection, treatment, adduction, and distribution of water intended for human consumption.
-- **Respects the limits and restrictions** of EC Regulation No. 1895/2005 on the restriction of use of certain epoxy derivatives in food-contact materials (prohibition of "BFDGE" and "NOGE" and compliance with specific migration limits for "BADGE").
-- **Complies with the principles defined in UNI EN 1504/2** ("Concrete surface protection systems") and its acceptance limits.
+---
+
+### Outstanding Benefits of Vitrification
+
+*   **Seamless Glass-Like Finish**: Eliminates the natural porosity of concrete, preventing the nesting of bacteria, molds, or tartrates typical of the winemaking industry.
+*   **Zero Toxic Emissions**: The complete absence of benzyl alcohol and solvents prevents any odor or taste transfer to the stored liquids.
+*   **Easy Cleanability & Maintenance**: The glassy gloss surface allows for fast, safe cleaning and tartrate removal using minimal chemical detergents and water.
+*   **High Chemical & Wear Resistance**: Excellent resistance to high-pressure washing and structural stability against organic acids found in wine and food (tartaric, citric, malic acids, etc.).
+
+---
+
+### The Rigor of Our Installation Process
+
+Flawless execution is critical to guaranteeing the hygienic safety of your food containment assets for decades:
+
+1.  **Restoration & Blasting**: Complete removal of old deteriorated coatings via deep sandblasting for steel or controlled hydro-blasting for concrete.
+2.  **Repairs & Levelling**: Sealing cavities, pores, or voids in the concrete using food-grade certified epoxy mortar.
+3.  **Coating Application**: Cross-applied coats of MasterSeal M 391 at controlled dry film thickness, with meticulous attention to corners, joints, and pipe flanges.
+4.  **Hygienic Wash & Commissioning**: Holiday detection testing for microporosities followed by a specialized final sanitization wash.
