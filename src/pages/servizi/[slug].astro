@@ -621,18 +621,7 @@ const otherServices = allServices
         }
       });
 
-      // Open the first accordion section by default
-      if (index === 0) {
-        heading.classList.add('active');
-        icon?.classList.add('rotate-180');
-        iconContainer.classList.add('bg-pavesa-yellow/10');
-        icon?.classList.replace('text-pavesa-gray', 'text-pavesa-yellow');
-        panel.classList.add('py-4');
-        setTimeout(() => {
-          panel.style.maxHeight = panel.scrollHeight + 50 + 'px';
-          panel.style.opacity = '1';
-        }, 100);
-      }
+
 
       // Event listener
       heading.addEventListener('click', () => {

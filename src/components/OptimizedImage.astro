@@ -83,8 +83,8 @@ const uniqueId = `img-${Math.random().toString(36).substring(2, 9)}`;
     <Image
       src={imageMetadata!}
       alt={alt}
-      width={width}
-      height={height}
+      widths={[360, 640, 1024, 1920]}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
       loading={loading}
       fetchpriority={fetchpriority}
       decoding={loading === 'eager' ? 'sync' : 'async'}

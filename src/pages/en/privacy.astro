@@ -131,16 +131,87 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">Italian Data Protection Authority</a>).
         </p>
 
-        <h3>Cookies</h3>
+        <h3>Cookie Policy & Preferences Management</h3>
 
         <p>
-          The website uses technical cookies necessary for operation and third-party cookies (Google Analytics)
-          for statistical analysis in aggregated and anonymous form.
+          Cookies are small text files that websites visited by users send to their terminals, where they are stored to be retransmitted to the same sites on subsequent visits.
         </p>
 
-        <p>
-          Users can manage cookie preferences through their browser settings.
+        <p class="mb-4">
+          This website uses the following types of cookies:
         </p>
+
+        <ul class="mb-6">
+          <li><strong>Technical / Necessary Cookies:</strong> These are essential to allow navigation on the site and use its features (for example, to store your cookie consent preferences). Without these cookies, the site could not function properly.</li>
+          <li><strong>Statistical / Analytical Cookies:</strong> We use Google Analytics to collect information in anonymous and aggregated form on the number of users and how they visit the site (most viewed pages, time spent, etc.) to improve its performance. They are loaded only with your explicit consent.</li>
+        </ul>
+
+        <h4 class="text-lg font-semibold mt-6 mb-3 dark:text-gray-100">Cookies Used on This Website</h4>
+        <div class="overflow-x-auto my-6 border border-gray-100 dark:border-gray-800 rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800 text-sm">
+            <thead class="bg-gray-50 dark:bg-gray-900">
+              <tr>
+                <th scope="col" class="px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">Cookie Name</th>
+                <th scope="col" class="px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">Provider / Third Party</th>
+                <th scope="col" class="px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">Purpose</th>
+                <th scope="col" class="px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">Expiration</th>
+                <th scope="col" class="px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">Type</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-[#121212]">
+              <tr>
+                <td class="px-4 py-3 font-semibold">pavesa-cookie-consent</td>
+                <td class="px-4 py-3">First Party (pavesasrl.it)</td>
+                <td class="px-4 py-3">Stores the user's cookie consent status.</td>
+                <td class="px-4 py-3">1 year</td>
+                <td class="px-4 py-3 text-xs font-bold text-green-600 dark:text-green-400">Technical (Necessary)</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-semibold">_ga</td>
+                <td class="px-4 py-3">Third Party (Google Analytics)</td>
+                <td class="px-4 py-3">Used to distinguish unique users to generate statistical data.</td>
+                <td class="px-4 py-3">2 years</td>
+                <td class="px-4 py-3 text-xs font-bold text-yellow-600 dark:text-yellow-400">Statistical (Analytics)</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-semibold">_ga_*</td>
+                <td class="px-4 py-3">Third Party (Google Analytics)</td>
+                <td class="px-4 py-3">Used to store and maintain session state.</td>
+                <td class="px-4 py-3">2 years</td>
+                <td class="px-4 py-3 text-xs font-bold text-yellow-600 dark:text-yellow-400">Statistical (Analytics)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-lg font-semibold mt-6 mb-3 dark:text-gray-100">Managing and Revoking Consent</h4>
+        <p>
+          You can modify or revoke your consent at any time by clicking the button below.
+        </p>
+        
+        <div class="my-6">
+          <button
+            id="btn-reopen-cookie-preferences"
+            class="px-6 py-3 font-bold text-black bg-pavesa-yellow rounded-md hover:bg-pavesa-yellow-hover hover:scale-105 transition-all transform shadow-sm cursor-pointer inline-flex items-center space-x-2"
+          >
+            <i class="fas fa-cog"></i>
+            <span>Customize Cookie Preferences</span>
+          </button>
+        </div>
+
+        <script>
+          function initReopenButton() {
+            const btn = document.getElementById('btn-reopen-cookie-preferences');
+            if (btn) {
+              btn.addEventListener('click', () => {
+                window.dispatchEvent(new CustomEvent('open-cookie-preferences'));
+              });
+            }
+          }
+          // Support standard load and view transitions
+          document.addEventListener('DOMContentLoaded', initReopenButton);
+          document.addEventListener('astro:page-load', initReopenButton);
+        </script>
 
         <h3>Changes to the Privacy Policy</h3>
 

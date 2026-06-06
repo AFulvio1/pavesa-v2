@@ -16,13 +16,15 @@ interface Props {
   description?: string;
   keywords?: string[];
   lang?: 'it' | 'en';
+  preloadImage?: string;
 }
 
 const {
   title,
   description = 'Pavimenti, Verniciatura, Sabbiatura e Impermeabilizzazione',
   keywords = [],
-  lang = 'it'
+  lang = 'it',
+  preloadImage
 } = Astro.props;
 
 const siteUrl = 'https://www.pavesasrl.it';
@@ -52,6 +54,10 @@ const alternateEnUrl = new URL(alternateEnPath, siteUrl).toString();
     <link rel="alternate" hreflang="it" href={alternateItUrl} />
     <link rel="alternate" hreflang="en" href={alternateEnUrl} />
     <link rel="alternate" hreflang="x-default" href={alternateItUrl} />
+
+    {preloadImage && (
+      <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />
+    )}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -137,12 +143,24 @@ const alternateEnUrl = new URL(alternateEnPath, siteUrl).toString();
     <!-- Cookie Consent Banner -->
     <CookieConsent lang={lang} />
 
-    <!-- Google Analytics (Delayed for Lighthouse Performance optimization) -->
+    <!-- Google Analytics (GDPR/GPDP compliant conditional loading & performance optimization) -->
     <script is:inline>
-      window.addEventListener('DOMContentLoaded', () => {
+      (function() {
         let loaded = false;
+        
         function loadGA() {
           if (loaded) return;
+          
+          const consentRaw = localStorage.getItem('pavesa-cookie-consent');
+          if (!consentRaw) return;
+          
+          try {
+            const consent = JSON.parse(consentRaw);
+            if (!consent.analytics) return;
+          } catch (e) {
+            return;
+          }
+          
           loaded = true;
           
           const script = document.createElement('script');
@@ -151,18 +169,56 @@ const alternateEnUrl = new URL(alternateEnPath, siteUrl).toString();
           document.head.appendChild(script);
 
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          window.gtag = function() { dataLayer.push(arguments); }
           gtag('js', new Date());
-          gtag('config', 'G-RFBRL6FWS8');
+          gtag('config', 'G-RFBRL6FWS8', {
+            'page_path': window.location.pathname
+          });
         }
 
-        // Delay execution: load after 3.5s or on first user interaction
-        const timeout = setTimeout(loadGA, 3500);
-        const triggerEvents = ['scroll', 'keydown', 'mousemove', 'touchstart', 'click'];
-        triggerEvents.forEach(event => {
-          window.addEventListener(event, loadGA, { once: true, passive: true });
+        // Deferred loading to preserve Lighthouse score when consent is present
+        function tryDeferredLoad() {
+          const consentRaw = localStorage.getItem('pavesa-cookie-consent');
+          if (!consentRaw) return;
+          
+          try {
+            const consent = JSON.parse(consentRaw);
+            if (consent.analytics) {
+              const timeout = setTimeout(loadGA, 3500);
+              const triggerEvents = ['scroll', 'keydown', 'mousemove', 'touchstart', 'click'];
+              const loadHandler = () => {
+                clearTimeout(timeout);
+                loadGA();
+                triggerEvents.forEach(evt => window.removeEventListener(evt, loadHandler));
+              };
+              triggerEvents.forEach(evt => {
+                window.addEventListener(evt, loadHandler, { once: true, passive: true });
+              });
+            }
+          } catch (e) {}
+        }
+
+        // Listen for consent updates
+        window.addEventListener('cookie-consent-updated', (e) => {
+          if (e.detail && e.detail.analytics) {
+            loadGA();
+          }
         });
-      });
+
+        // Initialize on current page load
+        tryDeferredLoad();
+
+        // Support Astro View Transitions page tracking
+        document.addEventListener('astro:page-load', () => {
+          if (window.gtag) {
+            window.gtag('config', 'G-RFBRL6FWS8', {
+              'page_path': window.location.pathname
+            });
+          } else {
+            tryDeferredLoad();
+          }
+        });
+      })();
     </script>
   </body>
 </html>
