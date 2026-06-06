@@ -28,7 +28,6 @@ Ogni pavimentazione viene personalizzata in base all'uso previsto, al tipo di so
 
 ### Caratteristiche Tecniche e Vantaggi
 
-> [!NOTE]
 > **Monolitici e Igienici**: L'assenza totale di fughe e giunti impedisce l'accumulo di sporco, batteri e umidità, rendendo la sanificazione semplice, rapida ed efficace.
 
 *   **Resistenza Meccanica**: Sopportano carichi statici e dinamici intensi, graffi, abrasioni e urti derivanti dalle normali attività industriali.

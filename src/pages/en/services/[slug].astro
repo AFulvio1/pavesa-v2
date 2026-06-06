@@ -4,9 +4,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import WorkGallery from '../../../components/WorkGallery.astro';
 import WorkDouble from '../../../components/WorkDouble.astro';
 import CTASection from '../../../components/CTASection.astro';
+import YouTubeEmbed from '../../../components/YouTubeEmbed.astro';
 
 // Gallery configuration for each service
-const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 'triple' | 'double'; images: { prima: string; durante?: string; dopo: string }; alt: string; workTitle?: string }> }> = {
+const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 'triple' | 'double' | 'video'; images?: { prima: string; durante?: string; dopo: string }; alt: string; workTitle?: string; videoUrl?: string }> }> = {
   'flooring': {
     title: 'Work Examples',
     galleries: [
@@ -79,6 +80,12 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
         alt: 'Brick sandblasting'
       },
       {
+        type: 'video',
+        workTitle: "Steel Tank External Sandblasting - Siciliani - Palo del Colle (BA)",
+        videoUrl: 'https://www.youtube.com/embed/l7dqeNT2jQc',
+        alt: 'Steel tank sandblasting'
+      },
+      {
         type: 'triple',
         workTitle: 'External Iron Tank Sandblasting - Inoxa - Villanova (PE)',
         images: {
@@ -96,7 +103,8 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
           durante: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-durante.jpg',
           dopo: '/images/portfolio/sabbiatura/villanova/sabbiatura-serbatoio-interno-dopo.jpg'
         },
-        alt: 'Internal tank sandblasting'
+        alt: 'Internal tank sandblasting',
+        videoUrl: 'https://www.youtube.com/embed/3DsElohHP-Q'
       }
     ]
   },
@@ -111,7 +119,8 @@ const galleriesConfig: Record<string, { title: string; galleries: Array<{ type: 
           durante: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-durante.jpg',
           dopo: '/images/portfolio/impermeabilizzazione/piscina/impermeabilizzazione-dopo.jpg'
         },
-        alt: 'Pool waterproofing'
+        alt: 'Pool waterproofing',
+        videoUrl: 'https://www.youtube.com/embed/Nd3e8vT9W1A'
       },
       {
         type: 'triple',
@@ -350,25 +359,36 @@ const otherServices = allServices
 
         {galleryData.galleries.map((gallery) => (
           gallery.type === 'triple' ? (
-            <WorkGallery
-              title={gallery.workTitle}
-              imgPrima={gallery.images.prima}
-              imgDurante={gallery.images.durante!}
-              imgDopo={gallery.images.dopo}
-              altPrima={`${gallery.alt} - Before`}
-              altDurante={`${gallery.alt} - During`}
-              altDopo={`${gallery.alt} - After`}
-              lang="en"
-            />
+            <>
+              <WorkGallery
+                title={gallery.workTitle}
+                imgPrima={gallery.images!.prima}
+                imgDurante={gallery.images!.durante!}
+                imgDopo={gallery.images!.dopo}
+                altPrima={`${gallery.alt} - Before`}
+                altDurante={`${gallery.alt} - During`}
+                altDopo={`${gallery.alt} - After`}
+                lang="en"
+              />
+              {gallery.videoUrl && <YouTubeEmbed url={gallery.videoUrl} title={gallery.workTitle} />}
+            </>
+          ) : gallery.type === 'double' ? (
+            <>
+              <WorkDouble
+                title={gallery.workTitle}
+                imgPrima={gallery.images!.prima}
+                imgDopo={gallery.images!.dopo}
+                altPrima={`${gallery.alt} - Before`}
+                altDopo={`${gallery.alt} - After`}
+                lang="en"
+              />
+              {gallery.videoUrl && <YouTubeEmbed url={gallery.videoUrl} title={gallery.workTitle} />}
+            </>
           ) : (
-            <WorkDouble
-              title={gallery.workTitle}
-              imgPrima={gallery.images.prima}
-              imgDopo={gallery.images.dopo}
-              altPrima={`${gallery.alt} - Before`}
-              altDopo={`${gallery.alt} - After`}
-              lang="en"
-            />
+            <div class="my-12">
+              <h3 class="text-xl font-bold text-center text-pavesa-dark dark:text-gray-100 mb-4">{gallery.workTitle}</h3>
+              <YouTubeEmbed url={gallery.videoUrl!} title={gallery.workTitle} />
+            </div>
           )
         ))}
       </div>

@@ -27,7 +27,6 @@ Sandblasting is the benchmark standard for removing rust, scale, old coatings, a
 
 ### Abrasive Media Selected per Substrate
 
-> [!NOTE]
 > **Substrate Care**: Each material requires a specific abrasive in terms of hardness and grain size. Our engineers carefully select the ideal combination to avoid deformation or damage to your assets.
 
 *   **Aluminum Oxide (Corundum)**: Ideal for hard metals, stainless steel, and creating a sharp profile for pre-painting.

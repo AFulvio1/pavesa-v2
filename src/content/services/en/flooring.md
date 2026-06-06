@@ -28,7 +28,6 @@ Each flooring system is tailored to the specific application, mechanical or chem
 
 ### Technical Properties and Benefits
 
-> [!NOTE]
 > **Seamless & Hygienic**: The complete absence of joints and seams prevents the accumulation of dirt, bacteria, and moisture, making sanitization simple, fast, and highly effective.
 
 *   **Mechanical Strength**: Capable of supporting heavy static and dynamic loads, impact, and abrasion from intense daily industrial activity.

@@ -1,0 +1,64 @@
+---
+interface Props {
+  url: string;
+  title?: string;
+}
+
+const { url, title = 'Video YouTube' } = Astro.props;
+
+// Extract Video ID from URL (e.g. https://www.youtube.com/embed/Nd3e8vT9W1A -> Nd3e8vT9W1A)
+const videoId = url.split('/').pop()?.split('?')[0] || '';
+const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<div class="youtube-embed-container my-8 max-w-3xl mx-auto rounded-xl overflow-hidden shadow-md border border-black/5 dark:border-white/5 relative bg-black aspect-video group">
+  <div class="absolute inset-0 flex items-center justify-center cursor-pointer facade-container" data-video-id={videoId} data-video-title={title}>
+    <!-- Thumbnail -->
+    <img 
+      src={thumbnail} 
+      alt={title} 
+      class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-500" 
+      loading="lazy"
+    />
+    <!-- Play Button Overlay -->
+    <div class="absolute w-16 h-16 rounded-full bg-pavesa-yellow text-black flex items-center justify-center text-xl shadow-2xl hover:scale-110 transition-all duration-200 z-10">
+      <i class="fas fa-play ml-1"></i>
+    </div>
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+  </div>
+</div>
+
+<script>
+  function initYouTubeLazy() {
+    const facades = document.querySelectorAll('.facade-container');
+    facades.forEach(facade => {
+      // Avoid double listener registration
+      if (facade.getAttribute('data-listener-added')) return;
+      facade.setAttribute('data-listener-added', 'true');
+
+      facade.addEventListener('click', () => {
+        const videoId = facade.getAttribute('data-video-id');
+        const title = facade.getAttribute('data-video-title') || 'Video';
+        if (!videoId) return;
+
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+        iframe.setAttribute('title', title);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.className = 'w-full h-full absolute inset-0';
+
+        const container = facade.parentElement;
+        if (container) {
+          container.innerHTML = '';
+          container.appendChild(iframe);
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initYouTubeLazy);
+  document.addEventListener('astro:page-load', initYouTubeLazy);
+</script>

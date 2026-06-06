@@ -8,6 +8,8 @@ interface Props {
 
 const { lang = 'it' } = Astro.props;
 const t = useTranslations(lang);
+const currentYear = new Date().getFullYear();
+const copyrightText = t('footer.copyright').replace('2024', currentYear.toString());
 
 // Query services dynamically to list them in the footer
 const servicesCollection = await getCollection('services', ({ data }) => {
@@ -168,7 +170,7 @@ const socialLinks = [
 
     <!-- Bottom copyright -->
     <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-500 space-y-2">
-      <div>{t('footer.copyright')}</div>
+      <div>{copyrightText}</div>
       <div>{t('footer.vat')} | {t('footer.cciaa')}</div>
     </div>
 

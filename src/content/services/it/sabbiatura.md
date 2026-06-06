@@ -27,7 +27,6 @@ La sabbiatura è lo standard di riferimento per eliminare ruggine, calamina, vec
 
 ### Abrasivi Selezionati in base al Supporto
 
-> [!NOTE]
 > **Rispetto per i Materiali**: Ogni materiale richiede un abrasivo specifico per durezza e granulometria. I nostri tecnici scelgono accuratamente la combinazione ideale per evitare deformazioni o danneggiamenti.
 
 *   **Corindone Rosso/Grigio**: Ideale per metalli duri, acciaio inox e per creare una rugosità marcata pre-verniciatura.
